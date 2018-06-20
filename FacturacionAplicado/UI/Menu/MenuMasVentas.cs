@@ -31,5 +31,12 @@ namespace FacturacionAplicado.UI.Menu
             abrir.MdiParent = this;
             abrir.Show();
         }
+
+        private void facturacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rFacturacion abrir = new rFacturacion();
+            abrir.MdiParent = this;
+            abrir.Show();
+        }
     }
 }

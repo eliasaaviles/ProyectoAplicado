@@ -149,6 +149,8 @@ namespace FacturacionAplicado.BLL
             return listName;
         }
 
+
+
         public static bool Modificar(Cliente cliente)
         {
             MySqlDataAdapter dater = new MySqlDataAdapter();
