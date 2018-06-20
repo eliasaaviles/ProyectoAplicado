@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace FacturacionAplicado.UI.Registros
 {
     public partial class rFacturacion : Form
-    {
+    {//todo: para todo: Probar todo mas de una vez
         decimal Monto = 0;
         bool paso = true, Arreglar = false;
         Factura billes = new Factura();
@@ -494,10 +494,14 @@ namespace FacturacionAplicado.UI.Registros
 
                 if (result == DialogResult.Yes)
                 {
-                    //Todo: cuando se elimina un detalle en el modificar no puede modificar por que esta eliminado, hacer algo con eso.
-                    if (BLL.FacturacionBLL.Modificar(LlenaClase()) && BLL.FacturaDetalleBLL.Modificar(LlenaClase().BillDetalle))
+                    
+                    if (BLL.FacturacionBLL.Modificar(LlenaClase()))
                     {
+                        if (LlenaClase().BillDetalle.Count() > 0)
+                            BLL.FacturaDetalleBLL.Modificar(LlenaClase().BillDetalle);
+
                         MessageBox.Show("Modificado!!");
+
                         if (Detalle.Count != 0)
                         {
                             foreach (var item in Detalle)
@@ -520,7 +524,7 @@ namespace FacturacionAplicado.UI.Registros
                         if (result == DialogResult.Yes)
                         {
                             int id = LlenaClase().FacturaId;
-                            //todo: Hacer reportes
+                            //todo:  para Albert: Hacer reportes
                             //  ReporteFacturasCliente abrir = new ReporteFacturasCliente(BLL.FacturacionBLL.GetList(x => x.FacturaId == id));
                             //abrir.Show();
 

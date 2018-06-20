@@ -91,7 +91,7 @@
             this.EliminarDetalle.Location = new System.Drawing.Point(10, 539);
             this.EliminarDetalle.Name = "EliminarDetalle";
             this.EliminarDetalle.Size = new System.Drawing.Size(90, 27);
-            this.EliminarDetalle.TabIndex = 100;
+            this.EliminarDetalle.TabIndex = 11;
             this.EliminarDetalle.Text = "Eliminar Detalle";
             this.EliminarDetalle.UseVisualStyleBackColor = true;
             this.EliminarDetalle.Click += new System.EventHandler(this.EliminarDetalle_Click);
@@ -122,7 +122,7 @@
             this.IDcomboBox.Location = new System.Drawing.Point(96, 20);
             this.IDcomboBox.Name = "IDcomboBox";
             this.IDcomboBox.Size = new System.Drawing.Size(121, 21);
-            this.IDcomboBox.TabIndex = 97;
+            this.IDcomboBox.TabIndex = 0;
             this.IDcomboBox.SelectedIndexChanged += new System.EventHandler(this.IDcomboBox_SelectedIndexChanged_1);
             // 
             // CLienteIDcomboBox
@@ -132,7 +132,7 @@
             this.CLienteIDcomboBox.Location = new System.Drawing.Point(96, 50);
             this.CLienteIDcomboBox.Name = "CLienteIDcomboBox";
             this.CLienteIDcomboBox.Size = new System.Drawing.Size(121, 21);
-            this.CLienteIDcomboBox.TabIndex = 96;
+            this.CLienteIDcomboBox.TabIndex = 1;
             this.CLienteIDcomboBox.SelectedIndexChanged += new System.EventHandler(this.CLienteIDcomboBox_SelectedIndexChanged);
             // 
             // ProductoIdcomboBox
@@ -142,7 +142,7 @@
             this.ProductoIdcomboBox.Location = new System.Drawing.Point(90, 254);
             this.ProductoIdcomboBox.Name = "ProductoIdcomboBox";
             this.ProductoIdcomboBox.Size = new System.Drawing.Size(111, 21);
-            this.ProductoIdcomboBox.TabIndex = 95;
+            this.ProductoIdcomboBox.TabIndex = 4;
             this.ProductoIdcomboBox.SelectedIndexChanged += new System.EventHandler(this.ProductoIdcomboBox_SelectedIndexChanged);
             // 
             // DetallecomboBox
@@ -202,7 +202,7 @@
             this.Agregarbutton.Location = new System.Drawing.Point(357, 286);
             this.Agregarbutton.Name = "Agregarbutton";
             this.Agregarbutton.Size = new System.Drawing.Size(53, 23);
-            this.Agregarbutton.TabIndex = 89;
+            this.Agregarbutton.TabIndex = 6;
             this.Agregarbutton.Text = "Agregar";
             this.Agregarbutton.UseVisualStyleBackColor = true;
             this.Agregarbutton.Click += new System.EventHandler(this.Agregarbutton_Click);
@@ -258,7 +258,7 @@
             0});
             this.CantidadnumericUpDown.Name = "CantidadnumericUpDown";
             this.CantidadnumericUpDown.Size = new System.Drawing.Size(51, 20);
-            this.CantidadnumericUpDown.TabIndex = 84;
+            this.CantidadnumericUpDown.TabIndex = 5;
             this.CantidadnumericUpDown.ValueChanged += new System.EventHandler(this.CantidadnumericUpDown_ValueChanged);
             // 
             // label14
@@ -288,7 +288,7 @@
             this.Eliminarbutton.Location = new System.Drawing.Point(326, 665);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(82, 44);
-            this.Eliminarbutton.TabIndex = 81;
+            this.Eliminarbutton.TabIndex = 10;
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Eliminarbutton.UseVisualStyleBackColor = true;
@@ -301,7 +301,7 @@
             this.Guardarbutton.Location = new System.Drawing.Point(223, 665);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(82, 44);
-            this.Guardarbutton.TabIndex = 80;
+            this.Guardarbutton.TabIndex = 8;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Guardarbutton.UseVisualStyleBackColor = true;
@@ -314,7 +314,7 @@
             this.NUevobutton.Location = new System.Drawing.Point(120, 665);
             this.NUevobutton.Name = "NUevobutton";
             this.NUevobutton.Size = new System.Drawing.Size(82, 44);
-            this.NUevobutton.TabIndex = 79;
+            this.NUevobutton.TabIndex = 9;
             this.NUevobutton.Text = "Nuevo";
             this.NUevobutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.NUevobutton.UseVisualStyleBackColor = true;
@@ -351,7 +351,7 @@
             0});
             this.EfectivonumericUpDown.Name = "EfectivonumericUpDown";
             this.EfectivonumericUpDown.Size = new System.Drawing.Size(87, 20);
-            this.EfectivonumericUpDown.TabIndex = 76;
+            this.EfectivonumericUpDown.TabIndex = 7;
             this.EfectivonumericUpDown.ValueChanged += new System.EventHandler(this.EfectivonumericUpDown_ValueChanged);
             // 
             // FacturadataGridView
@@ -437,7 +437,7 @@
             this.DescripciponFacturatextBox.Multiline = true;
             this.DescripciponFacturatextBox.Name = "DescripciponFacturatextBox";
             this.DescripciponFacturatextBox.Size = new System.Drawing.Size(299, 89);
-            this.DescripciponFacturatextBox.TabIndex = 74;
+            this.DescripciponFacturatextBox.TabIndex = 3;
             // 
             // FormaDePagocomboBox
             // 
@@ -446,7 +446,7 @@
             this.FormaDePagocomboBox.Location = new System.Drawing.Point(96, 85);
             this.FormaDePagocomboBox.Name = "FormaDePagocomboBox";
             this.FormaDePagocomboBox.Size = new System.Drawing.Size(121, 21);
-            this.FormaDePagocomboBox.TabIndex = 73;
+            this.FormaDePagocomboBox.TabIndex = 2;
             this.FormaDePagocomboBox.SelectedIndexChanged += new System.EventHandler(this.FormaDePagocomboBox_SelectedIndexChanged);
             // 
             // label6
@@ -606,7 +606,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "rFacturacion";
-            this.Text = "rFacturacion";
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EfectivonumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturadataGridView)).EndInit();
