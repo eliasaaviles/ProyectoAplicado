@@ -84,7 +84,6 @@ namespace FacturacionAplicado.BLL
             return estado;
         }
 
-
         public static bool Guardar(Factura factura)
         {
             MySqlDataAdapter dater = new MySqlDataAdapter();
@@ -111,7 +110,6 @@ namespace FacturacionAplicado.BLL
             }
             return estado;
         }
-
 
         //asi se pone un datatable en una lista 
         public static List<Factura> Buscar()
@@ -225,7 +223,7 @@ namespace FacturacionAplicado.BLL
             return estado;
 
         }
-
+        // Esto calcula la devuelta.
         public static decimal devuelta(decimal monto, decimal efectivo)
         {
             decimal devuelta = 0;
@@ -233,7 +231,7 @@ namespace FacturacionAplicado.BLL
             devuelta = efectivo - monto;
             return devuelta;
         }
-
+        // Esto calcula el monto total.
         public static decimal CalcularMonto(decimal importe)
         {
             decimal monto = 0;
@@ -241,7 +239,7 @@ namespace FacturacionAplicado.BLL
 
             return monto;
         }
-
+        // Esto calcula el importe y algo mas .
         public static decimal Importe(decimal cantidadDefecto, decimal cantidad, decimal precio, int id, int ID)
         {
             decimal importe = 0;
@@ -258,7 +256,7 @@ namespace FacturacionAplicado.BLL
 
             return importe;
         }
-
+        // Esto calcula el importe.
         public static decimal Importedemas(decimal cantidad, decimal precio)
         {
             decimal importe = 0;
@@ -301,7 +299,7 @@ namespace FacturacionAplicado.BLL
             }
 
         }
-
+        //descuenta al producto de una lista
         public static void DescontarProducto(FacturaDetalle item, FacturaDetalle ite)
         {
             var producto = ProductoBLL.Buscar(item.ProductoId.ToString());
@@ -314,8 +312,7 @@ namespace FacturacionAplicado.BLL
             }
 
         }
-
-        //agrega al producto 
+        //agrega al producto la cantidad eliminada
         public static void ArreglarProducto(string bill)
         {
             foreach (var item in FacturaDetalleBLL.BuscarFacturaID(bill))
@@ -338,7 +335,7 @@ namespace FacturacionAplicado.BLL
 
             }
         }
-
+        //agrega al producto la cantidad eliminada de una lista
         public static void ArreglarProductoList(List<FacturaDetalle> bill)
         {
             foreach (var item in bill)
@@ -364,7 +361,7 @@ namespace FacturacionAplicado.BLL
 
 
         }
-
+        // Edita la cantidad de una lista 
         public static List<FacturaDetalle> Editar(List<FacturaDetalle> list, FacturaDetalle factura)
         {
             foreach (var item in list)
@@ -378,7 +375,7 @@ namespace FacturacionAplicado.BLL
 
             return list;
         }
-
+        // descuenta el importe al monto total
         public static decimal DescontarImporte(List<FacturaDetalle> list, int id)
         {
             decimal monto = 0;
@@ -397,7 +394,7 @@ namespace FacturacionAplicado.BLL
 
             return monto;
         }
-
+        // Recalcula el importe
         public static decimal RecalcularImporte(List<FacturaDetalle> list, int row)
         {
             decimal monto = 0;
@@ -406,7 +403,7 @@ namespace FacturacionAplicado.BLL
             monto = factura.Importe;
             return monto;
         }
-
+        // calcula la devueltas otra vez
         public static decimal CalcularDevuelta(decimal efectivo, decimal monto)
         {
             decimal devuelta = 0;
@@ -414,7 +411,7 @@ namespace FacturacionAplicado.BLL
             devuelta = efectivo - monto;
             return devuelta;
         }
-
+        // devuelve cual es el ultimo elemento de una lista
         public static int Mayor(List<Factura> bill)
         {
             int mayor = 0;
@@ -436,25 +433,25 @@ namespace FacturacionAplicado.BLL
 
             return mayor;
         }
-
+        // busca el nombre de el usuario que hizo login
         public static void NombreLogin(string nombre, int id)
         {
             user.Nombre = nombre;
             user.IdUsuario = id;
         }
-
+        // esto retorna el nombre
         public static Usuario returnUsuario()
         {
             return user;
         }
-
+        // esto retorna la devuelta
         public static decimal RetornarDevuelta(decimal efectivo, decimal monto)
         {
             decimal devuelta = CalcularDevuelta(efectivo, monto);
 
             return devuelta;
         }
-
+        //Esto descuenta cantidad del producto al modificar
         public static void DescontarBuscando(List<FacturaDetalle> facturaDetalles, string id)
         {
             var detalle = FacturaDetalleBLL.BuscarFacturaID(id);

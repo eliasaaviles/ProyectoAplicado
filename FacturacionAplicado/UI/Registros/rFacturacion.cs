@@ -23,56 +23,17 @@ namespace FacturacionAplicado.UI.Registros
         {
             InitializeComponent();
             LlenarComboBox();
-            UsuariotextBox.Text = BLL.FacturacionBLL.returnUsuario().Nombre;
+            //todo: descomentar el codigo en el constructor de la facturacion cuando la ventana login este programada.
+           // UsuariotextBox.Text = BLL.FacturacionBLL.returnUsuario().Nombre;
         }
-        //listo
-        private void IDcomboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LimpiarProvider();
-            //int idfactura = Convert.ToInt32(IDcomboBox.Text);
-
-
-            foreach (var item in BLL.FacturacionBLL.Buscar())
-            {
-                billes.Descripcion = item.Descripcion;
-                billes.Devuelta = item.Devuelta;
-                billes.EfectivoRecibido = item.EfectivoRecibido;
-                billes.FacturaId = item.FacturaId;
-                billes.Fecha = item.Fecha;
-                billes.FormaDePago = item.FormaDePago;
-                billes.Monto = item.Monto;
-                billes.UsuarioId = item.UsuarioId;
-                billes.ClienteId = item.ClienteId;
-
-
-            }
-            CLienteIDcomboBox.Text = billes.ClienteId.ToString();
-            FormaDePagocomboBox.Text = billes.FormaDePago;
-            DescripciponFacturatextBox.Text = billes.Descripcion;
-            DevueltatextBox.Text = billes.Devuelta.ToString();
-            MontotextBox.Text = billes.Monto.ToString();
-            Monto = billes.Monto;
-            FechadateTimePicker.Value = Convert.ToDateTime(billes.Fecha);
-            EfectivonumericUpDown.Value = billes.EfectivoRecibido;
-            billes.BillDetalle = BLL.FacturaDetalleBLL.BuscarFacturaID(IDcomboBox.Text);
-            LlenarDetalleComboBox();
-            DetallecomboBox.Enabled = true;
-            EliminarDetalle.Enabled = true;
-            foreach (var item in billes.BillDetalle)
-            {
-                item.Importe = BLL.FacturacionBLL.Importedemas(item.Cantidad, item.Precio);
-            }
-            FacturadataGridView.DataSource = billes.BillDetalle;
-            Detalle = new List<FacturaDetalle>();
-            //billes.BillDetalle = new List<FacturaDetalle>();
-            //busco = true;
-        }
-        //listo
+       
+        
+        //listo esto es el boton nuevo
         private void NUevobutton_Click(object sender, EventArgs e)
         {
             Clean();
         }
-        //listo
+        //listo esto limpia la ventana
         private void Clean()
         {
 
@@ -94,14 +55,14 @@ namespace FacturacionAplicado.UI.Registros
             EliminarDetalle.Enabled = false;
             FechadateTimePicker.Value = DateTime.Now;
         }
-        //listo
+        //listo esto limpia los errores providers
         private void LimpiarProvider()
         {
             IDerrorProvider.Clear();
             DemaserrorProvider.Clear();
             ProductoerrorProvider.Clear();
         }
-
+        // Esto llena el combo box de forma de pago
         private void LlenarComboBox()
         {
             FormaDePagocomboBox.Items.Clear();
@@ -127,7 +88,7 @@ namespace FacturacionAplicado.UI.Registros
 
 
         }
-        //listo
+        //listo Eso maneja la validacion
         private bool SetError(int error)
         {
             bool paso = false;
@@ -192,7 +153,7 @@ namespace FacturacionAplicado.UI.Registros
 
             return paso;
         }
-        //listo
+        //listo Esto limpia algunas casillas de la ventana
         private void LimpiarProducto()
         {
             LimpiarProvider();
@@ -203,7 +164,7 @@ namespace FacturacionAplicado.UI.Registros
             ImportetextBox.Clear();
             DetallecomboBox.Text = string.Empty;
         }
-        //listo
+        //listo Esto asigna a el textbox del cliente el nombre correspondiente 
         private void CLienteIDcomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             LimpiarProvider();
@@ -217,7 +178,7 @@ namespace FacturacionAplicado.UI.Registros
             }
 
         }
-        //listo
+        //listo Este metodo elimina un detalle de la lista
         private void EliminarDetalle_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Desea Eliminar el detalle seleccionado?", "+Ventas",
@@ -246,7 +207,7 @@ namespace FacturacionAplicado.UI.Registros
 
             }
         }
-        //listo
+        //listo Esto le asigna el valor del importe 
         private void CantidadnumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             LimpiarProvider();
@@ -260,17 +221,17 @@ namespace FacturacionAplicado.UI.Registros
 
             ImportetextBox.Text = BLL.FacturacionBLL.Importedemas(CantidadnumericUpDown.Value, Convert.ToDecimal(PreciotextBox.Text)).ToString();
         }
-        //listo
+        //listo Esto asigna la devuelta
         private void EfectivonumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             AsignarDevuelta();
         }
-        //listo
+        //listo  esto hace el calculo de l adevuelta
         private void AsignarDevuelta()
         {
             DevueltatextBox.Text = BLL.FacturacionBLL.RetornarDevuelta(EfectivonumericUpDown.Value, Convert.ToDecimal(MontotextBox.Text)).ToString();
         }
-        //listo
+        //listo esto agrega a la lista de detalle los productos 
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
             LimpiarProvider();
@@ -351,7 +312,7 @@ namespace FacturacionAplicado.UI.Registros
             LlenarDetalleComboBox();
             EliminarDetalle.Enabled = true;
         }
-
+        //Listo esto activa y desactiva el numericUpDown de efectivo 
         private void FormaDePagocomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (FormaDePagocomboBox.SelectedIndex == 0)
@@ -365,7 +326,7 @@ namespace FacturacionAplicado.UI.Registros
                 paso = true;
             }
         }
-
+        // listo Esto permite seleccionar un detalle del DataGridView para modificarlo
         private void DetallecomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int ID;
@@ -393,7 +354,7 @@ namespace FacturacionAplicado.UI.Registros
             //CantidadnumericUpDown.Value = BLL.FacturaDetalleBLL.BuscarDetalle(id, ID).Cantidad;
 
         }
-        //listo
+        //listo Esto permite seleccionar un producto de comboBox
         private void ProductoIdcomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             LimpiarProvider();
@@ -410,7 +371,7 @@ namespace FacturacionAplicado.UI.Registros
                 }
             }
         }
-        //listo
+        //listo Este es el llena clase
         private Factura LlenaClase()
         {
             Factura bill = new Factura();
@@ -438,12 +399,12 @@ namespace FacturacionAplicado.UI.Registros
 
             return bill;
         }
-        //listo
+        //listo esto devuelve cual celda o fila del datagridview esta seleccionada
         private void FacturadataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             RowSelected = e.RowIndex;
         }
-
+        // Listo, metodo Guardar y modificar 
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
             LimpiarProvider();
@@ -494,7 +455,7 @@ namespace FacturacionAplicado.UI.Registros
 
                 if (result == DialogResult.Yes)
                 {
-                    
+
                     if (BLL.FacturacionBLL.Modificar(LlenaClase()))
                     {
                         if (LlenaClase().BillDetalle.Count() > 0)
@@ -539,7 +500,7 @@ namespace FacturacionAplicado.UI.Registros
                 }
             }
         }
-
+        //listo metodo eliminar
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
             LimpiarProvider();
@@ -579,7 +540,7 @@ namespace FacturacionAplicado.UI.Registros
 
             }
         }
-
+        // listo metodo buscar
         private void IDcomboBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             LimpiarProvider();
@@ -621,7 +582,7 @@ namespace FacturacionAplicado.UI.Registros
             //billes.BillDetalle = new List<FacturaDetalle>();
             //busco = true;
         }
-
+        // listo llena Detalle Comobobox
         private void LlenarDetalleComboBox()
         {
             DetallecomboBox.Items.Clear();
