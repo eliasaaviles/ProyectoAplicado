@@ -129,5 +129,8 @@
   <ItemGroup>
     <Folder Include="UI\Consultas\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\script.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
