@@ -11,40 +11,21 @@ namespace FacturacionAplicado.BLL
 {
     public class ClienteBLL
     {
-        public static MySqlConnection db;
 
-        public static bool TestConnectiong()
-        {
-            bool paso = true;
-            try
-            {
-                db = new MySqlConnection("server=localhost; database = FacturacionDb; user id=root;password=root");
-                db.Open();
-
-
-            }
-            catch (Exception)
-            {
-                paso = false;
-                throw;
-            }
-
-            return paso;
-        }
 
         public static DataTable Consultar()
         {
 
 
             DataTable dt = new DataTable();
-            TestConnectiong();
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Clientes", db);
+
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Clientes", UI.Menu.MenuMasVentas.RetornarConexion());
             try
             {
 
 
                 con.Fill(dt);
-                db.Close();
+
 
 
             }
@@ -63,10 +44,10 @@ namespace FacturacionAplicado.BLL
             bool estado = true;
             try
             {
-                TestConnectiong();
-                dater.DeleteCommand = new MySqlCommand(" delete from Clientes where IdCliente=" + id, db);
 
-                dater.DeleteCommand.Connection = db;
+                dater.DeleteCommand = new MySqlCommand(" delete from Clientes where IdCliente=" + id, UI.Menu.MenuMasVentas.RetornarConexion());
+
+                dater.DeleteCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
                 dater.DeleteCommand.ExecuteNonQuery();
 
             }
@@ -76,10 +57,7 @@ namespace FacturacionAplicado.BLL
                 throw;
 
             }
-            finally
-            {
-                db.Close();
-            }
+
             return estado;
         }
 
@@ -90,10 +68,10 @@ namespace FacturacionAplicado.BLL
             bool estado = true;
             try
             {
-                TestConnectiong();
-                dater.InsertCommand = new MySqlCommand("insert into Clientes (Nombre,Direccion,Cedula,Telefono) values ('" + cliente.Nombre + "','" + cliente.Direccion + "','" + cliente.Cedula + "','" + cliente.Telefono + "')", db);
 
-                dater.InsertCommand.Connection = db;
+                dater.InsertCommand = new MySqlCommand("insert into Clientes (Nombre,Direccion,Cedula,Telefono) values ('" + cliente.Nombre + "','" + cliente.Direccion + "','" + cliente.Cedula + "','" + cliente.Telefono + "')", UI.Menu.MenuMasVentas.RetornarConexion());
+
+                dater.InsertCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
                 dater.InsertCommand.ExecuteNonQuery();
 
             }
@@ -103,10 +81,7 @@ namespace FacturacionAplicado.BLL
                 throw;
 
             }
-            finally
-            {
-                db.Close();
-            }
+
             return estado;
         }
 
@@ -117,14 +92,14 @@ namespace FacturacionAplicado.BLL
 
             DataTable dt = new DataTable();
 
-            TestConnectiong();
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Clientes", db);
+
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Clientes", UI.Menu.MenuMasVentas.RetornarConexion());
             try
             {
 
 
                 con.Fill(dt);
-                db.Close();
+
 
 
             }
@@ -149,19 +124,18 @@ namespace FacturacionAplicado.BLL
             return listName;
         }
 
-
-
+      
         public static bool Modificar(Cliente cliente)
         {
             MySqlDataAdapter dater = new MySqlDataAdapter();
             bool estado = true;
             try
             {
-                TestConnectiong();
 
-                dater.UpdateCommand = new MySqlCommand("update Clientes set Nombre= '" + cliente.Nombre + "', Direccion = '" + cliente.Direccion + "', Cedula = '" + cliente.Cedula + "', Telefono = '" + cliente.Telefono + "'where IdCliente = '" + cliente.IdCliente + "'", db);
 
-                dater.UpdateCommand.Connection = db;
+                dater.UpdateCommand = new MySqlCommand("update Clientes set Nombre= '" + cliente.Nombre + "', Direccion = '" + cliente.Direccion + "', Cedula = '" + cliente.Cedula + "', Telefono = '" + cliente.Telefono + "'where IdCliente = '" + cliente.IdCliente + "'", UI.Menu.MenuMasVentas.RetornarConexion());
+
+                dater.UpdateCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
                 dater.UpdateCommand.ExecuteNonQuery();
 
             }
@@ -171,10 +145,7 @@ namespace FacturacionAplicado.BLL
                 throw;
 
             }
-            finally
-            {
-                db.Close();
-            }
+
             return estado;
 
         }

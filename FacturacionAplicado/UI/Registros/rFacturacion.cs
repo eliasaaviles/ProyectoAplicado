@@ -24,10 +24,10 @@ namespace FacturacionAplicado.UI.Registros
             InitializeComponent();
             LlenarComboBox();
             //todo: descomentar el codigo en el constructor de la facturacion cuando la ventana login este programada.
-           // UsuariotextBox.Text = BLL.FacturacionBLL.returnUsuario().Nombre;
+            // UsuariotextBox.Text = BLL.FacturacionBLL.returnUsuario().Nombre;
         }
-       
-        
+
+
         //listo esto es el boton nuevo
         private void NUevobutton_Click(object sender, EventArgs e)
         {
@@ -54,6 +54,10 @@ namespace FacturacionAplicado.UI.Registros
             DetallecomboBox.Enabled = false;
             EliminarDetalle.Enabled = false;
             FechadateTimePicker.Value = DateTime.Now;
+            Detalle = new List<FacturaDetalle>();
+            paso = true;
+            Arreglar = true;
+
         }
         //listo esto limpia los errores providers
         private void LimpiarProvider()
@@ -69,6 +73,7 @@ namespace FacturacionAplicado.UI.Registros
             FormaDePagocomboBox.Items.Add("Credito");
             FormaDePagocomboBox.Items.Add("Contado");
             DevueltatextBox.Text = "0";
+            MontotextBox.Text = "0";
             IDcomboBox.Items.Clear();
             CLienteIDcomboBox.Items.Clear();
             ProductoIdcomboBox.Items.Clear();
@@ -267,7 +272,7 @@ namespace FacturacionAplicado.UI.Registros
                 //int idfactura = Convert.ToInt32(IDcomboBox.Text);
                 if (billes.BillDetalle.Count == 0)
                 {
-                    billes.BillDetalle = BLL.FacturaDetalleBLL.Buscar(IDcomboBox.Text);
+                    billes.BillDetalle = BLL.FacturaDetalleBLL.BuscarFacturaID(IDcomboBox.Text);
                 }
                 if (DetallecomboBox.Text == string.Empty)
                 {
@@ -451,15 +456,17 @@ namespace FacturacionAplicado.UI.Registros
             {
                 var result = MessageBox.Show("Seguro de Modificar?", "+Ventas",
                      MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                BLL.FacturacionBLL.DescontarBuscando(billes.BillDetalle, IDcomboBox.Text);
+
 
                 if (result == DialogResult.Yes)
                 {
-
+                    BLL.FacturacionBLL.DescontarBuscando(LlenaClase().BillDetalle, IDcomboBox.Text);
                     if (BLL.FacturacionBLL.Modificar(LlenaClase()))
                     {
                         if (LlenaClase().BillDetalle.Count() > 0)
                             BLL.FacturaDetalleBLL.Modificar(LlenaClase().BillDetalle);
+
+                       
 
                         MessageBox.Show("Modificado!!");
 

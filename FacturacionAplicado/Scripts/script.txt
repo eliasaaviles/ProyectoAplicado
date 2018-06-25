@@ -1,6 +1,6 @@
-﻿create database FacturacionDb
+﻿create database Facturacion UI.Menu.MenuMasVentas.RetornarConexion()
 
-use FacturacionDb;
+use Facturacion UI.Menu.MenuMasVentas.RetornarConexion();
 
 Create Table Usuarios
 (

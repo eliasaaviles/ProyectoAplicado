@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+
 
 namespace FacturacionAplicado.UI.Menu
 {
@@ -16,7 +18,40 @@ namespace FacturacionAplicado.UI.Menu
         public MenuMasVentas()
         {
             InitializeComponent();
+            TestConnectiong();
         }
+        public static MySqlConnection  db;
+
+        public static bool TestConnectiong()
+
+        {
+            bool paso = true;
+            try
+            {
+                //db = new MySqlConnection("server=db4free.net; database = facturaciondb; user id=facturacionucne;password=root12345");
+                db = new MySqlConnection("server=localhost; database = FacturacionDb; user id=root ;password=root");
+                db.Open();
+                GC.KeepAlive(db);
+                MessageBox.Show("Conexion Establecida");
+
+
+            }
+            catch (Exception)
+            {
+                paso = false;
+                throw;
+            }
+
+            return paso;
+        }
+
+        public static MySqlConnection RetornarConexion()
+        {
+           // db.Open();
+            return  db;
+        }
+
+
 
         private void crearClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -37,6 +72,11 @@ namespace FacturacionAplicado.UI.Menu
             rFacturacion abrir = new rFacturacion();
             abrir.MdiParent = this;
             abrir.Show();
+        }
+
+        private void MenuMasVentas_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

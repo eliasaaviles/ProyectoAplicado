@@ -11,41 +11,24 @@ namespace FacturacionAplicado.BLL
 {
     public class FacturacionBLL
     {
-        public static MySqlConnection db;
+
         private static Usuario user = new Usuario();
 
-        public static bool TestConnectiong()
-        {
-            bool paso = true;
-            try
-            {
-                db = new MySqlConnection("server=localhost; database = FacturacionDb; user id=root;password=root");
-                db.Open();
 
-
-            }
-            catch (Exception)
-            {
-                paso = false;
-                throw;
-            }
-
-            return paso;
-        }
 
         public static DataTable Consultar()
         {
 
 
             DataTable dt = new DataTable();
-            TestConnectiong();
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Facturas", db);
+
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Facturas", UI.Menu.MenuMasVentas.RetornarConexion());
             try
             {
 
 
                 con.Fill(dt);
-                db.Close();
+
 
 
             }
@@ -64,10 +47,10 @@ namespace FacturacionAplicado.BLL
             bool estado = true;
             try
             {
-                TestConnectiong();
-                dater.DeleteCommand = new MySqlCommand(" delete from Facturas where FacturaId=" + id, db);
 
-                dater.DeleteCommand.Connection = db;
+                dater.DeleteCommand = new MySqlCommand(" delete from Facturas where FacturaId=" + id, UI.Menu.MenuMasVentas.RetornarConexion());
+
+                dater.DeleteCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
                 dater.DeleteCommand.ExecuteNonQuery();
 
             }
@@ -77,10 +60,7 @@ namespace FacturacionAplicado.BLL
                 throw;
 
             }
-            finally
-            {
-                db.Close();
-            }
+
             return estado;
         }
 
@@ -90,11 +70,11 @@ namespace FacturacionAplicado.BLL
             bool estado = true;
             try
             {
-                TestConnectiong();
-                dater.InsertCommand = new MySqlCommand("insert into Facturas (Monto,UsuarioId,ClienteId,Fecha,Descripcion,FormaDePago,Devuelta,EfectivoRecibido) values" +
-                    " ('" + factura.Monto + "','" + factura.UsuarioId + "','" + factura.ClienteId + "','" + factura.Fecha + "','" + factura.Descripcion + "','" + factura.FormaDePago + "','" + factura.Devuelta + "','" + factura.EfectivoRecibido + "')", db);
 
-                dater.InsertCommand.Connection = db;
+                dater.InsertCommand = new MySqlCommand("insert into Facturas (Monto,UsuarioId,ClienteId,Fecha,Descripcion,FormaDePago,Devuelta,EfectivoRecibido) values" +
+                    " ('" + factura.Monto + "','" + factura.UsuarioId + "','" + factura.ClienteId + "','" + factura.Fecha + "','" + factura.Descripcion + "','" + factura.FormaDePago + "','" + factura.Devuelta + "','" + factura.EfectivoRecibido + "')", UI.Menu.MenuMasVentas.RetornarConexion());
+
+                dater.InsertCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
                 dater.InsertCommand.ExecuteNonQuery();
 
             }
@@ -104,10 +84,7 @@ namespace FacturacionAplicado.BLL
                 throw;
 
             }
-            finally
-            {
-                db.Close();
-            }
+
             return estado;
         }
 
@@ -117,14 +94,14 @@ namespace FacturacionAplicado.BLL
 
             DataTable dt = new DataTable();
 
-            TestConnectiong();
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Facturas", db);
+
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Facturas", UI.Menu.MenuMasVentas.RetornarConexion());
             try
             {
 
 
                 con.Fill(dt);
-                db.Close();
+
 
 
             }
@@ -159,14 +136,14 @@ namespace FacturacionAplicado.BLL
 
             DataTable dt = new DataTable();
 
-            TestConnectiong();
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Facturas where FacturaId=" + id, db);
+
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Facturas where FacturaId=" + id, UI.Menu.MenuMasVentas.RetornarConexion());
             try
             {
 
 
                 con.Fill(dt);
-                db.Close();
+                UI.Menu.MenuMasVentas.RetornarConexion().Close();
 
 
             }
@@ -202,11 +179,11 @@ namespace FacturacionAplicado.BLL
             bool estado = true;
             try
             {
-                TestConnectiong();
 
-                dater.UpdateCommand = new MySqlCommand("update Facturas set Monto= '" + depart.Monto + "',UsuarioId= '" + depart.UsuarioId + "', ClienteId ='" + depart.ClienteId + "', Fecha='" + depart.Fecha + "', Descripcion = '" + depart.Descripcion + "', FormaDePago='" + depart.FormaDePago + "', Devuelta='" + depart.Devuelta + "',  EfectivoRecibido='" + depart.EfectivoRecibido + "' where FacturaId = '" + depart.FacturaId + "'", db);
 
-                dater.UpdateCommand.Connection = db;
+                dater.UpdateCommand = new MySqlCommand("update Facturas set Monto= '" + depart.Monto + "',UsuarioId= '" + depart.UsuarioId + "', ClienteId ='" + depart.ClienteId + "', Fecha='" + depart.Fecha + "', Descripcion = '" + depart.Descripcion + "', FormaDePago='" + depart.FormaDePago + "', Devuelta='" + depart.Devuelta + "',  EfectivoRecibido='" + depart.EfectivoRecibido + "' where FacturaId = '" + depart.FacturaId + "'", UI.Menu.MenuMasVentas.RetornarConexion());
+
+                dater.UpdateCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
                 dater.UpdateCommand.ExecuteNonQuery();
 
             }
@@ -216,10 +193,7 @@ namespace FacturacionAplicado.BLL
                 throw;
 
             }
-            finally
-            {
-                db.Close();
-            }
+
             return estado;
 
         }
@@ -299,6 +273,24 @@ namespace FacturacionAplicado.BLL
             }
 
         }
+
+        public static void DescontarProductos(FacturaDetalle bill)
+        {
+            // Descontar cantidad a productos
+
+            foreach (var items in ProductoBLL.Buscar())
+            {
+                if (items.Idproducto == bill.ProductoId)
+                {
+
+                    items.Cantidad -= bill.Cantidad;
+
+                    BLL.ProductoBLL.Modificar(items);
+
+                }
+            }
+
+        }
         //descuenta al producto de una lista
         public static void DescontarProducto(FacturaDetalle item, FacturaDetalle ite)
         {
@@ -334,6 +326,23 @@ namespace FacturacionAplicado.BLL
 
 
             }
+        }
+
+        public static void ArreglarProducto(FacturaDetalle bill)
+        {
+
+            foreach (var items in ProductoBLL.Buscar())
+            {
+                if (items.Idproducto == bill.ProductoId)
+                {
+
+                    items.Cantidad += bill.Cantidad;
+                    ProductoBLL.Modificar(items);
+                }
+            }
+
+
+
         }
         //agrega al producto la cantidad eliminada de una lista
         public static void ArreglarProductoList(List<FacturaDetalle> bill)
@@ -462,7 +471,7 @@ namespace FacturacionAplicado.BLL
                     if (item.ProductoId == items.ProductoId)
                         if (item.Cantidad != items.Cantidad)
                         {
-                            DescontarProducto(items,item);
+                            DescontarProducto(items, item);
                         }
                 }
             }
