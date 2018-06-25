@@ -17,7 +17,7 @@ namespace FacturacionAplicado.BLL
             DataTable dt = new DataTable();
 
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from FacturaDetalles ", UI.Menu.MenuMasVentas.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from FacturaDetalles ",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -56,7 +56,7 @@ namespace FacturacionAplicado.BLL
             DataTable dt = new DataTable();
 
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from FacturaDetalles where Id=" + id, UI.Menu.MenuMasVentas.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from FacturaDetalles where Id=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -95,7 +95,7 @@ namespace FacturacionAplicado.BLL
             DataTable dt = new DataTable();
 
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from FacturaDetalles where FacturaId=" + id, UI.Menu.MenuMasVentas.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from FacturaDetalles where FacturaId=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -136,9 +136,9 @@ namespace FacturacionAplicado.BLL
             try
             {
 
-                dater.DeleteCommand = new MySqlCommand(" delete from FacturaDetalles where Id=" + id, UI.Menu.MenuMasVentas.RetornarConexion());
+                dater.DeleteCommand = new MySqlCommand(" delete from FacturaDetalles where Id=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
-                dater.DeleteCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
+                dater.DeleteCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.DeleteCommand.ExecuteNonQuery();
 
             }
@@ -163,9 +163,9 @@ namespace FacturacionAplicado.BLL
                 foreach (var item in facturaDetalles)
                 {
 
-                    dater.DeleteCommand = new MySqlCommand(" delete from FacturaDetalles where Id=" + item.Id, UI.Menu.MenuMasVentas.RetornarConexion());
+                    dater.DeleteCommand = new MySqlCommand(" delete from FacturaDetalles where Id=" + item.Id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
-                    dater.DeleteCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
+                    dater.DeleteCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                     dater.DeleteCommand.ExecuteNonQuery();
                 }
 
@@ -207,9 +207,9 @@ namespace FacturacionAplicado.BLL
                         //    FacturacionBLL.ArreglarProducto(cDetalle);
                         //    FacturacionBLL.DescontarProductos(item);
                         //}
-                        dater.UpdateCommand = new MySqlCommand("update FacturaDetalles set Id= '" + item.Id + "', FacturaId = '" + item.FacturaId + "', ProductoId = '" + item.ProductoId + "', Cantidad = '" + item.Cantidad + "', Precio= '" + item.Precio + "',Descripcion='" + item.Descripcion + "'where Id = '" + item.Id + "'", UI.Menu.MenuMasVentas.RetornarConexion());
+                        dater.UpdateCommand = new MySqlCommand("update FacturaDetalles set Id= '" + item.Id + "', FacturaId = '" + item.FacturaId + "', ProductoId = '" + item.ProductoId + "', Cantidad = '" + item.Cantidad + "', Precio= '" + item.Precio + "',Descripcion='" + item.Descripcion + "'where Id = '" + item.Id + "'",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
-                        dater.UpdateCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
+                        dater.UpdateCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                         dater.UpdateCommand.ExecuteNonQuery();
                     }
 
@@ -241,9 +241,9 @@ namespace FacturacionAplicado.BLL
                 foreach (var item in factura)
                 {
 
-                    dater.InsertCommand = new MySqlCommand("insert into FacturaDetalles (Id,FacturaId,ProductoId,Cantidad,Precio,Descripcion) values ('" + item.Id + "','" + IDfactura.FacturaId + "','" + item.ProductoId + "','" + item.Cantidad + "','" + item.Precio + "','" + item.Descripcion + "')", UI.Menu.MenuMasVentas.RetornarConexion());
+                    dater.InsertCommand = new MySqlCommand("insert into FacturaDetalles (Id,FacturaId,ProductoId,Cantidad,Precio,Descripcion) values ('" + item.Id + "','" + IDfactura.FacturaId + "','" + item.ProductoId + "','" + item.Cantidad + "','" + item.Precio + "','" + item.Descripcion + "')",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
-                    dater.InsertCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
+                    dater.InsertCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                     dater.InsertCommand.ExecuteNonQuery();
                 }
 
@@ -270,9 +270,9 @@ namespace FacturacionAplicado.BLL
 
 
 
-                dater.InsertCommand = new MySqlCommand("insert into FacturaDetalles (Id,FacturaId,ProductoId,Cantidad,Precio,Descripcion) values ('" + factura.Id + "','" + factura.FacturaId + "','" + factura.ProductoId + "','" + factura.Cantidad + "','" + factura.Precio + "','" + factura.Descripcion + "')", UI.Menu.MenuMasVentas.RetornarConexion());
+                dater.InsertCommand = new MySqlCommand("insert into FacturaDetalles (Id,FacturaId,ProductoId,Cantidad,Precio,Descripcion) values ('" + factura.Id + "','" + factura.FacturaId + "','" + factura.ProductoId + "','" + factura.Cantidad + "','" + factura.Precio + "','" + factura.Descripcion + "')",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
-                dater.InsertCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
+                dater.InsertCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.InsertCommand.ExecuteNonQuery();
 
 
@@ -293,7 +293,7 @@ namespace FacturacionAplicado.BLL
 
             DataTable dt = new DataTable();
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from FacturaDetalles", UI.Menu.MenuMasVentas.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from FacturaDetalles",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 

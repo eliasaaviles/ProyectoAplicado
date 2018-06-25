@@ -19,7 +19,7 @@ namespace FacturacionAplicado.BLL
 
             DataTable dt = new DataTable();
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Departamentoes", UI.Menu.MenuMasVentas.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Departamentoes",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -45,9 +45,9 @@ namespace FacturacionAplicado.BLL
             try
             {
 
-                dater.DeleteCommand = new MySqlCommand(" delete from Departamentoes where DepartamentoId=" + id, UI.Menu.MenuMasVentas.RetornarConexion());
+                dater.DeleteCommand = new MySqlCommand(" delete from Departamentoes where DepartamentoId=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
-                dater.DeleteCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
+                dater.DeleteCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.DeleteCommand.ExecuteNonQuery();
 
             }
@@ -69,9 +69,9 @@ namespace FacturacionAplicado.BLL
             try
             {
 
-                dater.InsertCommand = new MySqlCommand("insert into Departamentoes (Nombre) values ('" + depart.Nombre + "')", UI.Menu.MenuMasVentas.RetornarConexion());
+                dater.InsertCommand = new MySqlCommand("insert into Departamentoes (Nombre) values ('" + depart.Nombre + "')",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
-                dater.InsertCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
+                dater.InsertCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.InsertCommand.ExecuteNonQuery();
 
             }
@@ -93,7 +93,7 @@ namespace FacturacionAplicado.BLL
             DataTable dt = new DataTable();
 
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Departamentoes", UI.Menu.MenuMasVentas.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Departamentoes",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -130,9 +130,9 @@ namespace FacturacionAplicado.BLL
             {
 
 
-                dater.UpdateCommand = new MySqlCommand("update Clientes set Nombre= '" + depart.Nombre + "' where IdCliente = '" + depart.DepartamentoId + "'", UI.Menu.MenuMasVentas.RetornarConexion());
+                dater.UpdateCommand = new MySqlCommand("update Clientes set Nombre= '" + depart.Nombre + "' where IdCliente = '" + depart.DepartamentoId + "'",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
-                dater.UpdateCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
+                dater.UpdateCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.UpdateCommand.ExecuteNonQuery();
 
             }

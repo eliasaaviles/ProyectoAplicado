@@ -19,7 +19,7 @@ namespace FacturacionAplicado.BLL
 
             DataTable dt = new DataTable();
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Productoes", UI.Menu.MenuMasVentas.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Productoes",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -45,9 +45,9 @@ namespace FacturacionAplicado.BLL
             try
             {
 
-                dater.DeleteCommand = new MySqlCommand(" delete from Productoes where Idproducto=" + id, UI.Menu.MenuMasVentas.RetornarConexion());
+                dater.DeleteCommand = new MySqlCommand(" delete from Productoes where Idproducto=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
-                dater.DeleteCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
+                dater.DeleteCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.DeleteCommand.ExecuteNonQuery();
 
             }
@@ -69,9 +69,9 @@ namespace FacturacionAplicado.BLL
             try
             {
 
-                dater.InsertCommand = new MySqlCommand("insert into Productoes (Idproducto,Descripcion,Precio,DepartamentoId,Cantidad) values ('" + productos.Idproducto + "','" + productos.Descripcion + "','" + productos.Precio + "','" + productos.DepartamentoId + "','" + productos.Cantidad + "')", UI.Menu.MenuMasVentas.RetornarConexion());
+                dater.InsertCommand = new MySqlCommand("insert into Productoes (Idproducto,Descripcion,Precio,DepartamentoId,Cantidad) values ('" + productos.Idproducto + "','" + productos.Descripcion + "','" + productos.Precio + "','" + productos.DepartamentoId + "','" + productos.Cantidad + "')",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
-                dater.InsertCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
+                dater.InsertCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.InsertCommand.ExecuteNonQuery();
 
             }
@@ -93,7 +93,7 @@ namespace FacturacionAplicado.BLL
             DataTable dt = new DataTable();
 
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Productoes", UI.Menu.MenuMasVentas.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Productoes",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -130,7 +130,7 @@ namespace FacturacionAplicado.BLL
             DataTable dt = new DataTable();
 
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Productoes where Idproducto=" + id, UI.Menu.MenuMasVentas.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Productoes where Idproducto=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -171,9 +171,9 @@ namespace FacturacionAplicado.BLL
             {
 
 
-                dater.UpdateCommand = new MySqlCommand("update Productoes set Idproducto= '" + producto.Idproducto + "', Descripcion = '" + producto.Descripcion + "', Precio = '" + producto.Precio + "', DepartamentoId = '" + producto.DepartamentoId + "', Cantidad= '" + producto.Cantidad + "'where Idproducto = '" + producto.Idproducto + "'", UI.Menu.MenuMasVentas.RetornarConexion());
+                dater.UpdateCommand = new MySqlCommand("update Productoes set Idproducto= '" + producto.Idproducto + "', Descripcion = '" + producto.Descripcion + "', Precio = '" + producto.Precio + "', DepartamentoId = '" + producto.DepartamentoId + "', Cantidad= '" + producto.Cantidad + "'where Idproducto = '" + producto.Idproducto + "'",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
-                dater.UpdateCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
+                dater.UpdateCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.UpdateCommand.ExecuteNonQuery();
 
             }

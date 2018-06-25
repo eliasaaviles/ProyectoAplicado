@@ -19,7 +19,7 @@ namespace FacturacionAplicado.BLL
 
             DataTable dt = new DataTable();
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Clientes", UI.Menu.MenuMasVentas.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Clientes",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -45,9 +45,9 @@ namespace FacturacionAplicado.BLL
             try
             {
 
-                dater.DeleteCommand = new MySqlCommand(" delete from Clientes where IdCliente=" + id, UI.Menu.MenuMasVentas.RetornarConexion());
+                dater.DeleteCommand = new MySqlCommand(" delete from Clientes where IdCliente=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
-                dater.DeleteCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
+                dater.DeleteCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.DeleteCommand.ExecuteNonQuery();
 
             }
@@ -69,9 +69,9 @@ namespace FacturacionAplicado.BLL
             try
             {
 
-                dater.InsertCommand = new MySqlCommand("insert into Clientes (Nombre,Direccion,Cedula,Telefono) values ('" + cliente.Nombre + "','" + cliente.Direccion + "','" + cliente.Cedula + "','" + cliente.Telefono + "')", UI.Menu.MenuMasVentas.RetornarConexion());
+                dater.InsertCommand = new MySqlCommand("insert into Clientes (Nombre,Direccion,Cedula,Telefono) values ('" + cliente.Nombre + "','" + cliente.Direccion + "','" + cliente.Cedula + "','" + cliente.Telefono + "')",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
-                dater.InsertCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
+                dater.InsertCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.InsertCommand.ExecuteNonQuery();
 
             }
@@ -93,7 +93,7 @@ namespace FacturacionAplicado.BLL
             DataTable dt = new DataTable();
 
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Clientes", UI.Menu.MenuMasVentas.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Clientes",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -133,9 +133,9 @@ namespace FacturacionAplicado.BLL
             {
 
 
-                dater.UpdateCommand = new MySqlCommand("update Clientes set Nombre= '" + cliente.Nombre + "', Direccion = '" + cliente.Direccion + "', Cedula = '" + cliente.Cedula + "', Telefono = '" + cliente.Telefono + "'where IdCliente = '" + cliente.IdCliente + "'", UI.Menu.MenuMasVentas.RetornarConexion());
+                dater.UpdateCommand = new MySqlCommand("update Clientes set Nombre= '" + cliente.Nombre + "', Direccion = '" + cliente.Direccion + "', Cedula = '" + cliente.Cedula + "', Telefono = '" + cliente.Telefono + "'where IdCliente = '" + cliente.IdCliente + "'",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
-                dater.UpdateCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
+                dater.UpdateCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.UpdateCommand.ExecuteNonQuery();
 
             }

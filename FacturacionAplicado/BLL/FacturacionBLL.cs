@@ -22,7 +22,7 @@ namespace FacturacionAplicado.BLL
 
             DataTable dt = new DataTable();
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Facturas", UI.Menu.MenuMasVentas.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Facturas",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -48,9 +48,9 @@ namespace FacturacionAplicado.BLL
             try
             {
 
-                dater.DeleteCommand = new MySqlCommand(" delete from Facturas where FacturaId=" + id, UI.Menu.MenuMasVentas.RetornarConexion());
+                dater.DeleteCommand = new MySqlCommand(" delete from Facturas where FacturaId=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
-                dater.DeleteCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
+                dater.DeleteCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.DeleteCommand.ExecuteNonQuery();
 
             }
@@ -72,9 +72,9 @@ namespace FacturacionAplicado.BLL
             {
 
                 dater.InsertCommand = new MySqlCommand("insert into Facturas (Monto,UsuarioId,ClienteId,Fecha,Descripcion,FormaDePago,Devuelta,EfectivoRecibido) values" +
-                    " ('" + factura.Monto + "','" + factura.UsuarioId + "','" + factura.ClienteId + "','" + factura.Fecha + "','" + factura.Descripcion + "','" + factura.FormaDePago + "','" + factura.Devuelta + "','" + factura.EfectivoRecibido + "')", UI.Menu.MenuMasVentas.RetornarConexion());
+                    " ('" + factura.Monto + "','" + factura.UsuarioId + "','" + factura.ClienteId + "','" + factura.Fecha + "','" + factura.Descripcion + "','" + factura.FormaDePago + "','" + factura.Devuelta + "','" + factura.EfectivoRecibido + "')",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
-                dater.InsertCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
+                dater.InsertCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.InsertCommand.ExecuteNonQuery();
 
             }
@@ -95,7 +95,7 @@ namespace FacturacionAplicado.BLL
             DataTable dt = new DataTable();
 
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Facturas", UI.Menu.MenuMasVentas.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Facturas",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -137,13 +137,13 @@ namespace FacturacionAplicado.BLL
             DataTable dt = new DataTable();
 
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Facturas where FacturaId=" + id, UI.Menu.MenuMasVentas.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Facturas where FacturaId=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
 
                 con.Fill(dt);
-                UI.Menu.MenuMasVentas.RetornarConexion().Close();
+                 ConexionGlobal.ConexionGlobalDb.RetornarConexion().Close();
 
 
             }
@@ -181,9 +181,9 @@ namespace FacturacionAplicado.BLL
             {
 
 
-                dater.UpdateCommand = new MySqlCommand("update Facturas set Monto= '" + depart.Monto + "',UsuarioId= '" + depart.UsuarioId + "', ClienteId ='" + depart.ClienteId + "', Fecha='" + depart.Fecha + "', Descripcion = '" + depart.Descripcion + "', FormaDePago='" + depart.FormaDePago + "', Devuelta='" + depart.Devuelta + "',  EfectivoRecibido='" + depart.EfectivoRecibido + "' where FacturaId = '" + depart.FacturaId + "'", UI.Menu.MenuMasVentas.RetornarConexion());
+                dater.UpdateCommand = new MySqlCommand("update Facturas set Monto= '" + depart.Monto + "',UsuarioId= '" + depart.UsuarioId + "', ClienteId ='" + depart.ClienteId + "', Fecha='" + depart.Fecha + "', Descripcion = '" + depart.Descripcion + "', FormaDePago='" + depart.FormaDePago + "', Devuelta='" + depart.Devuelta + "',  EfectivoRecibido='" + depart.EfectivoRecibido + "' where FacturaId = '" + depart.FacturaId + "'",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
-                dater.UpdateCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
+                dater.UpdateCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.UpdateCommand.ExecuteNonQuery();
 
             }

@@ -18,7 +18,7 @@ namespace FacturacionAplicado.BLL
 
             DataTable dt = new DataTable();
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from usuarios", UI.Menu.MenuMasVentas.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from usuarios",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -44,9 +44,9 @@ namespace FacturacionAplicado.BLL
             try
             {
 
-                dater.DeleteCommand = new MySqlCommand(" delete from usuarios where IdUsuario=" + id, UI.Menu.MenuMasVentas.RetornarConexion());
+                dater.DeleteCommand = new MySqlCommand(" delete from usuarios where IdUsuario=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
-                dater.DeleteCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
+                dater.DeleteCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.DeleteCommand.ExecuteNonQuery();
 
             }
@@ -68,9 +68,9 @@ namespace FacturacionAplicado.BLL
             try
             {
 
-                dater.InsertCommand = new MySqlCommand("insert into Usuarios (Nombre,Clave,NombreUsuario,Fecha,Comentario) values ('" + user.Nombre + "','" + user.Clave + "','" + user.NombreUsuario + "','" + user.Fecha + "','" + user.Comentario + "')", UI.Menu.MenuMasVentas.RetornarConexion());
+                dater.InsertCommand = new MySqlCommand("insert into Usuarios (Nombre,Clave,NombreUsuario,Fecha,Comentario) values ('" + user.Nombre + "','" + user.Clave + "','" + user.NombreUsuario + "','" + user.Fecha + "','" + user.Comentario + "')",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
-                dater.InsertCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
+                dater.InsertCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.InsertCommand.ExecuteNonQuery();
 
             }
@@ -92,7 +92,7 @@ namespace FacturacionAplicado.BLL
             DataTable dt = new DataTable();
 
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Usuarios", UI.Menu.MenuMasVentas.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Usuarios",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -130,7 +130,7 @@ namespace FacturacionAplicado.BLL
             DataTable dt = new DataTable();
 
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Usuarios where IdUsuario=" + id, UI.Menu.MenuMasVentas.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Usuarios where IdUsuario=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -172,9 +172,9 @@ namespace FacturacionAplicado.BLL
             {
 
 
-                dater.UpdateCommand = new MySqlCommand("update Usuarios set IdUsuario= '" + user.IdUsuario + "', Nombre = '" + user.Nombre + "', Clave = '" + user.Clave + "', NombreUsuario = '" + user.NombreUsuario + "', Fecha= '" + user.Fecha + "',Comentario='" + user.Comentario + "'where Idproducto = '" + user.IdUsuario + "'", UI.Menu.MenuMasVentas.RetornarConexion());
+                dater.UpdateCommand = new MySqlCommand("update Usuarios set IdUsuario= '" + user.IdUsuario + "', Nombre = '" + user.Nombre + "', Clave = '" + user.Clave + "', NombreUsuario = '" + user.NombreUsuario + "', Fecha= '" + user.Fecha + "',Comentario='" + user.Comentario + "'where Idproducto = '" + user.IdUsuario + "'",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
-                dater.UpdateCommand.Connection = UI.Menu.MenuMasVentas.RetornarConexion();
+                dater.UpdateCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.UpdateCommand.ExecuteNonQuery();
 
             }
