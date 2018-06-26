@@ -123,7 +123,7 @@ namespace FacturacionAplicado.UI.Registros
                 DemaserrorProvider.SetError(DescripciponFacturatextBox, "Llenar descripcion");
                 paso = true;
             }
-            if (error == 2 && EfectivonumericUpDown.Value == 0 && FormaDePagocomboBox.SelectedIndex != 0)
+            if (error == 2 && EfectivonumericUpDown.Value == 0 && FormaDePagocomboBox.SelectedIndex != 0 && Convert.ToInt32(DevueltatextBox.Text) < Convert.ToInt32(MontotextBox.Text))
             {
                 DemaserrorProvider.SetError(EfectivonumericUpDown, "Llenar Efectivo de caja");
                 paso = true;
@@ -210,6 +210,11 @@ namespace FacturacionAplicado.UI.Registros
                 }
 
 
+            }
+
+            if(billes.BillDetalle.Count()==0)
+            {
+                EliminarDetalle.Enabled = false;
             }
         }
         //listo Esto le asigna el valor del importe 
@@ -313,6 +318,7 @@ namespace FacturacionAplicado.UI.Registros
             }
             FacturadataGridView.DataSource = null;
             FacturadataGridView.DataSource = billes.BillDetalle;
+            DetallecomboBox.Enabled = true;
             LimpiarProducto();
             LlenarDetalleComboBox();
             EliminarDetalle.Enabled = true;
@@ -466,7 +472,7 @@ namespace FacturacionAplicado.UI.Registros
                         if (LlenaClase().BillDetalle.Count() > 0)
                             BLL.FacturaDetalleBLL.Modificar(LlenaClase().BillDetalle);
 
-                       
+
 
                         MessageBox.Show("Modificado!!");
 
@@ -578,8 +584,12 @@ namespace FacturacionAplicado.UI.Registros
             EfectivonumericUpDown.Value = billes.EfectivoRecibido;
             billes.BillDetalle = BLL.FacturaDetalleBLL.BuscarFacturaID(IDcomboBox.Text);
             LlenarDetalleComboBox();
-            DetallecomboBox.Enabled = true;
-            EliminarDetalle.Enabled = true;
+            if (billes.BillDetalle.Count() > 0)
+            {
+                DetallecomboBox.Enabled = true;
+                EliminarDetalle.Enabled = true;
+
+            }
             foreach (var item in billes.BillDetalle)
             {
                 item.Importe = BLL.FacturacionBLL.Importedemas(item.Cantidad, item.Precio);
