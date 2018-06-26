@@ -14,7 +14,7 @@ namespace FacturacionAplicado.UI.Registros
     public partial class rFacturacion : Form
     {//todo: para todo: Probar todo mas de una vez
         decimal Monto = 0;
-        bool paso = true, Arreglar = false;
+        bool paso = false, Arreglar = false;
         Factura billes = new Factura();
         List<FacturaDetalle> Detalle = new List<FacturaDetalle>();
         public int RowSelected { get; set; }
