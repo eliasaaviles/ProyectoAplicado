@@ -14,7 +14,7 @@ namespace FacturacionAplicado.UI.Registros
     public partial class rFacturacion : Form
     {//todo: para todo: Probar todo mas de una vez
         decimal Monto = 0;
-        bool paso = true, Arreglar = false;
+        bool paso = false, Arreglar = false;
         Factura billes = new Factura();
         List<FacturaDetalle> Detalle = new List<FacturaDetalle>();
         public int RowSelected { get; set; }
@@ -24,10 +24,10 @@ namespace FacturacionAplicado.UI.Registros
             InitializeComponent();
             LlenarComboBox();
             //todo: descomentar el codigo en el constructor de la facturacion cuando la ventana login este programada.
-           // UsuariotextBox.Text = BLL.FacturacionBLL.returnUsuario().Nombre;
+            // UsuariotextBox.Text = BLL.FacturacionBLL.returnUsuario().Nombre;
         }
-       
-        
+
+
         //listo esto es el boton nuevo
         private void NUevobutton_Click(object sender, EventArgs e)
         {
@@ -54,6 +54,10 @@ namespace FacturacionAplicado.UI.Registros
             DetallecomboBox.Enabled = false;
             EliminarDetalle.Enabled = false;
             FechadateTimePicker.Value = DateTime.Now;
+            Detalle = new List<FacturaDetalle>();
+            paso = true;
+            Arreglar = true;
+
         }
         //listo esto limpia los errores providers
         private void LimpiarProvider()
@@ -69,6 +73,7 @@ namespace FacturacionAplicado.UI.Registros
             FormaDePagocomboBox.Items.Add("Credito");
             FormaDePagocomboBox.Items.Add("Contado");
             DevueltatextBox.Text = "0";
+            MontotextBox.Text = "0";
             IDcomboBox.Items.Clear();
             CLienteIDcomboBox.Items.Clear();
             ProductoIdcomboBox.Items.Clear();
@@ -118,7 +123,7 @@ namespace FacturacionAplicado.UI.Registros
                 DemaserrorProvider.SetError(DescripciponFacturatextBox, "Llenar descripcion");
                 paso = true;
             }
-            if (error == 2 && EfectivonumericUpDown.Value == 0 && FormaDePagocomboBox.SelectedIndex != 0)
+            if (error == 2 && EfectivonumericUpDown.Value == 0 && FormaDePagocomboBox.SelectedIndex != 0 && Convert.ToInt32(DevueltatextBox.Text) < Convert.ToInt32(MontotextBox.Text))
             {
                 DemaserrorProvider.SetError(EfectivonumericUpDown, "Llenar Efectivo de caja");
                 paso = true;
@@ -206,6 +211,11 @@ namespace FacturacionAplicado.UI.Registros
 
 
             }
+
+            if(billes.BillDetalle.Count()==0)
+            {
+                EliminarDetalle.Enabled = false;
+            }
         }
         //listo Esto le asigna el valor del importe 
         private void CantidadnumericUpDown_ValueChanged(object sender, EventArgs e)
@@ -267,7 +277,7 @@ namespace FacturacionAplicado.UI.Registros
                 //int idfactura = Convert.ToInt32(IDcomboBox.Text);
                 if (billes.BillDetalle.Count == 0)
                 {
-                    billes.BillDetalle = BLL.FacturaDetalleBLL.Buscar(IDcomboBox.Text);
+                    billes.BillDetalle = BLL.FacturaDetalleBLL.BuscarFacturaID(IDcomboBox.Text);
                 }
                 if (DetallecomboBox.Text == string.Empty)
                 {
@@ -308,6 +318,7 @@ namespace FacturacionAplicado.UI.Registros
             }
             FacturadataGridView.DataSource = null;
             FacturadataGridView.DataSource = billes.BillDetalle;
+            DetallecomboBox.Enabled = true;
             LimpiarProducto();
             LlenarDetalleComboBox();
             EliminarDetalle.Enabled = true;
@@ -451,15 +462,17 @@ namespace FacturacionAplicado.UI.Registros
             {
                 var result = MessageBox.Show("Seguro de Modificar?", "+Ventas",
                      MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                BLL.FacturacionBLL.DescontarBuscando(billes.BillDetalle, IDcomboBox.Text);
+
 
                 if (result == DialogResult.Yes)
                 {
-
+                    BLL.FacturacionBLL.DescontarBuscando(LlenaClase().BillDetalle, IDcomboBox.Text);
                     if (BLL.FacturacionBLL.Modificar(LlenaClase()))
                     {
                         if (LlenaClase().BillDetalle.Count() > 0)
                             BLL.FacturaDetalleBLL.Modificar(LlenaClase().BillDetalle);
+
+
 
                         MessageBox.Show("Modificado!!");
 
@@ -571,8 +584,12 @@ namespace FacturacionAplicado.UI.Registros
             EfectivonumericUpDown.Value = billes.EfectivoRecibido;
             billes.BillDetalle = BLL.FacturaDetalleBLL.BuscarFacturaID(IDcomboBox.Text);
             LlenarDetalleComboBox();
-            DetallecomboBox.Enabled = true;
-            EliminarDetalle.Enabled = true;
+            if (billes.BillDetalle.Count() > 0)
+            {
+                DetallecomboBox.Enabled = true;
+                EliminarDetalle.Enabled = true;
+
+            }
             foreach (var item in billes.BillDetalle)
             {
                 item.Importe = BLL.FacturacionBLL.Importedemas(item.Cantidad, item.Precio);

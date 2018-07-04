@@ -59,6 +59,7 @@
     <Compile Include="BLL\FacturaDetalleBLL.cs" />
     <Compile Include="BLL\ProductoBLL.cs" />
     <Compile Include="BLL\UsuarioBLL.cs" />
+    <Compile Include="ConexionGlobal\ConexionGlobalDb.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Departamento.cs" />
     <Compile Include="Entidades\Factura.cs" />
@@ -128,6 +129,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UI\Consultas\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\script.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

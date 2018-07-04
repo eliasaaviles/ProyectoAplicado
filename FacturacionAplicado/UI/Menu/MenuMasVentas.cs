@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+
 
 namespace FacturacionAplicado.UI.Menu
 {
@@ -16,7 +18,11 @@ namespace FacturacionAplicado.UI.Menu
         public MenuMasVentas()
         {
             InitializeComponent();
+            ConexionGlobal.ConexionGlobalDb.TestConnectiong();
         }
+        
+
+
 
         private void crearClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -37,6 +43,11 @@ namespace FacturacionAplicado.UI.Menu
             rFacturacion abrir = new rFacturacion();
             abrir.MdiParent = this;
             abrir.Show();
+        }
+
+        private void MenuMasVentas_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

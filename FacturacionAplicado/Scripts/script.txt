@@ -1,0 +1,70 @@
+﻿create database Facturacion  ConexionGlobal.ConexionGlobalDb.RetornarConexion()
+
+use Facturacion  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
+
+Create Table Usuarios
+(
+	IdUsuario int primary key auto_increment,
+	Nombre varchar(30),
+	Clave varchar(8),
+	NombreUsuario varchar(8),
+	Fecha datetime,
+	Comentario varchar(100)
+
+
+);
+
+insert into Usuarios(Nombre,Clave,NombreUsuario,Fecha,Comentario) values('Albert Lopez','123456','root','2018/6/9','Developer');
+select * from Usuarios;
+
+Create Table Productoes
+(
+	Idproducto int primary key auto_increment,
+	Descripcion varchar(400),
+	Precio decimal,
+	DepartamentoId int,
+	Cantidad int
+
+);
+
+create table Departamentoes
+(
+	DepartamentoId int primary key auto_increment,
+	Nombre varchar(50)
+
+);
+
+create table Clientes 
+(
+	IdCliente int primary key auto_increment,
+	Nombre varchar(30),
+	Direccion varchar(100),
+	Cedula varchar(15),
+	Telefono varchar(15)
+
+);
+drop table Facturas
+create table Facturas
+(
+	FacturaId int primary key auto_increment,
+	Monto decimal,
+	UsuarioId int,
+	ClienteId int,
+	Fecha varchar(30),
+	Descripcion varchar(400),
+	FormaDePago varchar(50),
+	Devuelta decimal,
+	EfectivoRecibido decimal
+);
+
+create table FacturaDetalles
+(
+	Id int primary key auto_increment,
+	FacturaId int,
+	ProductoId int,
+	Cantidad int,
+	Precio decimal,
+	Descripcion varchar(400)
+)
+
+insert into Productoes(Descripcion,Precio,DepartamentoId,Cantidad) values('Coca Cola','50','1','100');

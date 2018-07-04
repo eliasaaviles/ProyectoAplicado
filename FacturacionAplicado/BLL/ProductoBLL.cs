@@ -11,40 +11,21 @@ namespace FacturacionAplicado.BLL
 {
     public class ProductoBLL
     {
-        public static MySqlConnection db;
 
-        public static bool TestConnectiong()
-        {
-            bool paso = true;
-            try
-            {
-                db = new MySqlConnection("server=localhost; database = FacturacionDb; user id=root;password=root");
-                db.Open();
-
-
-            }
-            catch (Exception)
-            {
-                paso = false;
-                throw;
-            }
-
-            return paso;
-        }
 
         public static DataTable Consultar()
         {
 
 
             DataTable dt = new DataTable();
-            TestConnectiong();
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Productoes", db);
+
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Productoes",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
 
                 con.Fill(dt);
-                db.Close();
+
 
 
             }
@@ -63,10 +44,10 @@ namespace FacturacionAplicado.BLL
             bool estado = true;
             try
             {
-                TestConnectiong();
-                dater.DeleteCommand = new MySqlCommand(" delete from Productoes where Idproducto=" + id, db);
 
-                dater.DeleteCommand.Connection = db;
+                dater.DeleteCommand = new MySqlCommand(" delete from Productoes where Idproducto=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+
+                dater.DeleteCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.DeleteCommand.ExecuteNonQuery();
 
             }
@@ -76,10 +57,7 @@ namespace FacturacionAplicado.BLL
                 throw;
 
             }
-            finally
-            {
-                db.Close();
-            }
+
             return estado;
         }
 
@@ -90,10 +68,10 @@ namespace FacturacionAplicado.BLL
             bool estado = true;
             try
             {
-                TestConnectiong();
-                dater.InsertCommand = new MySqlCommand("insert into Productoes (Idproducto,Descripcion,Precio,DepartamentoId,Cantidad) values ('" + productos.Idproducto + "','" + productos.Descripcion + "','" + productos.Precio + "','" + productos.DepartamentoId +"','"+ productos.Cantidad+ "')", db);
 
-                dater.InsertCommand.Connection = db;
+                dater.InsertCommand = new MySqlCommand("insert into Productoes (Idproducto,Descripcion,Precio,DepartamentoId,Cantidad) values ('" + productos.Idproducto + "','" + productos.Descripcion + "','" + productos.Precio + "','" + productos.DepartamentoId + "','" + productos.Cantidad + "')",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+
+                dater.InsertCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.InsertCommand.ExecuteNonQuery();
 
             }
@@ -103,10 +81,7 @@ namespace FacturacionAplicado.BLL
                 throw;
 
             }
-            finally
-            {
-                db.Close();
-            }
+
             return estado;
         }
 
@@ -117,14 +92,14 @@ namespace FacturacionAplicado.BLL
 
             DataTable dt = new DataTable();
 
-            TestConnectiong();
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Productoes", db);
+
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Productoes",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
 
                 con.Fill(dt);
-                db.Close();
+
 
 
             }
@@ -148,19 +123,20 @@ namespace FacturacionAplicado.BLL
 
             return listName;
         }
+
         public static List<Producto> Buscar(string id)
         {
 
             DataTable dt = new DataTable();
 
-            TestConnectiong();
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Productoes where Idproducto="+ id, db);
+
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Productoes where Idproducto=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
 
                 con.Fill(dt);
-                db.Close();
+
 
 
             }
@@ -193,11 +169,11 @@ namespace FacturacionAplicado.BLL
             bool estado = true;
             try
             {
-                TestConnectiong();
 
-                dater.UpdateCommand = new MySqlCommand("update Productoes set Idproducto= '" + producto.Idproducto + "', Descripcion = '" + producto.Descripcion + "', Precio = '" + producto.Precio + "', DepartamentoId = '" + producto.DepartamentoId +"', Cantidad= '" + producto.Cantidad+ "'where Idproducto = '" + producto.Idproducto + "'", db);
 
-                dater.UpdateCommand.Connection = db;
+                dater.UpdateCommand = new MySqlCommand("update Productoes set Idproducto= '" + producto.Idproducto + "', Descripcion = '" + producto.Descripcion + "', Precio = '" + producto.Precio + "', DepartamentoId = '" + producto.DepartamentoId + "', Cantidad= '" + producto.Cantidad + "'where Idproducto = '" + producto.Idproducto + "'",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+
+                dater.UpdateCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.UpdateCommand.ExecuteNonQuery();
 
             }
@@ -207,10 +183,7 @@ namespace FacturacionAplicado.BLL
                 throw;
 
             }
-            finally
-            {
-                db.Close();
-            }
+
             return estado;
 
         }
