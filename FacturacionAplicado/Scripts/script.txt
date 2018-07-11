@@ -1,7 +1,7 @@
-﻿create database Facturacion  ConexionGlobal.ConexionGlobalDb.RetornarConexion()
-
-use Facturacion  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
-
+﻿create database facturaciondb;
+go
+use facturaciondb;
+go
 Create Table Usuarios
 (
 	IdUsuario int primary key auto_increment,
@@ -13,10 +13,10 @@ Create Table Usuarios
 
 
 );
-
+go
 insert into Usuarios(Nombre,Clave,NombreUsuario,Fecha,Comentario) values('Albert Lopez','123456','root','2018/6/9','Developer');
-select * from Usuarios;
-
+go
+go
 Create Table Productoes
 (
 	Idproducto int primary key auto_increment,
@@ -26,14 +26,14 @@ Create Table Productoes
 	Cantidad int
 
 );
-
+go
 create table Departamentoes
 (
 	DepartamentoId int primary key auto_increment,
 	Nombre varchar(50)
 
 );
-
+go
 create table Clientes 
 (
 	IdCliente int primary key auto_increment,
@@ -43,7 +43,7 @@ create table Clientes
 	Telefono varchar(15)
 
 );
-drop table Facturas
+go
 create table Facturas
 (
 	FacturaId int primary key auto_increment,
@@ -56,7 +56,7 @@ create table Facturas
 	Devuelta decimal,
 	EfectivoRecibido decimal
 );
-
+go
 create table FacturaDetalles
 (
 	Id int primary key auto_increment,
@@ -66,5 +66,6 @@ create table FacturaDetalles
 	Precio decimal,
 	Descripcion varchar(400)
 )
-
+go
 insert into Productoes(Descripcion,Precio,DepartamentoId,Cantidad) values('Coca Cola','50','1','100');
+go
