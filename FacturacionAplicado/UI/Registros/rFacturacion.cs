@@ -26,8 +26,6 @@ namespace FacturacionAplicado.UI.Registros
             //todo: descomentar el codigo en el constructor de la facturacion cuando la ventana login este programada.
             // UsuariotextBox.Text = BLL.FacturacionBLL.returnUsuario().Nombre;
         }
-
-
         //listo esto es el boton nuevo
         private void NUevobutton_Click(object sender, EventArgs e)
         {
@@ -609,6 +607,4 @@ namespace FacturacionAplicado.UI.Registros
             }
         }
     }
-
-
 }
