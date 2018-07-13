@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-
+using FacturacionAplicado.UI.Consultas;
 
 namespace FacturacionAplicado.UI.Menu
 {
@@ -45,9 +45,55 @@ namespace FacturacionAplicado.UI.Menu
             abrir.Show();
         }
 
-        private void MenuMasVentas_Load(object sender, EventArgs e)
+        private void crearUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            rUsuario abrir = new rUsuario();
+            abrir.MdiParent = this;
+            abrir.Show();
+        }
 
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rProducto abrir = new rProducto();
+            abrir.MdiParent = this;
+            abrir.Show();
+                
+        }
+
+        private void facturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CFactura abrir = new CFactura();
+            abrir.MdiParent = this;
+            abrir.Show();
+        }
+
+        private void productosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CProducto abrir = new CProducto();
+            abrir.MdiParent = this;
+            abrir.Show();
+
+        }
+
+        private void departamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CDepartamento abrir = new CDepartamento();
+            abrir.MdiParent = this;
+            abrir.Show();
+        }
+
+        private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cusuario abrir = new Cusuario();
+            abrir.MdiParent = this;
+            abrir.Show();
+        }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cClientes abrir = new cClientes();
+            abrir.MdiParent = this;
+            abrir.Show();
         }
     }
 }

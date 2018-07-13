@@ -1,4 +1,6 @@
-﻿create database facturaciondb;
+﻿/*/MySql Script/*/
+
+create database facturaciondb;
 go
 use facturaciondb;
 go
@@ -8,7 +10,7 @@ Create Table Usuarios
 	Nombre varchar(30),
 	Clave varchar(8),
 	NombreUsuario varchar(8),
-	Fecha datetime,
+	Fecha varchar(30),
 	Comentario varchar(100)
 
 

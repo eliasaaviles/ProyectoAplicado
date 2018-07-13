@@ -117,34 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="ProductoId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
+  <metadata name="TexterrorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>20, 13</value>
   </metadata>
-  <metadata name="Cantidad.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Precio.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Descripcion.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="FacturaId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ImporteDg.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="IDerrorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="DemaserrorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>147, 17</value>
-  </metadata>
-  <metadata name="ProductoerrorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>277, 17</value>
-  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAMAQAAAAAAAAAAAAAAAAAAAAA
+        AABaWlpYW1tb7FtbW/9bW1v/W1tb/1tbW/9bW1v/W1tb/1tbW/9bW1v/W1tb/1tbW/9bW1v/W1tb/1tb
+        W+tcXFxWW1tb7ltbW4daWlpEWlpaRFpaWkRaWlpEWlpaRFpaWkRaWlpEWlpaRFpaWkRaWlpEWlpaRFpa
+        WkRcXFyIW1tb7FtbW/9bW1s7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAW1tbO1tbW/9bW1v/W1tbOwAAAABaWlrZXFxcSFxcXGxbW1vsW1tb7FtbW+xbW1vsW1tb7Ftb
+        W+xaWlrZAAAAAFtbWztbW1v/W1tb/1tbWzsAAAAAWlpaVWFhYR1dXV0sWlpaXVpaWl1aWlpdWlpaXVpa
+        Wl1aWlpdWlpaVQAAAABbW1s7W1tb/1tbW/9bW1s7AAAAAFtbW+xaWlpPW1tbdltbW/9bW1v/W1tb/1tb
+        W/9bW1v/W1tb/1tbW+wAAAAAW1tbO1tbW/9bW1v/W1tbOwAAAABXV1dSWFhYHVtbWypcXFxZXFxcWVxc
+        XFlcXFxZXFxcWVxcXFlXV1dSAAAAAFtbWztbW1v/W1tb/1tbWzsAAAAAW1tb7FpaWk9bW1t2W1tb/1tb
+        W/9bW1v/W1tb/1tbW/9bW1v/W1tb7AAAAABbW1s7W1tb/1tbW/9bW1s7AAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAW1tbO1tbW/9bW1v/W1tbOwAAAABbW1uVW1tbu1tb
+        W7tbW1u7W1tbu1tbW7tbW1u7W1tbu1tbW7tbW1uRAAAAAFtbWztbW1v/W1tb/1tbWzsAAAAAW1tb2ltb
+        W/9bW1v/W1tb/1tbW/9bW1v/W1tb/1tbW/9bW1v/W1tb1gAAAABbW1s7W1tb/1tbW/9bW1s7AAAAAGJi
+        Yg1aWloiWlpaIlpaWiJaWloiWlpaIlpaWiJaWloiWlpaIlVVVQwAAAAAW1tbO1tbW/9bW1v/XFxcSFpa
+        WhFaWloRWlpaEVpaWhFaWloRWlpaEVpaWhFaWloRWlpaEVpaWhFaWloRWlpaEVxcXEhbW1v/W1tb/1tb
+        W/9bW1v/W1tb/1tbW/9bW1v/W1tb/1tbW/9bW1v/W1tb/1tbW/9bW1v/W1tb/1tbW/9bW1v/W1tb/1tb
+        W+5bW1v/W1tb/1tbW/9bW1v/W1tb/1tbW/9bW1v/W1tb/1tbW/9bW1v/W1tb/1tbW/9bW1v/W1tb/1tb
+        W+xaWlpYW1tb5ltbW/9bW1v/W1tb/1tbW/9bW1v/W1tb/1tbW/9bW1v/W1tb/1tbW/9bW1v/W1tb/1tb
+        W+VcXFxWgAEAAD/8AAB//gAAbAYAAH/+AABsBgAAf/4AAGwGAAB//gAAYAYAAGAGAAB//gAAf/4AAAAA
+        AAAAAAAAgAEAAA==
+</value>
+  </data>
 </root>

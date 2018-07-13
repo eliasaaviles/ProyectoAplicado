@@ -116,7 +116,7 @@ namespace FacturacionAplicado.BLL
                 Nombre = m.Field<string>("Nombre"),
                 Clave = m.Field<string>("Clave"),
                 NombreUsuario = m.Field<string>("NombreUsuario"),
-                Fecha = m.Field<DateTime>("Fecha"),
+                Fecha = m.Field<string>("Fecha"),
                 Comentario = m.Field<string>("Comentario")
             }).ToList();
 
@@ -154,7 +154,7 @@ namespace FacturacionAplicado.BLL
                 Nombre = m.Field<string>("Nombre"),
                 Clave = m.Field<string>("Clave"),
                 NombreUsuario = m.Field<string>("NombreUsuario"),
-                Fecha = m.Field<DateTime>("Fecha"),
+                Fecha = m.Field<string>("Fecha"),
                 Comentario = m.Field<string>("Comentario")
             }).ToList();
 

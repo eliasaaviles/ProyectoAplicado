@@ -41,6 +41,7 @@ namespace FacturacionAplicado.Entidades
             this.UsuarioId = 0;
             this.ClienteId = 0;
             this.Fecha = string.Empty;
+            
             this.Descripcion = string.Empty;
             this.FormaDePago = string.Empty;
             this.Devuelta = 0;

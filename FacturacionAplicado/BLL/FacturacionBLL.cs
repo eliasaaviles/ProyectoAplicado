@@ -181,7 +181,8 @@ namespace FacturacionAplicado.BLL
             {
 
 
-                dater.UpdateCommand = new MySqlCommand("update Facturas set Monto= '" + depart.Monto + "',UsuarioId= '" + depart.UsuarioId + "', ClienteId ='" + depart.ClienteId + "', Fecha='" + depart.Fecha + "', Descripcion = '" + depart.Descripcion + "', FormaDePago='" + depart.FormaDePago + "', Devuelta='" + depart.Devuelta + "',  EfectivoRecibido='" + depart.EfectivoRecibido + "' where FacturaId = '" + depart.FacturaId + "'",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+                dater.UpdateCommand = new MySqlCommand("update Facturas set Monto= '" + depart.Monto + "',UsuarioId= '" +
+                    depart.UsuarioId + "', ClienteId ='" + depart.ClienteId + "', Fecha='" + depart.Fecha + "', Descripcion = '" + depart.Descripcion + "', FormaDePago='" + depart.FormaDePago + "', Devuelta='" + depart.Devuelta + "',  EfectivoRecibido='" + depart.EfectivoRecibido + "' where FacturaId = '" + depart.FacturaId + "'",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
                 dater.UpdateCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.UpdateCommand.ExecuteNonQuery();

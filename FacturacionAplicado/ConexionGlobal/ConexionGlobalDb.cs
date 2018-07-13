@@ -17,7 +17,7 @@ namespace FacturacionAplicado.ConexionGlobal
             try
             {
                 db = new MySqlConnection("server = db4free.net; database = facturaciondb; user id = facturacionucne; password = root12345");
-               // db = new MySqlConnection("server=localhost; database = FacturacionDb; user id=root ;password=root");
+                //db = new MySqlConnection("server=localhost; database = FacturacionDb; user id=root ;password=root");
                 db.Open();
                 GC.KeepAlive(db);
 
