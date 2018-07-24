@@ -8,7 +8,7 @@ namespace FacturacionAplicado.Entidades
 {
     public class Factura
     {
-        public int FacturaId { get; set; }
+        public int id { get; set; }
         public decimal Monto { get; set; }
         public int UsuarioId { get; set; }
         public int ClienteId { get; set; }
@@ -22,7 +22,7 @@ namespace FacturacionAplicado.Entidades
 
         public Factura(int idFactura, decimal monto, int usuarioId, int clienteId, string fecha, string descripcion, string formaDePago, decimal devuelta, decimal efectivoRecibido, List<FacturaDetalle> billDetalle)
         {
-            this.FacturaId = idFactura;
+            this.id = idFactura;
             this.Monto = monto;
             this.UsuarioId = usuarioId;
             this.ClienteId = clienteId;
@@ -36,7 +36,7 @@ namespace FacturacionAplicado.Entidades
 
         public Factura()
         {
-            this.FacturaId = 0;
+            this.id = 0;
             this.Monto = 0;
             this.UsuarioId = 0;
             this.ClienteId = 0;

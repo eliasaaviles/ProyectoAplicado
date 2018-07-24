@@ -8,18 +8,18 @@ namespace FacturacionAplicado.Entidades
 {
     public class Departamento
     {
-        public int DepartamentoId { get; set; }
+        public int id { get; set; }
         public string Nombre { get; set; }
 
         public Departamento(int idDepartamento, string nombre)
         {
-            this.DepartamentoId = idDepartamento;
+            this.id = idDepartamento;
             this.Nombre = nombre;
         }
 
         public Departamento()
         {
-            this.DepartamentoId = 0;
+            this.id = 0;
             this.Nombre = string.Empty;
         }
     }

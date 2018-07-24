@@ -8,7 +8,7 @@ namespace FacturacionAplicado.Entidades
 {
     public class Cliente
     {
-        public int IdCliente { get; set; }
+        public int id { get; set; }
         public string Nombre { get; set; }
         public string Direccion { get; set; }
         public string Cedula { get; set; }
@@ -16,7 +16,7 @@ namespace FacturacionAplicado.Entidades
 
         public Cliente(int idCliente, string nombre, string direccion, string cedula, string telefono)
         {
-            this.IdCliente = idCliente;
+            this.id = idCliente;
             this.Nombre = nombre;
             this.Direccion = direccion;
             this.Cedula = cedula;
@@ -25,7 +25,7 @@ namespace FacturacionAplicado.Entidades
 
         public Cliente()
         {
-            this.IdCliente = 0;
+            this.id = 0;
             this.Nombre = string.Empty;
             this.Direccion = string.Empty;
             this.Cedula = string.Empty;

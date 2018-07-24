@@ -8,7 +8,7 @@ namespace FacturacionAplicado.Entidades
 {
    public  class Usuario
     {
-        public int IdUsuario { get; set; }
+        public int id { get; set; }
         public string Nombre { get; set; }
         public string Clave { get; set; }
         public string NombreUsuario { get; set; }
@@ -17,7 +17,7 @@ namespace FacturacionAplicado.Entidades
 
         public Usuario(int idUsuario, string nombre, string clave, string nombreUsuario, string fecha, string comentario)
         {
-            this.IdUsuario = idUsuario;
+            this.id = idUsuario;
             this.Nombre = nombre;
             this.Clave = clave;
             this.NombreUsuario = nombreUsuario;
@@ -27,7 +27,7 @@ namespace FacturacionAplicado.Entidades
 
         public Usuario()
         {
-            this.IdUsuario = 0;
+            this.id = 0;
             this.Nombre = string.Empty;
             this.Clave = string.Empty;
             this.NombreUsuario = string.Empty;

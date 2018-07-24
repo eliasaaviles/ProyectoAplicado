@@ -58,6 +58,7 @@
             this.IDcomboBox.Name = "IDcomboBox";
             this.IDcomboBox.Size = new System.Drawing.Size(89, 21);
             this.IDcomboBox.TabIndex = 58;
+            this.IDcomboBox.SelectedIndexChanged += new System.EventHandler(this.IDcomboBox_SelectedIndexChanged);
             // 
             // label8
             // 

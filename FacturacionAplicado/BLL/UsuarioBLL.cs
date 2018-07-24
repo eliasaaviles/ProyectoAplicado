@@ -18,7 +18,7 @@ namespace FacturacionAplicado.BLL
 
             DataTable dt = new DataTable();
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from usuarios",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Usuarios",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -44,7 +44,7 @@ namespace FacturacionAplicado.BLL
             try
             {
 
-                dater.DeleteCommand = new MySqlCommand(" delete from usuarios where IdUsuario=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+                dater.DeleteCommand = new MySqlCommand(" delete from usuarios where id=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
                 dater.DeleteCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.DeleteCommand.ExecuteNonQuery();
@@ -112,7 +112,7 @@ namespace FacturacionAplicado.BLL
 
             List<Usuario> listName = dt.AsEnumerable().Select(m => new Usuario()
             {
-                IdUsuario = m.Field<int>("IdUsuario"),
+                id = m.Field<int>("id"),
                 Nombre = m.Field<string>("Nombre"),
                 Clave = m.Field<string>("Clave"),
                 NombreUsuario = m.Field<string>("NombreUsuario"),
@@ -130,7 +130,7 @@ namespace FacturacionAplicado.BLL
             DataTable dt = new DataTable();
 
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Usuarios where IdUsuario=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Usuarios where id=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -150,7 +150,7 @@ namespace FacturacionAplicado.BLL
 
             List<Usuario> listName = dt.AsEnumerable().Select(m => new Usuario()
             {
-                IdUsuario = m.Field<int>("IdUsuario"),
+                id = m.Field<int>("id"),
                 Nombre = m.Field<string>("Nombre"),
                 Clave = m.Field<string>("Clave"),
                 NombreUsuario = m.Field<string>("NombreUsuario"),
@@ -172,7 +172,7 @@ namespace FacturacionAplicado.BLL
             {
 
 
-                dater.UpdateCommand = new MySqlCommand("update Usuarios set IdUsuario= '" + user.IdUsuario + "', Nombre = '" + user.Nombre + "', Clave = '" + user.Clave + "', NombreUsuario = '" + user.NombreUsuario + "', Fecha= '" + user.Fecha + "',Comentario='" + user.Comentario + "'where Idproducto = '" + user.IdUsuario + "'",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+                dater.UpdateCommand = new MySqlCommand("update Usuarios set id= '" + user.id + "', Nombre = '" + user.Nombre + "', Clave = '" + user.Clave + "', NombreUsuario = '" + user.NombreUsuario + "', Fecha= '" + user.Fecha + "',Comentario='" + user.Comentario + "'where id = '" + user.id + "'",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
                 dater.UpdateCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.UpdateCommand.ExecuteNonQuery();

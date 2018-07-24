@@ -19,7 +19,7 @@ namespace FacturacionAplicado.BLL
 
             DataTable dt = new DataTable();
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Departamentoes",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Departamento",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -45,7 +45,7 @@ namespace FacturacionAplicado.BLL
             try
             {
 
-                dater.DeleteCommand = new MySqlCommand(" delete from Departamentoes where DepartamentoId=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+                dater.DeleteCommand = new MySqlCommand(" delete from Departamento where id=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
                 dater.DeleteCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.DeleteCommand.ExecuteNonQuery();
@@ -69,7 +69,7 @@ namespace FacturacionAplicado.BLL
             try
             {
 
-                dater.InsertCommand = new MySqlCommand("insert into Departamentoes (Nombre) values ('" + depart.Nombre + "')",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+                dater.InsertCommand = new MySqlCommand("insert into Departamento (Nombre) values ('" + depart.Nombre + "')",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
                 dater.InsertCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.InsertCommand.ExecuteNonQuery();
@@ -93,7 +93,7 @@ namespace FacturacionAplicado.BLL
             DataTable dt = new DataTable();
 
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Departamentoes",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Departamento",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -113,7 +113,7 @@ namespace FacturacionAplicado.BLL
 
             List<Departamento> listName = dt.AsEnumerable().Select(m => new Departamento()
             {
-                DepartamentoId = m.Field<int>("DepartamentoId"),
+                id = m.Field<int>("id"),
                 Nombre = m.Field<string>("Nombre"),
 
             }).ToList();
@@ -130,7 +130,7 @@ namespace FacturacionAplicado.BLL
             {
 
 
-                dater.UpdateCommand = new MySqlCommand("update Clientes set Nombre= '" + depart.Nombre + "' where IdCliente = '" + depart.DepartamentoId + "'",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+                dater.UpdateCommand = new MySqlCommand("update Cliente set Nombre= '" + depart.Nombre + "' where id = '" + depart.id + "'",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
                 dater.UpdateCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.UpdateCommand.ExecuteNonQuery();

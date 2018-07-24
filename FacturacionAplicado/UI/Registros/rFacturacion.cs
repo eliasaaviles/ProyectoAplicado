@@ -80,15 +80,15 @@ namespace FacturacionAplicado.UI.Registros
 
             foreach (var item in BLL.ProductoBLL.Buscar())
             {
-                ProductoIdcomboBox.Items.Add(item.Idproducto);
+                ProductoIdcomboBox.Items.Add(item.id);
             }
             foreach (var item in BLL.FacturacionBLL.Buscar())
             {
-                IDcomboBox.Items.Add(item.FacturaId);
+                IDcomboBox.Items.Add(item.id);
             }
             foreach (var item in BLL.ClienteBLL.Buscar())
             {
-                CLienteIDcomboBox.Items.Add(item.IdCliente);
+                CLienteIDcomboBox.Items.Add(item.id);
             }
 
 
@@ -175,7 +175,7 @@ namespace FacturacionAplicado.UI.Registros
             LimpiarProvider();
             foreach (var item in BLL.ClienteBLL.Buscar())
             {
-                if (item.IdCliente == Convert.ToInt32(CLienteIDcomboBox.Text))
+                if (item.id == Convert.ToInt32(CLienteIDcomboBox.Text))
                 {
                     NombreCLientetextBox.Text = item.Nombre;
                 }
@@ -197,7 +197,7 @@ namespace FacturacionAplicado.UI.Registros
                     MontotextBox.Text = Monto.ToString();
                     Arreglar = true;
                     FacturaDetalle factura = billes.BillDetalle.ElementAt(RowSelected);
-                    Detalle.Add(new FacturaDetalle(factura.Id, factura.FacturaId, factura.ProductoId, factura.Cantidad, factura.Precio, factura.Descripcion, factura.Importe));
+                    Detalle.Add(new FacturaDetalle(factura.id, factura.FacturaId, factura.ProductoId, factura.Cantidad, factura.Precio, factura.Descripcion, factura.Importe));
                     billes.BillDetalle.RemoveAt(RowSelected);
                     FacturadataGridView.DataSource = null;
                     FacturadataGridView.DataSource = billes.BillDetalle;
@@ -253,7 +253,7 @@ namespace FacturacionAplicado.UI.Registros
             int cantidad = 0;
             foreach (var item in BLL.ProductoBLL.Buscar())
             {
-                if (item.Idproducto == Convert.ToInt32(ProductoIdcomboBox.Text))
+                if (item.id == Convert.ToInt32(ProductoIdcomboBox.Text))
                 {
                     cantidad = item.Cantidad;
                 }
@@ -269,7 +269,7 @@ namespace FacturacionAplicado.UI.Registros
             }
             if (IDcomboBox.Text == string.Empty)
             {
-                billes.BillDetalle.Add(new FacturaDetalle(0, billes.FacturaId, Convert.ToInt32(ProductoIdcomboBox.Text), Convert.ToInt32(CantidadnumericUpDown.Value), Convert.ToDecimal(PreciotextBox.Text), DescripcionProductotextBox.Text, Convert.ToDecimal(ImportetextBox.Text)));
+                billes.BillDetalle.Add(new FacturaDetalle(0, billes.id, Convert.ToInt32(ProductoIdcomboBox.Text), Convert.ToInt32(CantidadnumericUpDown.Value), Convert.ToDecimal(PreciotextBox.Text), DescripcionProductotextBox.Text, Convert.ToDecimal(ImportetextBox.Text)));
 
             }
             else
@@ -350,7 +350,7 @@ namespace FacturacionAplicado.UI.Registros
             }
             foreach (var item in billes.BillDetalle)
             {
-                if (item.Id == ID)
+                if (item.id == ID)
                 {
                     DescripcionProductotextBox.Text = item.Descripcion;
                     PreciotextBox.Text = item.Precio.ToString();
@@ -375,7 +375,7 @@ namespace FacturacionAplicado.UI.Registros
 
             foreach (var item in BLL.ProductoBLL.Buscar())
             {
-                if (item.Idproducto == id)
+                if (item.id == id)
                 {
                     DescripcionProductotextBox.Text = item.Descripcion;
                     PreciotextBox.Text = item.Precio.ToString();
@@ -388,16 +388,16 @@ namespace FacturacionAplicado.UI.Registros
             Factura bill = new Factura();
             if (IDcomboBox.Text == string.Empty)
             {
-                bill.FacturaId = 0;
+                bill.id = 0;
             }
             else
             {
-                bill.FacturaId = Convert.ToInt32(IDcomboBox.Text);
+                bill.id = Convert.ToInt32(IDcomboBox.Text);
             }
 
 
             bill.ClienteId = Convert.ToInt32(CLienteIDcomboBox.Text);
-            bill.UsuarioId = BLL.FacturacionBLL.returnUsuario().IdUsuario;
+            bill.UsuarioId = BLL.FacturacionBLL.returnUsuario().id;
             bill.Fecha = FechadateTimePicker.Value.ToString("yyyy-MM-dd");
             bill.FormaDePago = FormaDePagocomboBox.Text;
             bill.Descripcion = DescripciponFacturatextBox.Text;
@@ -480,7 +480,7 @@ namespace FacturacionAplicado.UI.Registros
                         {
                             foreach (var item in Detalle)
                             {
-                                BLL.FacturaDetalleBLL.Eliminar(item.Id.ToString());
+                                BLL.FacturaDetalleBLL.Eliminar(item.id.ToString());
 
                             }
 
@@ -497,7 +497,7 @@ namespace FacturacionAplicado.UI.Registros
 
                         if (result == DialogResult.Yes)
                         {
-                            int id = LlenaClase().FacturaId;
+                            int id = LlenaClase().id;
                             //todo:  para Albert: Hacer reportes
                             //  ReporteFacturasCliente abrir = new ReporteFacturasCliente(BLL.FacturacionBLL.GetList(x => x.FacturaId == id));
                             //abrir.Show();
@@ -530,9 +530,9 @@ namespace FacturacionAplicado.UI.Registros
 
                 foreach (var item in BLL.FacturacionBLL.Buscar())
                 {
-                    if (item.FacturaId == Convert.ToInt32(IDcomboBox.Text))
+                    if (item.id == Convert.ToInt32(IDcomboBox.Text))
                     {
-                        BLL.FacturacionBLL.ArreglarProducto(item.FacturaId.ToString());
+                        BLL.FacturacionBLL.ArreglarProducto(item.id.ToString());
                     }
 
                 }
@@ -565,7 +565,7 @@ namespace FacturacionAplicado.UI.Registros
                 billes.Descripcion = item.Descripcion;
                 billes.Devuelta = item.Devuelta;
                 billes.EfectivoRecibido = item.EfectivoRecibido;
-                billes.FacturaId = item.FacturaId;
+                billes.id = item.id;
                 billes.Fecha = item.Fecha;
                 billes.FormaDePago = item.FormaDePago;
                 billes.Monto = item.Monto;
@@ -605,7 +605,7 @@ namespace FacturacionAplicado.UI.Registros
             DetallecomboBox.Items.Clear();
             foreach (var item in billes.BillDetalle)
             {
-                DetallecomboBox.Items.Add(item.Id);
+                DetallecomboBox.Items.Add(item.id);
             }
         }
     }

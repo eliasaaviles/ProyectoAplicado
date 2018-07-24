@@ -19,7 +19,7 @@ namespace FacturacionAplicado.BLL
 
             DataTable dt = new DataTable();
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Productoes",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Producto",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -45,7 +45,7 @@ namespace FacturacionAplicado.BLL
             try
             {
 
-                dater.DeleteCommand = new MySqlCommand(" delete from Productoes where Idproducto=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+                dater.DeleteCommand = new MySqlCommand(" delete from Producto where id=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
                 dater.DeleteCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.DeleteCommand.ExecuteNonQuery();
@@ -69,7 +69,7 @@ namespace FacturacionAplicado.BLL
             try
             {
 
-                dater.InsertCommand = new MySqlCommand("insert into Productoes (Idproducto,Descripcion,Precio,DepartamentoId,Cantidad) values ('" + productos.Idproducto + "','" + productos.Descripcion + "','" + productos.Precio + "','" + productos.DepartamentoId + "','" + productos.Cantidad + "')",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+                dater.InsertCommand = new MySqlCommand("insert into Producto (id,Descripcion,Precio,DepartamentoId,Cantidad) values ('" + productos.id + "','" + productos.Descripcion + "','" + productos.Precio + "','" + productos.DepartamentoId + "','" + productos.Cantidad + "')",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
                 dater.InsertCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.InsertCommand.ExecuteNonQuery();
@@ -93,7 +93,7 @@ namespace FacturacionAplicado.BLL
             DataTable dt = new DataTable();
 
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Productoes",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Producto",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -113,7 +113,7 @@ namespace FacturacionAplicado.BLL
 
             List<Producto> listName = dt.AsEnumerable().Select(m => new Producto()
             {
-                Idproducto = m.Field<int>("Idproducto"),
+                id = m.Field<int>("id"),
                 Descripcion = m.Field<string>("Descripcion"),
                 Precio = m.Field<decimal>("Precio"),
                 DepartamentoId = m.Field<int>("DepartamentoId"),
@@ -130,7 +130,7 @@ namespace FacturacionAplicado.BLL
             DataTable dt = new DataTable();
 
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Productoes where Idproducto=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Producto where id=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -150,7 +150,7 @@ namespace FacturacionAplicado.BLL
 
             List<Producto> listName = dt.AsEnumerable().Select(m => new Producto()
             {
-                Idproducto = m.Field<int>("Idproducto"),
+                id = m.Field<int>("id"),
                 Descripcion = m.Field<string>("Descripcion"),
                 Precio = m.Field<decimal>("Precio"),
                 DepartamentoId = m.Field<int>("DepartamentoId"),
@@ -171,7 +171,7 @@ namespace FacturacionAplicado.BLL
             {
 
 
-                dater.UpdateCommand = new MySqlCommand("update Productoes set Idproducto= '" + producto.Idproducto + "', Descripcion = '" + producto.Descripcion + "', Precio = '" + producto.Precio + "', DepartamentoId = '" + producto.DepartamentoId + "', Cantidad= '" + producto.Cantidad + "'where Idproducto = '" + producto.Idproducto + "'",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+                dater.UpdateCommand = new MySqlCommand("update Producto set id= '" + producto.id + "', Descripcion = '" + producto.Descripcion + "', Precio = '" + producto.Precio + "', DepartamentoId = '" + producto.DepartamentoId + "', Cantidad= '" + producto.Cantidad + "'where id = '" + producto.id + "'",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
                 dater.UpdateCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.UpdateCommand.ExecuteNonQuery();

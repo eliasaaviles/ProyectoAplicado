@@ -10,7 +10,7 @@ namespace FacturacionAplicado.Entidades
 {
    public  class FacturaDetalle
     {
-        public int Id { get; set; }
+        public int id { get; set; }
         public int FacturaId { get; set; }
         public int ProductoId { get; set; }
         public int Cantidad { get; set; }
@@ -21,7 +21,7 @@ namespace FacturacionAplicado.Entidades
 
         public FacturaDetalle(int id, int facturaId, int productoId, int cantidad, decimal precio, string descripcion, decimal importe)
         {
-            this.Id = id;
+            this.id = id;
             this.FacturaId = facturaId;
             this.ProductoId = productoId;
             this.Cantidad = cantidad;
@@ -33,7 +33,7 @@ namespace FacturacionAplicado.Entidades
         public FacturaDetalle()
         {
 
-            this.Id = 0;
+            this.id = 0;
             this.FacturaId = 0;
             this.ProductoId = 0;
             this.Cantidad = 0;

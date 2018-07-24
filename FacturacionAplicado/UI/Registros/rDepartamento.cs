@@ -29,7 +29,7 @@ namespace FacturacionAplicado.UI.Registros
             IDcomboBox.Items.Clear();
             foreach (var item in BLL.DepartamentoBLL.Buscar())
             {
-                IDcomboBox.Items.Add(item.DepartamentoId);
+                IDcomboBox.Items.Add(item.id);
             }
 
 
@@ -113,11 +113,11 @@ namespace FacturacionAplicado.UI.Registros
             Departamento depo = new Departamento();
             if (IDcomboBox.Text == string.Empty)
             {
-                depo.DepartamentoId = 0;
+                depo.id = 0;
             }
             else
             {
-                depo.DepartamentoId = Convert.ToInt32(IDcomboBox.Text);
+                depo.id = Convert.ToInt32(IDcomboBox.Text);
             }
 
 
@@ -155,7 +155,7 @@ namespace FacturacionAplicado.UI.Registros
             var depo = Convert.ToInt32(IDcomboBox.Text);
             foreach (var item in BLL.DepartamentoBLL.Buscar())
             {
-                if(item.DepartamentoId==depo)
+                if(item.id==depo)
                 {
                     NombretextBox.Text =item.Nombre ;
                 }

@@ -38,7 +38,7 @@ namespace FacturacionAplicado.UI.Consultas
 
                     }
                     id = int.Parse(CriteriotextBox.Text);
-                    filtrar = t => t.IdCliente == id;
+                    filtrar = t => t.id == id;
                     break;
                 //Nombre
                 case 1:

@@ -40,7 +40,7 @@ namespace FacturacionAplicado.UI.Consultas
 
                     }
                     id = int.Parse(CriteriotextBox.Text);
-                    filtrar = t => t.DepartamentoId == id;
+                    filtrar = t => t.id == id;
                     break;
                 //Descripcion
                 case 1:

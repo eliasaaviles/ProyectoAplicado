@@ -24,7 +24,7 @@ namespace FacturacionAplicado.UI.Registros
             IDcomboBox.Items.Clear();
             foreach (var item in BLL.ClienteBLL.Buscar())
             {
-                IDcomboBox.Items.Add(item.IdCliente);
+                IDcomboBox.Items.Add(item.id);
             }
 
 
@@ -93,11 +93,11 @@ namespace FacturacionAplicado.UI.Registros
             Cliente customer = new Cliente();
             if (IDcomboBox.Text == string.Empty)
             {
-                customer.IdCliente = 0;
+                customer.id = 0;
             }
             else
             {
-                customer.IdCliente = Convert.ToInt32(IDcomboBox.Text);
+                customer.id = Convert.ToInt32(IDcomboBox.Text);
 
             }
             customer.Nombre = NombretextBox.Text;
@@ -174,7 +174,7 @@ namespace FacturacionAplicado.UI.Registros
             int id = Convert.ToInt32(IDcomboBox.Text);
             foreach (var item in BLL.ClienteBLL.Buscar())
             {
-                if (id == item.IdCliente)
+                if (id == item.id)
                 {
                     NombretextBox.Text = item.Nombre;
                     DirecciontextBox.Text = item.Direccion;

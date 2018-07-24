@@ -22,7 +22,7 @@ namespace FacturacionAplicado.BLL
 
             DataTable dt = new DataTable();
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Facturas",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Factura",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -48,7 +48,7 @@ namespace FacturacionAplicado.BLL
             try
             {
 
-                dater.DeleteCommand = new MySqlCommand(" delete from Facturas where FacturaId=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+                dater.DeleteCommand = new MySqlCommand(" delete from Facturas where id=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
                 dater.DeleteCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.DeleteCommand.ExecuteNonQuery();
@@ -71,7 +71,7 @@ namespace FacturacionAplicado.BLL
             try
             {
 
-                dater.InsertCommand = new MySqlCommand("insert into Facturas (Monto,UsuarioId,ClienteId,Fecha,Descripcion,FormaDePago,Devuelta,EfectivoRecibido) values" +
+                dater.InsertCommand = new MySqlCommand("insert into Factura (Monto,UsuarioId,ClienteId,Fecha,Descripcion,FormaDePago,Devuelta,EfectivoRecibido) values" +
                     " ('" + factura.Monto + "','" + factura.UsuarioId + "','" + factura.ClienteId + "','" + factura.Fecha + "','" + factura.Descripcion + "','" + factura.FormaDePago + "','" + factura.Devuelta + "','" + factura.EfectivoRecibido + "')",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
                 dater.InsertCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
@@ -95,7 +95,7 @@ namespace FacturacionAplicado.BLL
             DataTable dt = new DataTable();
 
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Facturas",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Factura",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -115,7 +115,7 @@ namespace FacturacionAplicado.BLL
 
             List<Factura> listName = dt.AsEnumerable().Select(m => new Factura()
             {
-                FacturaId = m.Field<int>("FacturaId"),
+                id = m.Field<int>("id"),
                 Monto = m.Field<decimal>("Monto"),
                 UsuarioId = m.Field<int>("UsuarioId"),
                 ClienteId = m.Field<int>("ClienteId"),
@@ -137,7 +137,7 @@ namespace FacturacionAplicado.BLL
             DataTable dt = new DataTable();
 
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Facturas where FacturaId=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Factura where id=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -157,7 +157,7 @@ namespace FacturacionAplicado.BLL
 
             List<Factura> listName = dt.AsEnumerable().Select(m => new Factura()
             {
-                FacturaId = m.Field<int>("FacturaId"),
+                id = m.Field<int>("id"),
                 Monto = m.Field<decimal>("Monto"),
                 UsuarioId = m.Field<int>("UsuarioId"),
                 ClienteId = m.Field<int>("ClienteId"),
@@ -181,8 +181,8 @@ namespace FacturacionAplicado.BLL
             {
 
 
-                dater.UpdateCommand = new MySqlCommand("update Facturas set Monto= '" + depart.Monto + "',UsuarioId= '" +
-                    depart.UsuarioId + "', ClienteId ='" + depart.ClienteId + "', Fecha='" + depart.Fecha + "', Descripcion = '" + depart.Descripcion + "', FormaDePago='" + depart.FormaDePago + "', Devuelta='" + depart.Devuelta + "',  EfectivoRecibido='" + depart.EfectivoRecibido + "' where FacturaId = '" + depart.FacturaId + "'",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+                dater.UpdateCommand = new MySqlCommand("update Factura set Monto= '" + depart.Monto + "',UsuarioId= '" +
+                    depart.UsuarioId + "', ClienteId ='" + depart.ClienteId + "', Fecha='" + depart.Fecha + "', Descripcion = '" + depart.Descripcion + "', FormaDePago='" + depart.FormaDePago + "', Devuelta='" + depart.Devuelta + "',  EfectivoRecibido='" + depart.EfectivoRecibido + "' where id = '" + depart.id + "'",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
                 dater.UpdateCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.UpdateCommand.ExecuteNonQuery();
@@ -254,12 +254,12 @@ namespace FacturacionAplicado.BLL
                 Producto producto = new Producto();
                 foreach (var items in ProductoBLL.Buscar())
                 {
-                    if (items.Idproducto == item.ProductoId)
+                    if (items.id == item.ProductoId)
                     {
                         producto.Cantidad = items.Cantidad;
                         producto.DepartamentoId = items.DepartamentoId;
                         producto.Descripcion = items.Descripcion;
-                        producto.Idproducto = items.Idproducto;
+                        producto.id = items.id;
                         producto.Precio = items.Precio;
                         producto.Cantidad -= item.Cantidad;
 
@@ -281,7 +281,7 @@ namespace FacturacionAplicado.BLL
 
             foreach (var items in ProductoBLL.Buscar())
             {
-                if (items.Idproducto == bill.ProductoId)
+                if (items.id == bill.ProductoId)
                 {
 
                     items.Cantidad -= bill.Cantidad;
@@ -313,12 +313,12 @@ namespace FacturacionAplicado.BLL
                 Producto producto = new Producto();
                 foreach (var items in ProductoBLL.Buscar())
                 {
-                    if (items.Idproducto == item.ProductoId)
+                    if (items.id == item.ProductoId)
                     {
                         producto.Cantidad = items.Cantidad;
                         producto.DepartamentoId = items.DepartamentoId;
                         producto.Descripcion = items.Descripcion;
-                        producto.Idproducto = items.Idproducto;
+                        producto.id = items.id;
                         producto.Precio = items.Precio;
                         producto.Cantidad += item.Cantidad;
                         ProductoBLL.Modificar(producto);
@@ -334,7 +334,7 @@ namespace FacturacionAplicado.BLL
 
             foreach (var items in ProductoBLL.Buscar())
             {
-                if (items.Idproducto == bill.ProductoId)
+                if (items.id == bill.ProductoId)
                 {
 
                     items.Cantidad += bill.Cantidad;
@@ -354,12 +354,12 @@ namespace FacturacionAplicado.BLL
                 Producto producto = new Producto();
                 foreach (var items in ProductoBLL.Buscar())
                 {
-                    if (items.Idproducto == item.ProductoId)
+                    if (items.id == item.ProductoId)
                     {
                         producto.Cantidad = items.Cantidad;
                         producto.DepartamentoId = items.DepartamentoId;
                         producto.Descripcion = items.Descripcion;
-                        producto.Idproducto = items.Idproducto;
+                        producto.id = items.id;
                         producto.Precio = items.Precio;
                         producto.Cantidad += item.Cantidad;
                         BLL.ProductoBLL.Modificar(producto);
@@ -376,7 +376,7 @@ namespace FacturacionAplicado.BLL
         {
             foreach (var item in list)
             {
-                if (item.Id == factura.Id)
+                if (item.id == factura.id)
                 {
                     item.Cantidad = factura.Cantidad;
                 }
@@ -392,7 +392,7 @@ namespace FacturacionAplicado.BLL
 
             foreach (var item in list)
             {
-                if (item.Id == id)
+                if (item.id == id)
                 {
                     item.Importe = item.Cantidad * item.Precio;
                     monto = item.Importe;
@@ -429,13 +429,13 @@ namespace FacturacionAplicado.BLL
             {
                 if (mayor == 0)
                 {
-                    mayor = item.FacturaId;
+                    mayor = item.id;
                 }
                 else
                 {
-                    if (mayor < item.FacturaId)
+                    if (mayor < item.id)
                     {
-                        mayor = item.FacturaId;
+                        mayor = item.id;
                     }
                 }
 
@@ -447,7 +447,7 @@ namespace FacturacionAplicado.BLL
         public static void NombreLogin(string nombre, int id)
         {
             user.Nombre = nombre;
-            user.IdUsuario = id;
+            user.id = id;
         }
         // esto retorna el nombre
         public static Usuario returnUsuario()

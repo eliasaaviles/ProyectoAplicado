@@ -19,7 +19,7 @@ namespace FacturacionAplicado.BLL
 
             DataTable dt = new DataTable();
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Clientes",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Cliente",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -45,7 +45,7 @@ namespace FacturacionAplicado.BLL
             try
             {
 
-                dater.DeleteCommand = new MySqlCommand(" delete from Clientes where IdCliente=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+                dater.DeleteCommand = new MySqlCommand(" delete from Cliente where id=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
                 dater.DeleteCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.DeleteCommand.ExecuteNonQuery();
@@ -69,7 +69,7 @@ namespace FacturacionAplicado.BLL
             try
             {
 
-                dater.InsertCommand = new MySqlCommand("insert into Clientes (Nombre,Direccion,Cedula,Telefono) values ('" + cliente.Nombre + "','" + cliente.Direccion + "','" + cliente.Cedula + "','" + cliente.Telefono + "')",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+                dater.InsertCommand = new MySqlCommand("insert into Cliente (Nombre,Direccion,Cedula,Telefono) values ('" + cliente.Nombre + "','" + cliente.Direccion + "','" + cliente.Cedula + "','" + cliente.Telefono + "')",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
                 dater.InsertCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.InsertCommand.ExecuteNonQuery();
@@ -93,7 +93,7 @@ namespace FacturacionAplicado.BLL
             DataTable dt = new DataTable();
 
 
-            MySqlDataAdapter con = new MySqlDataAdapter("select * from Clientes",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Cliente",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
             try
             {
 
@@ -113,7 +113,7 @@ namespace FacturacionAplicado.BLL
 
             List<Cliente> listName = dt.AsEnumerable().Select(m => new Cliente()
             {
-                IdCliente = m.Field<int>("IdCliente"),
+                id = m.Field<int>("id"),
                 Nombre = m.Field<string>("Nombre"),
                 Direccion = m.Field<string>("Direccion"),
                 Cedula = m.Field<string>("Cedula"),
@@ -133,7 +133,7 @@ namespace FacturacionAplicado.BLL
             {
 
 
-                dater.UpdateCommand = new MySqlCommand("update Clientes set Nombre= '" + cliente.Nombre + "', Direccion = '" + cliente.Direccion + "', Cedula = '" + cliente.Cedula + "', Telefono = '" + cliente.Telefono + "'where IdCliente = '" + cliente.IdCliente + "'",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+                dater.UpdateCommand = new MySqlCommand("update Cliente set Nombre= '" + cliente.Nombre + "', Direccion = '" + cliente.Direccion + "', Cedula = '" + cliente.Cedula + "', Telefono = '" + cliente.Telefono + "'where id = '" + cliente.id + "'",  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
                 dater.UpdateCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.UpdateCommand.ExecuteNonQuery();

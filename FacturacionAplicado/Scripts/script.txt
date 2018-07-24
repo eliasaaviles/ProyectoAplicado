@@ -4,9 +4,9 @@ create database facturaciondb;
 go
 use facturaciondb;
 go
-Create Table Usuarios
+Create Table Usuario
 (
-	IdUsuario int primary key auto_increment,
+	id int primary key auto_increment,
 	Nombre varchar(30),
 	Clave varchar(8),
 	NombreUsuario varchar(8),
@@ -19,9 +19,9 @@ go
 insert into Usuarios(Nombre,Clave,NombreUsuario,Fecha,Comentario) values('Albert Lopez','123456','root','2018/6/9','Developer');
 go
 go
-Create Table Productoes
+Create Table Producto
 (
-	Idproducto int primary key auto_increment,
+	id int primary key auto_increment,
 	Descripcion varchar(400),
 	Precio decimal,
 	DepartamentoId int,
@@ -29,16 +29,16 @@ Create Table Productoes
 
 );
 go
-create table Departamentoes
+create table Departamento
 (
-	DepartamentoId int primary key auto_increment,
+	id int primary key auto_increment,
 	Nombre varchar(50)
 
 );
 go
-create table Clientes 
+create table Cliente
 (
-	IdCliente int primary key auto_increment,
+	id int primary key auto_increment,
 	Nombre varchar(30),
 	Direccion varchar(100),
 	Cedula varchar(15),
@@ -46,9 +46,9 @@ create table Clientes
 
 );
 go
-create table Facturas
+create table Factura
 (
-	FacturaId int primary key auto_increment,
+	id int primary key auto_increment,
 	Monto decimal,
 	UsuarioId int,
 	ClienteId int,
@@ -59,9 +59,9 @@ create table Facturas
 	EfectivoRecibido decimal
 );
 go
-create table FacturaDetalles
+create table FacturaDetalle
 (
-	Id int primary key auto_increment,
+	id int primary key auto_increment,
 	FacturaId int,
 	ProductoId int,
 	Cantidad int,
