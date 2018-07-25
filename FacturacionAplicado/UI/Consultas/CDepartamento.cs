@@ -19,14 +19,15 @@ namespace FacturacionAplicado.UI.Consultas
             InitializeComponent();
         }
 
-        Expression<Func<Departamento, bool>> filtrar = x => true;
+
 
         private void Consultabutton_Click(object sender, EventArgs e)
         {
-            int id;
+            List<Departamento> lista = new List<Departamento>();
 
+            if (TipocomboBox.Text == string.Empty && CriteriotextBox.Text == string.Empty)
+                lista = BLL.DepartamentoBLL.Buscar();
 
-            
 
             switch (TipocomboBox.SelectedIndex)
             {
@@ -39,8 +40,7 @@ namespace FacturacionAplicado.UI.Consultas
                         return;
 
                     }
-                    id = int.Parse(CriteriotextBox.Text);
-                    filtrar = t => t.id == id;
+                    lista = BLL.DepartamentoBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text);
                     break;
                 //Descripcion
                 case 1:
@@ -50,16 +50,16 @@ namespace FacturacionAplicado.UI.Consultas
                         MessageBox.Show("Introduce un caracter");
                         return;
                     }
-                    filtrar = t => t.Nombre.Contains(CriteriotextBox.Text);
+                    lista = BLL.DepartamentoBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text);
                     break;
                 //listar todo
                 case 2:
-                    
-                    filtrar = t => true;
+
+                    lista = BLL.DepartamentoBLL.Buscar();
                     break;
             }
- 
-           // ConsultadataGridView.DataSource = BLL.DepartamentoBLL.GetList(filtrar);
+
+            ConsultadataGridView.DataSource = lista;
         }
         private bool SetError(int error)
         {

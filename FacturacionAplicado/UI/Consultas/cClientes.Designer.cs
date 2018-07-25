@@ -44,7 +44,6 @@
             // 
             // Consultabutton
             // 
-           
             this.Consultabutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Consultabutton.Location = new System.Drawing.Point(311, 6);
             this.Consultabutton.Name = "Consultabutton";
@@ -58,7 +57,7 @@
             // 
             this.TipocomboBox.FormattingEnabled = true;
             this.TipocomboBox.Items.AddRange(new object[] {
-            "ID",
+            "id",
             "Nombre",
             "Direccion",
             "Cedula",
@@ -105,7 +104,6 @@
             // 
             // ReporteButton
             // 
-     
             this.ReporteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ReporteButton.Location = new System.Drawing.Point(444, 6);
             this.ReporteButton.Name = "ReporteButton";

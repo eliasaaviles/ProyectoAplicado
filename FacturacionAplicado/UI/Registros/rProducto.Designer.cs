@@ -68,14 +68,14 @@
             // 
             this.CantidadnumericUpDown.Location = new System.Drawing.Point(77, 127);
             this.CantidadnumericUpDown.Name = "CantidadnumericUpDown";
-            this.CantidadnumericUpDown.Size = new System.Drawing.Size(57, 20);
+            this.CantidadnumericUpDown.Size = new System.Drawing.Size(91, 20);
             this.CantidadnumericUpDown.TabIndex = 24;
             // 
             // PrecionumericUpDown
             // 
             this.PrecionumericUpDown.Location = new System.Drawing.Point(77, 90);
             this.PrecionumericUpDown.Name = "PrecionumericUpDown";
-            this.PrecionumericUpDown.Size = new System.Drawing.Size(57, 20);
+            this.PrecionumericUpDown.Size = new System.Drawing.Size(91, 20);
             this.PrecionumericUpDown.TabIndex = 23;
             // 
             // DescripciontextBox
@@ -136,25 +136,23 @@
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(12, 205);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 38);
+            this.button1.Size = new System.Drawing.Size(93, 38);
             this.button1.TabIndex = 27;
             this.button1.Text = "Nuevo";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
-      
             // 
             // button2
             // 
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(141, 205);
+            this.button2.Location = new System.Drawing.Point(137, 205);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 38);
+            this.button2.Size = new System.Drawing.Size(93, 38);
             this.button2.TabIndex = 28;
             this.button2.Text = "Guardar";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
-     
             // 
             // button3
             // 
@@ -162,12 +160,11 @@
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(262, 205);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 38);
+            this.button3.Size = new System.Drawing.Size(93, 38);
             this.button3.TabIndex = 29;
             this.button3.Text = "Eliminar";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = true;
-         
             // 
             // pictureBox1
             // 
@@ -203,7 +200,6 @@
             this.MinimizeBox = false;
             this.Name = "rProducto";
             this.Text = "RegistroDepartamento";
-        
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrecionumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

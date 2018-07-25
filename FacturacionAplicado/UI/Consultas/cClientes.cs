@@ -23,8 +23,11 @@ namespace FacturacionAplicado.UI.Consultas
         {
             int id;
 
-
-            
+            List<Cliente> lista = new List<Cliente>();
+            if (TipocomboBox.Text == string.Empty && CriteriotextBox.Text == string.Empty)
+            {
+                lista = BLL.ClienteBLL.Buscar();
+            }
 
             switch (TipocomboBox.SelectedIndex)
             {
@@ -38,7 +41,7 @@ namespace FacturacionAplicado.UI.Consultas
 
                     }
                     id = int.Parse(CriteriotextBox.Text);
-                    filtrar = t => t.id == id;
+                    lista = BLL.ClienteBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text);
                     break;
                 //Nombre
                 case 1:
@@ -48,7 +51,7 @@ namespace FacturacionAplicado.UI.Consultas
                         MessageBox.Show("Introduce un caracter");
                         return;
                     }
-                    filtrar = t => t.Nombre.Contains(CriteriotextBox.Text);
+                    lista = BLL.ClienteBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text);
                     break;
 
                 //Direccion
@@ -59,7 +62,7 @@ namespace FacturacionAplicado.UI.Consultas
                         MessageBox.Show("Introduce un caracter");
                         return;
                     }
-                    filtrar = t => t.Direccion == CriteriotextBox.Text;
+                    lista = BLL.ClienteBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text);
                     break;
                 //Cedula
                 case 3:
@@ -70,7 +73,7 @@ namespace FacturacionAplicado.UI.Consultas
                         return;
 
                     }
-                    filtrar = t => t.Cedula ==CriteriotextBox.Text;
+                    lista = BLL.ClienteBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text);
                     break;
                 //Telefono
                 case 4:
@@ -81,24 +84,25 @@ namespace FacturacionAplicado.UI.Consultas
                         return;
 
                     }
-                    filtrar = t => t.Telefono == CriteriotextBox.Text;
+                    lista = BLL.ClienteBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text);
                     break;
                 //Listar Todo
                 case 5:
-                    
-                    filtrar = t => true;
+
+                    lista = BLL.ClienteBLL.Buscar();
                     break;
             }
 
 
-         //   ConsultadataGridView.DataSource = BLL.ClienteBLL.GetList(filtrar);
+            ConsultadataGridView.DataSource = lista;
         }
 
         private bool SetError(int error)
         {
             bool paso = false;
             int ejem = 0;
-            if (error == 1 && int.TryParse(CriteriotextBox.Text, out ejem) == false)
+            double ejemplo = 0;
+            if (error == 1 && double.TryParse(CriteriotextBox.Text, out ejemplo) == false)
             {
                 TexterrorProvider.SetError(CriteriotextBox, "Debe de introducir un numero");
                 paso = true;
@@ -119,7 +123,7 @@ namespace FacturacionAplicado.UI.Consultas
 
         private void ReporteButton_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void TipocomboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -135,6 +139,16 @@ namespace FacturacionAplicado.UI.Consultas
             {
                 CriteriotextBox.Enabled = true;
             }
+            if (TipocomboBox.SelectedIndex == 3)
+            {
+                CriteriotextBox.MaxLength = 11;
+            }
+            if (TipocomboBox.SelectedIndex == 4)
+            {
+                CriteriotextBox.MaxLength = 10;
+            }
+            else
+                CriteriotextBox.MaxLength = 200;
         }
     }
 }

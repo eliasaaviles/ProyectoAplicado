@@ -21,144 +21,94 @@ namespace FacturacionAplicado.UI.Consultas
         Expression<Func<Usuario, bool>> filtrar = x => true;
         private void Consultabutton_Click(object sender, EventArgs e)
         {
-            //int id;
+            List<Usuario> lista = new List<Usuario>();
 
-            if (TipocomboBox.Text == string.Empty && FechacheckBox.Checked == true)
+            if (TipocomboBox.Text == string.Empty && CriteriotextBox.Text == string.Empty)
             {
-                //filtrar = t => true && (t.Fecha.Day >= AHoradateTimePicker1.Value.Day) && (t.Fecha.Month >= AHoradateTimePicker1.Value.Month) && (t.Fecha.Year >= AHoradateTimePicker1.Value.Year) && (t.Fecha.Day <= FInaldateTimePicker2.Value.Day) && (t.Fecha.Month <= FInaldateTimePicker2.Value.Month) && (t.Fecha.Year <= FInaldateTimePicker2.Value.Year);
-            }
-            else
-            {
-                filtrar = t => true;
+                lista = BLL.UsuarioBLL.Buscar();
             }
 
 
 
-            //switch (TipocomboBox.SelectedIndex)
-            //{
+
+            switch (TipocomboBox.SelectedIndex)
+            {
                 //ID
-                //case 0:
+                case 0:
 
-                //    LimpiarError();
-                //    if (SetError(1))
-                //    {
-                //        MessageBox.Show("Introduce un numero");
-                //        return;
-                //    }
-                //    id = int.Parse(CriteriotextBox.Text);
-                //    if (FechacheckBox.Checked == true)
-                //    {
-                //        filtrar = t => t.IdUsuario == id && (t.Fecha.Day >= AHoradateTimePicker1.Value.Day) && (t.Fecha.Month >= AHoradateTimePicker1.Value.Month) && (t.Fecha.Year >= AHoradateTimePicker1.Value.Year) && (t.Fecha.Day <= FInaldateTimePicker2.Value.Day) && (t.Fecha.Month <= FInaldateTimePicker2.Value.Month) && (t.Fecha.Year <= FInaldateTimePicker2.Value.Year);
-                //    }
-                //    else
-                //    {
-                //        filtrar = t => t.IdUsuario == id;
-                //    }
+                    LimpiarError();
+                    if (SetError(1))
+                    {
+                        MessageBox.Show("Introduce un numero");
+                        return;
+                    }
+                    lista = BLL.UsuarioBLL.Getlist(TipocomboBox.Text, CriteriotextBox.Text);
 
-                //    break;
+                    break;
                 ////Nombre
-                //case 1:
-                //    LimpiarError();
-                //    if (SetError(2))
-                //    {
-                //        MessageBox.Show("Introduce un caracter");
-                //        return;
-                //    }
-                //    if (FechacheckBox.Checked == true)
-                //    {
-                //        filtrar = t => t.Nombre.Equals(CriteriotextBox.Text) && (t.Fecha.Day >= AHoradateTimePicker1.Value.Day) && (t.Fecha.Month >= AHoradateTimePicker1.Value.Month) && (t.Fecha.Year >= AHoradateTimePicker1.Value.Year) && (t.Fecha.Day <= FInaldateTimePicker2.Value.Day) && (t.Fecha.Month <= FInaldateTimePicker2.Value.Month) && (t.Fecha.Year <= FInaldateTimePicker2.Value.Year);
-
-                //    }
-                //    else
-                //    {
-                //        filtrar = t => t.Nombre.Equals(CriteriotextBox.Text);
-                //    }
-
-                //    break;
+                case 1:
+                    LimpiarError();
+                    if (SetError(2))
+                    {
+                        MessageBox.Show("Introduce un caracter");
+                        return;
+                    }
+                    lista = BLL.UsuarioBLL.Getlist(TipocomboBox.Text, CriteriotextBox.Text);
+                    break;
                 ////Lista todo
-                //case 2:
-                //    LimpiarError();
+                case 2:
+                    LimpiarError();
 
+                    lista = BLL.UsuarioBLL.Buscar();
 
-                //    if (FechacheckBox.Checked == true)
-                //    {
-                //        filtrar = t => true && (t.Fecha.Day >= AHoradateTimePicker1.Value.Day) && (t.Fecha.Month >= AHoradateTimePicker1.Value.Month) && (t.Fecha.Year >= AHoradateTimePicker1.Value.Year) && (t.Fecha.Day <= FInaldateTimePicker2.Value.Day) && (t.Fecha.Month <= FInaldateTimePicker2.Value.Month) && (t.Fecha.Year <= FInaldateTimePicker2.Value.Year);
-                //    }
-                //    else
-                //    {
-                //        filtrar = t => true;
-                //    }
-                //    //filtrar = t => (t.Fecha.Day >= AHoradateTimePicker1.Value.Day) && (t.Fecha.Month >= AHoradateTimePicker1.Value.Month) && (t.Fecha.Year >= AHoradateTimePicker1.Value.Year) &&(t.Fecha.Day <= FInaldateTimePicker2.Value.Day) && (t.Fecha.Month <= FInaldateTimePicker2.Value.Month) && (t.Fecha.Year <= FInaldateTimePicker2.Value.Year);
-                //    break;
+                    break;
                 ////Usuario
-                //case 3:
-                //    LimpiarError();
-                //    if (SetError(2))
-                //    {
-                //        MessageBox.Show("Introduce un Caracter");
-                //        return;
-                //    }
-                //    if (FechacheckBox.Checked == true)
-                //    {
-                //        filtrar = t => t.NombreUsuario.Equals(CriteriotextBox.Text) && (t.Fecha.Day >= AHoradateTimePicker1.Value.Day) && (t.Fecha.Month >= AHoradateTimePicker1.Value.Month) && (t.Fecha.Year >= AHoradateTimePicker1.Value.Year) && (t.Fecha.Day <= FInaldateTimePicker2.Value.Day) && (t.Fecha.Month <= FInaldateTimePicker2.Value.Month) && (t.Fecha.Year <= FInaldateTimePicker2.Value.Year);
-                //    }
-                //    else
-                //    {
-                //        filtrar = t => t.NombreUsuario.Equals(CriteriotextBox.Text);
-                //    }
-
-                //    break;
+                case 3:
+                    LimpiarError();
+                    if (SetError(2))
+                    {
+                        MessageBox.Show("Introduce un Caracter");
+                        return;
+                    }
+                    lista = BLL.UsuarioBLL.Getlist(TipocomboBox.Text, CriteriotextBox.Text);
+                    break;
                 ////Clave
-                //case 4:
-                //    LimpiarError();
-                //    if (SetError(1))
-                //    {
-                //        MessageBox.Show("Introduce un numero");
-                //        return;
+                case 4:
+                    LimpiarError();
+                    if (SetError(1))
+                    {
+                        MessageBox.Show("Introduce un numero");
+                        return;
 
-                //    }
-                //    if (FechacheckBox.Checked == true)
-                //    {
-                //        filtrar = t => t.Clave.Equals(CriteriotextBox.Text) && (t.Fecha.Day >= AHoradateTimePicker1.Value.Day) && (t.Fecha.Month >= AHoradateTimePicker1.Value.Month) && (t.Fecha.Year >= AHoradateTimePicker1.Value.Year) && (t.Fecha.Day <= FInaldateTimePicker2.Value.Day) && (t.Fecha.Month <= FInaldateTimePicker2.Value.Month) && (t.Fecha.Year <= FInaldateTimePicker2.Value.Year);
-                //    }
-                //    else
-                //    {
-                //        filtrar = t => t.Clave.Equals(CriteriotextBox.Text);
-                //    }
-
-                //    break;
+                    }
+                    lista = BLL.UsuarioBLL.Getlist(TipocomboBox.Text, CriteriotextBox.Text);
+                    break;
                 ////Comentario
-                //case 5:
-                //    LimpiarError();
-                //    if (SetError(2))
-                //    {
-                //        MessageBox.Show("Introduce un caracter");
-                //        return;
-                //    }
-                //    if (FechacheckBox.Checked == true)
-                //    {
-                //        filtrar = t => t.Comentario.Contains(CriteriotextBox.Text) && (t.Fecha.Day >= AHoradateTimePicker1.Value.Day) && (t.Fecha.Month >= AHoradateTimePicker1.Value.Month) && (t.Fecha.Year >= AHoradateTimePicker1.Value.Year) && (t.Fecha.Day <= FInaldateTimePicker2.Value.Day) && (t.Fecha.Month <= FInaldateTimePicker2.Value.Month) && (t.Fecha.Year <= FInaldateTimePicker2.Value.Year);
-                //    }
-                //    {
-                //        filtrar = t => t.Comentario.Contains(CriteriotextBox.Text);
-                //    }
+                case 5:
+                    LimpiarError();
+                    if (SetError(2))
+                    {
+                        MessageBox.Show("Introduce un caracter");
+                        return;
+                    }
+                    lista = BLL.UsuarioBLL.Getlist(TipocomboBox.Text, CriteriotextBox.Text);
 
-                //    break;
-            //}
+                    break;
+            }
 
 
-          //  ConsultadataGridView.DataSource = BLL.UsuarioBLL.GetList(filtrar);
+            ConsultadataGridView.DataSource = lista;
         }
         private bool SetError(int error)
         {
             bool paso = false;
             int ejem = 0;
-            if(error ==1&& int.TryParse(CriteriotextBox.Text, out ejem) == false)
+            if (error == 1 && int.TryParse(CriteriotextBox.Text, out ejem) == false)
             {
                 TexterrorProvider.SetError(CriteriotextBox, "Debe de introducir un numero");
                 paso = true;
             }
-            if(error == 2 && int.TryParse(CriteriotextBox.Text, out ejem) ==true)
+            if (error == 2 && int.TryParse(CriteriotextBox.Text, out ejem) == true)
             {
                 TexterrorProvider.SetError(CriteriotextBox, "Debe de introducir un caracter");
                 paso = true;
@@ -174,7 +124,7 @@ namespace FacturacionAplicado.UI.Consultas
 
         private void Reportebutton_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void TipocomboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -192,18 +142,6 @@ namespace FacturacionAplicado.UI.Consultas
             }
         }
 
-        private void FechacheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (FechacheckBox.Checked == false)
-            {
-                AHoradateTimePicker1.Enabled = false;
-                FInaldateTimePicker2.Enabled = false;
-            }
-            else
-            {
-                AHoradateTimePicker1.Enabled = true;
-                FInaldateTimePicker2.Enabled = true;
-            }
-        }
+      
     }
 }

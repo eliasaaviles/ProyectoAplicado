@@ -1,4 +1,4 @@
-﻿/*/MySql Script/*/
+﻿/*/MySql Script si la conexion global esta conectada con el servidor, no es necesario ejecutar el Script en MySql/*/
 
 create database facturaciondb;
 go

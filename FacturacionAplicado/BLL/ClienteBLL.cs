@@ -117,7 +117,7 @@ namespace FacturacionAplicado.BLL
                 Nombre = m.Field<string>("Nombre"),
                 Direccion = m.Field<string>("Direccion"),
                 Cedula = m.Field<string>("Cedula"),
-                Telefono = m.Field<string>("Cedula")
+                Telefono = m.Field<string>("Telefono")
             }).ToList();
 
 
@@ -148,6 +148,43 @@ namespace FacturacionAplicado.BLL
 
             return estado;
 
+        }
+
+        public static List<Cliente> GetList(string filtro, string criterio)
+        {
+
+            DataTable dt = new DataTable();
+
+
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Cliente where "+filtro+"='" +criterio+"'", ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+            try
+            {
+
+
+                con.Fill(dt);
+
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
+            List<Cliente> listName = dt.AsEnumerable().Select(m => new Cliente()
+            {
+                id = m.Field<int>("id"),
+                Nombre = m.Field<string>("Nombre"),
+                Direccion = m.Field<string>("Direccion"),
+                Cedula = m.Field<string>("Cedula"),
+                Telefono = m.Field<string>("Telefono")
+            }).ToList();
+
+
+            return listName;
         }
     }
 }

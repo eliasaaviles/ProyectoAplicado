@@ -79,7 +79,7 @@ namespace FacturacionAplicado.UI.Registros
             {
                 if (BLL.ClienteBLL.Modificar(LlenaClase()))
                 {
-                    MessageBox.Show("Modificar!!");
+                    MessageBox.Show("Modificado!!");
                 }
                 else
                 {

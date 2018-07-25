@@ -143,7 +143,48 @@ namespace FacturacionAplicado.BLL
 
 
                 con.Fill(dt);
-                 ConexionGlobal.ConexionGlobalDb.RetornarConexion().Close();
+               
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
+            List<Factura> listName = dt.AsEnumerable().Select(m => new Factura()
+            {
+                id = m.Field<int>("id"),
+                Monto = m.Field<decimal>("Monto"),
+                UsuarioId = m.Field<int>("UsuarioId"),
+                ClienteId = m.Field<int>("ClienteId"),
+                Fecha = m.Field<string>("Fecha"),
+                Descripcion = m.Field<string>("Descripcion"),
+                FormaDePago = m.Field<string>("FormaDePago"),
+                Devuelta = m.Field<decimal>("Devuelta"),
+                EfectivoRecibido = m.Field<decimal>("EfectivoRecibido")
+
+            }).ToList();
+
+
+            return listName;
+        }
+        public static List<Factura> BuscarTipo(string id)
+        {
+
+            DataTable dt = new DataTable();
+
+
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Factura where FormaDePago = '" + id+"'", ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+            try
+            {
+
+
+                con.Fill(dt);
+               
 
 
             }
@@ -476,6 +517,89 @@ namespace FacturacionAplicado.BLL
                         }
                 }
             }
+        }
+
+        public static List<Factura> GetList(string filtro, string criterio)
+        {
+
+            DataTable dt = new DataTable();
+
+
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Factura where "+ filtro+"='" +criterio+"'" , ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+            try
+            {
+
+
+                con.Fill(dt);
+               
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
+            List<Factura> listName = dt.AsEnumerable().Select(m => new Factura()
+            {
+                id = m.Field<int>("id"),
+                Monto = m.Field<decimal>("Monto"),
+                UsuarioId = m.Field<int>("UsuarioId"),
+                ClienteId = m.Field<int>("ClienteId"),
+                Fecha = m.Field<string>("Fecha"),
+                Descripcion = m.Field<string>("Descripcion"),
+                FormaDePago = m.Field<string>("FormaDePago"),
+                Devuelta = m.Field<decimal>("Devuelta"),
+                EfectivoRecibido = m.Field<decimal>("EfectivoRecibido")
+
+            }).ToList();
+
+
+            return listName;
+        }
+        public static List<Factura> GetList(string filtro, string criterio,string tipo)
+        {
+
+            DataTable dt = new DataTable();
+
+
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Factura where " + filtro + "='" + criterio + "' and FormaDePago = '"+tipo+"'", ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+            try
+            {
+
+
+                con.Fill(dt);
+          
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
+            List<Factura> listName = dt.AsEnumerable().Select(m => new Factura()
+            {
+                id = m.Field<int>("id"),
+                Monto = m.Field<decimal>("Monto"),
+                UsuarioId = m.Field<int>("UsuarioId"),
+                ClienteId = m.Field<int>("ClienteId"),
+                Fecha = m.Field<string>("Fecha"),
+                Descripcion = m.Field<string>("Descripcion"),
+                FormaDePago = m.Field<string>("FormaDePago"),
+                Devuelta = m.Field<decimal>("Devuelta"),
+                EfectivoRecibido = m.Field<decimal>("EfectivoRecibido")
+
+            }).ToList();
+
+
+            return listName;
         }
     }
 }

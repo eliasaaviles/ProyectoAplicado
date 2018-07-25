@@ -44,7 +44,7 @@ namespace FacturacionAplicado.BLL
             try
             {
 
-                dater.DeleteCommand = new MySqlCommand(" delete from usuarios where id=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+                dater.DeleteCommand = new MySqlCommand("delete from Usuarios where id=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
                 dater.DeleteCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.DeleteCommand.ExecuteNonQuery();
@@ -187,6 +187,44 @@ namespace FacturacionAplicado.BLL
 
             return estado;
 
+        }
+
+        public static List<Usuario> Getlist(string filtro,string criterio)
+        {
+
+            DataTable dt = new DataTable();
+
+
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Usuarios where "+filtro+ "='" + criterio +"'", ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+            try
+            {
+
+
+                con.Fill(dt);
+
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
+            List<Usuario> listName = dt.AsEnumerable().Select(m => new Usuario()
+            {
+                id = m.Field<int>("id"),
+                Nombre = m.Field<string>("Nombre"),
+                Clave = m.Field<string>("Clave"),
+                NombreUsuario = m.Field<string>("NombreUsuario"),
+                Fecha = m.Field<string>("Fecha"),
+                Comentario = m.Field<string>("Comentario")
+            }).ToList();
+
+
+            return listName;
         }
     }
 }

@@ -46,7 +46,7 @@
             // 
             this.TipocomboBox.FormattingEnabled = true;
             this.TipocomboBox.Items.AddRange(new object[] {
-            "ID",
+            "id",
             "Nombre",
             "Listar Todo"});
             this.TipocomboBox.Location = new System.Drawing.Point(12, 28);

@@ -18,14 +18,16 @@ namespace FacturacionAplicado.UI.Consultas
         {
             InitializeComponent();
         }
-        Expression<Func<Producto, bool>> filtrar = x => true;
+    
         private void Consultabutton_Click(object sender, EventArgs e)
         {
             int id;
-
-
-            Expression<Func<Producto, bool>> filtrar = x => true;
-
+            List<Producto> lista = new List<Producto>();
+            if(TipocomboBox.Text ==string.Empty&& CriteriotextBox.Text ==string.Empty)
+            {
+                lista = BLL.ProductoBLL.Buscar();
+            }
+            
             switch (TipocomboBox.SelectedIndex)
             {
                 //ID
@@ -38,7 +40,7 @@ namespace FacturacionAplicado.UI.Consultas
 
                     }
                     id = int.Parse(CriteriotextBox.Text);
-                    filtrar = t => t.id == id;
+                    lista =  BLL.ProductoBLL.Getlist(TipocomboBox.Text, CriteriotextBox.Text);
                     break;
                 //Descripcion
                 case 1:
@@ -48,7 +50,7 @@ namespace FacturacionAplicado.UI.Consultas
                         MessageBox.Show("Introduce un caracter");
                         return;
                     }
-                    filtrar = t => t.Descripcion.Contains(CriteriotextBox.Text);
+                     lista = BLL.ProductoBLL.Getlist(TipocomboBox.Text, CriteriotextBox.Text);
                     break;
                 
                 //Cantidad
@@ -60,7 +62,7 @@ namespace FacturacionAplicado.UI.Consultas
                         return;
 
                     }
-                    filtrar = t => t.Cantidad == Convert.ToInt32(CriteriotextBox.Text);
+                     lista = BLL.ProductoBLL.Getlist(TipocomboBox.Text, CriteriotextBox.Text);
                     break;
                 //precio
                 case 3:
@@ -71,7 +73,7 @@ namespace FacturacionAplicado.UI.Consultas
                         return;
 
                     }
-                    filtrar = t => t.Precio == Convert.ToInt32(CriteriotextBox.Text);
+                     lista = BLL.ProductoBLL.Getlist(TipocomboBox.Text, CriteriotextBox.Text);
                     break;
                 //idDepartamento
                 case 4:
@@ -82,20 +84,20 @@ namespace FacturacionAplicado.UI.Consultas
                         return;
 
                     }
-                    filtrar = t => t.DepartamentoId == Convert.ToInt32(CriteriotextBox.Text);
+                     lista = BLL.ProductoBLL.Getlist(TipocomboBox.Text, CriteriotextBox.Text);
                     break;
 
                 //Listar Todo
                 case 5:
-                    
-                    filtrar = x => true;
+
+                     lista = BLL.ProductoBLL.Buscar();
                     break;
 
                   
             }
 
 
-            //ConsultadataGridView.DataSource = BLL.ProductoBLL.GetList(filtrar);
+            ConsultadataGridView.DataSource = lista;
         }
 
         private bool SetError(int error)

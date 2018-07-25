@@ -146,5 +146,41 @@ namespace FacturacionAplicado.BLL
             return estado;
 
         }
+
+        public static List<Departamento> GetList(string filtro, string criterio)
+        {
+
+            DataTable dt = new DataTable();
+
+
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Departamento where "+filtro+"='"+criterio+"'", ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+            try
+            {
+              
+
+
+                con.Fill(dt);
+
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
+            List<Departamento> listName = dt.AsEnumerable().Select(m => new Departamento()
+            {
+                id = m.Field<int>("id"),
+                Nombre = m.Field<string>("Nombre"),
+
+            }).ToList();
+
+
+            return listName;
+        }
     }
 }

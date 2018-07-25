@@ -104,10 +104,10 @@
             // 
             // TelefonomaskedTextBox
             // 
-            this.TelefonomaskedTextBox.Location = new System.Drawing.Point(274, 145);
+            this.TelefonomaskedTextBox.Location = new System.Drawing.Point(254, 145);
             this.TelefonomaskedTextBox.Mask = "(999)000-0000";
             this.TelefonomaskedTextBox.Name = "TelefonomaskedTextBox";
-            this.TelefonomaskedTextBox.Size = new System.Drawing.Size(89, 20);
+            this.TelefonomaskedTextBox.Size = new System.Drawing.Size(109, 20);
             this.TelefonomaskedTextBox.TabIndex = 23;
             // 
             // CedulamaskedTextBox
@@ -115,7 +115,7 @@
             this.CedulamaskedTextBox.Location = new System.Drawing.Point(79, 145);
             this.CedulamaskedTextBox.Mask = "000-0000000-0";
             this.CedulamaskedTextBox.Name = "CedulamaskedTextBox";
-            this.CedulamaskedTextBox.Size = new System.Drawing.Size(89, 20);
+            this.CedulamaskedTextBox.Size = new System.Drawing.Size(99, 20);
             this.CedulamaskedTextBox.TabIndex = 22;
             // 
             // DirecciontextBox
@@ -136,7 +136,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(209, 147);
+            this.label5.Location = new System.Drawing.Point(184, 147);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 18);
             this.label5.TabIndex = 19;

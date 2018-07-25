@@ -21,226 +21,182 @@ namespace FacturacionAplicado.UI.Consultas
         Expression<Func<Factura, bool>> filtrar = x => true;
         private void Consultabutton_Click(object sender, EventArgs e)
         {
-            //int id;
-            //decimal valor = 0;
+            List<Factura> lista = new List<Factura>();
 
-            //if(TipocomboBox.Text ==string.Empty&& FechacheckBox.Checked == true)
-            //{
-            //    filtrar = t => true && (t.Fecha.Day >= AHoradateTimePicker1.Value.Day) && (t.Fecha.Month >= AHoradateTimePicker1.Value.Month) && (t.Fecha.Year >= AHoradateTimePicker1.Value.Year) && (t.Fecha.Day <= FInaldateTimePicker2.Value.Day) && (t.Fecha.Month <= FInaldateTimePicker2.Value.Month) && (t.Fecha.Year <= FInaldateTimePicker2.Value.Year);
-            //}
-            //else
-            //{
-            //    filtrar = t => true;
-            //}
-
-
-
-            //switch (TipocomboBox.SelectedIndex)
-            //{
-            //    //ID
-            //    case 0:
-            //        LimpiarError();
-            //        if (SetError(1))
-            //        {
-            //            MessageBox.Show("Introduce un numero");
-            //            return;
-
-            //        }
-            //        id = int.Parse(CriteriotextBox.Text);
-            //        if (FechacheckBox.Checked == true)
-            //        {
-            //            filtrar = t => t.FacturaId == id && (t.Fecha.Day >= AHoradateTimePicker1.Value.Day) && (t.Fecha.Month >= AHoradateTimePicker1.Value.Month) && (t.Fecha.Year >= AHoradateTimePicker1.Value.Year) && (t.Fecha.Day <= FInaldateTimePicker2.Value.Day) && (t.Fecha.Month <= FInaldateTimePicker2.Value.Month) && (t.Fecha.Year <= FInaldateTimePicker2.Value.Year);
-            //        }
-            //        else
-            //        {
-            //            filtrar = t => t.FacturaId == id;
-            //        }
-
-            //        break;
-            //    //ClienteID
-            //    case 1:
-            //        LimpiarError();
-            //        if (SetError(1))
-            //        {
-            //            MessageBox.Show("Introduce un numero");
-            //            return;
-
-            //        }
-            //        id = int.Parse(CriteriotextBox.Text);
-            //        if (FechacheckBox.Checked == true)
-            //        {
-            //            filtrar = t => t.ClienteId == id && (t.Fecha.Day >= AHoradateTimePicker1.Value.Day) && (t.Fecha.Month >= AHoradateTimePicker1.Value.Month) && (t.Fecha.Year >= AHoradateTimePicker1.Value.Year) && (t.Fecha.Day <= FInaldateTimePicker2.Value.Day) && (t.Fecha.Month <= FInaldateTimePicker2.Value.Month) && (t.Fecha.Year <= FInaldateTimePicker2.Value.Year);
-            //        }
-            //        else
-            //        {
-            //            filtrar = t => t.ClienteId == id;
-            //        }
-
-            //        break;
-            //    //IDusuario
-            //    case 2:
-            //        LimpiarError();
-            //        if (SetError(1))
-            //        {
-            //            MessageBox.Show("Introduce un numero");
-            //            return;
-
-            //        }
-            //        id = int.Parse(CriteriotextBox.Text);
-            //        if (FechacheckBox.Checked == true)
-            //        {
-            //            filtrar = t => t.UsuarioId == id && (t.Fecha.Date >= AHoradateTimePicker1.Value.Date)  && (t.Fecha.Date <= FInaldateTimePicker2.Value.Date);
-            //        }
-            //        else
-            //        {
-            //            filtrar = t => t.UsuarioId == id;
-            //        }
-
-            //        break;
-            //    //Descripcion
-            //    case 3:
-            //        LimpiarError();
-            //        if (SetError(2))
-            //        {
-            //            MessageBox.Show("Introduce un caracter");
-            //            return;
-            //        }
-            //        if (FechacheckBox.Checked == true)
-            //        {
-            //            filtrar = t => t.Descripcion.Contains(CriteriotextBox.Text) && (t.Fecha.Day >= AHoradateTimePicker1.Value.Day) && (t.Fecha.Month >= AHoradateTimePicker1.Value.Month) && (t.Fecha.Year >= AHoradateTimePicker1.Value.Year) && (t.Fecha.Day <= FInaldateTimePicker2.Value.Day) && (t.Fecha.Month <= FInaldateTimePicker2.Value.Month) && (t.Fecha.Year <= FInaldateTimePicker2.Value.Year);
-            //        }
-            //        else
-            //        {
-            //            filtrar = t => t.Descripcion.Contains(CriteriotextBox.Text);
-            //        }
-
-            //        break;
-            //    //Lista todo
-            //    case 4:
-
-            //        if (FechacheckBox.Checked == true)
-            //        {
-            //            filtrar = t => true && (t.Fecha.Day >= AHoradateTimePicker1.Value.Day) && (t.Fecha.Month >= AHoradateTimePicker1.Value.Month) && (t.Fecha.Year >= AHoradateTimePicker1.Value.Year) && (t.Fecha.Day <= FInaldateTimePicker2.Value.Day) && (t.Fecha.Month <= FInaldateTimePicker2.Value.Month) && (t.Fecha.Year <= FInaldateTimePicker2.Value.Year);
-            //        }
-            //        else
-            //        {
-            //            filtrar = t => true;
-            //        }
-
-            //        //filtrar = t => (t.Fecha.Day >= AHoradateTimePicker1.Value.Day) && (t.Fecha.Month >= AHoradateTimePicker1.Value.Month) && (t.Fecha.Year >= AHoradateTimePicker1.Value.Year) && (t.Fecha.Day <= FInaldateTimePicker2.Value.Day) && (t.Fecha.Month <= FInaldateTimePicker2.Value.Month) && (t.Fecha.Year <= FInaldateTimePicker2.Value.Year);
-            //        break;
-
-            //    //forma de pago
-            //    case 5:
-
-            //        if (FechacheckBox.Checked == true)
-            //        {
-                        
-            //            if (ContadocheckBox.Checked == true)
-            //            {
-            //                filtrar = t => t.FormaDePago == "Contado" && (t.Fecha.Day >= AHoradateTimePicker1.Value.Day) && (t.Fecha.Month >= AHoradateTimePicker1.Value.Month) && (t.Fecha.Year >= AHoradateTimePicker1.Value.Year) && (t.Fecha.Day <= FInaldateTimePicker2.Value.Day) && (t.Fecha.Month <= FInaldateTimePicker2.Value.Month) && (t.Fecha.Year <= FInaldateTimePicker2.Value.Year);
-
-            //            }
-            //            if (CreditocheckBox.Checked == true)
-            //            {
-            //                filtrar = t => t.FormaDePago == "Credito" && (t.Fecha.Day >= AHoradateTimePicker1.Value.Day) && (t.Fecha.Month >= AHoradateTimePicker1.Value.Month) && (t.Fecha.Year >= AHoradateTimePicker1.Value.Year) && (t.Fecha.Day <= FInaldateTimePicker2.Value.Day) && (t.Fecha.Month <= FInaldateTimePicker2.Value.Month) && (t.Fecha.Year <= FInaldateTimePicker2.Value.Year);
-
-            //            }
-            //            if (CreditocheckBox.Checked == false && ContadocheckBox.Checked == false || CreditocheckBox.Checked == true && ContadocheckBox.Checked == true)
-            //            {
-            //                filtrar = t => true && (t.Fecha.Day >= AHoradateTimePicker1.Value.Day) && (t.Fecha.Month >= AHoradateTimePicker1.Value.Month) && (t.Fecha.Year >= AHoradateTimePicker1.Value.Year) && (t.Fecha.Day <= FInaldateTimePicker2.Value.Day) && (t.Fecha.Month <= FInaldateTimePicker2.Value.Month) && (t.Fecha.Year <= FInaldateTimePicker2.Value.Year);
-                            
-            //            }
-
-            //        }
-            //        else
-            //        {
-                        
-            //            if (ContadocheckBox.Checked == true)
-            //            {
-            //                filtrar = t => t.FormaDePago == "Contado";
-
-            //            }
-            //            if (CreditocheckBox.Checked == true)
-            //            {
-            //                filtrar = t => t.FormaDePago == "Credito" ;
-
-            //            }
-            //            if (CreditocheckBox.Checked == false && ContadocheckBox.Checked == false || CreditocheckBox.Checked == true && ContadocheckBox.Checked == true)
-            //            {
-            //                filtrar = t => true;
-                           
-            //            }
-            //        }
-                        
-            //        break;
-            //    //monto
-            //    case 6:
-            //        LimpiarError();
-            //        if (SetError(1))
-            //        {
-            //            MessageBox.Show("Introduce un numero");
-            //            return;
-
-            //        }
-
-            //        valor = Convert.ToDecimal(CriteriotextBox.Text);
-            //        if (FechacheckBox.Checked == true)
-            //        {
-            //            filtrar = t => t.Monto == valor && (t.Fecha.Day >= AHoradateTimePicker1.Value.Day) && (t.Fecha.Month >= AHoradateTimePicker1.Value.Month) && (t.Fecha.Year >= AHoradateTimePicker1.Value.Year) && (t.Fecha.Day <= FInaldateTimePicker2.Value.Day) && (t.Fecha.Month <= FInaldateTimePicker2.Value.Month) && (t.Fecha.Year <= FInaldateTimePicker2.Value.Year);
-            //        }
-            //        else
-            //        {
-            //            filtrar = t => t.Monto == valor;
-            //        }
-                        
-            //        break;
-            //    //efectivo recibido
-            //    case 7:
-            //        LimpiarError();
-            //        if (SetError(1))
-            //        {
-            //            MessageBox.Show("Introduce un numero");
-            //            return;
-
-            //        }
-            //        valor = Convert.ToDecimal(CriteriotextBox.Text);
-            //        if (FechacheckBox.Checked == true)
-            //        {
-            //            filtrar = t => t.EfectivoRecibido == valor && (t.Fecha.Day >= AHoradateTimePicker1.Value.Day) && (t.Fecha.Month >= AHoradateTimePicker1.Value.Month) && (t.Fecha.Year >= AHoradateTimePicker1.Value.Year) && (t.Fecha.Day <= FInaldateTimePicker2.Value.Day) && (t.Fecha.Month <= FInaldateTimePicker2.Value.Month) && (t.Fecha.Year <= FInaldateTimePicker2.Value.Year);
-            //        }
-            //        else
-            //        {
-            //            filtrar = t => t.EfectivoRecibido == valor;
-            //        }
-                        
-            //        break;
-
-            //    //Devuelta
-            //    case 8:
-            //        LimpiarError();
-            //        if (SetError(1))
-            //        {
-            //            MessageBox.Show("Introduce un numero");
-            //            return;
-
-            //        }
-            //        valor = Convert.ToDecimal(CriteriotextBox.Text);
-            //        if (FechacheckBox.Checked == true)
-            //        {
-            //            filtrar = t => t.Devuelta == valor && (t.Fecha.Day >= AHoradateTimePicker1.Value.Day) && (t.Fecha.Month >= AHoradateTimePicker1.Value.Month) && (t.Fecha.Year >= AHoradateTimePicker1.Value.Year) && (t.Fecha.Day <= FInaldateTimePicker2.Value.Day) && (t.Fecha.Month <= FInaldateTimePicker2.Value.Month) && (t.Fecha.Year <= FInaldateTimePicker2.Value.Year);
-            //        }
-            //        else
-            //        {
-            //            filtrar = t => t.Devuelta == valor;
-            //        }
-                        
-            //        break;
-               
-            //}
+            if (TipocomboBox.Text == string.Empty && CriteriotextBox.Text == string.Empty)
+            {
+                lista = BLL.FacturacionBLL.Buscar();
+            }
+            if (TipocomboBox.Text == string.Empty && CriteriotextBox.Text == string.Empty && ContadocheckBox.Checked == true)
+            {
+                lista = BLL.FacturacionBLL.BuscarTipo("Contado");
+            }
+            if (TipocomboBox.Text == string.Empty && CriteriotextBox.Text == string.Empty && CreditocheckBox.Checked == true)
+            {
+                lista = BLL.FacturacionBLL.BuscarTipo("Credito");
+            }
+            if (TipocomboBox.Text == string.Empty && CriteriotextBox.Text == string.Empty && CreditocheckBox.Checked == true && ContadocheckBox.Checked == true)
+                lista = BLL.FacturacionBLL.Buscar();
 
 
-          //  ConsultadataGridView.DataSource = BLL.FacturacionBLL.GetList(filtrar);
+
+
+            switch (TipocomboBox.SelectedIndex)
+            {
+                //    //ID
+                case 0:
+                    LimpiarError();
+                    if (SetError(1))
+                    {
+                        MessageBox.Show("Introduce un numero");
+                        return;
+
+                    }
+
+                    lista = BLL.FacturacionBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text);
+
+                    break;
+                //    //ClienteID
+                case 1:
+                    LimpiarError();
+                    if (SetError(1))
+                    {
+                        MessageBox.Show("Introduce un numero");
+                        return;
+
+                    }
+                    if (ContadocheckBox.Checked == true)
+                    {
+                        lista = BLL.FacturacionBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text, "Contado");
+                    }
+                    if (CreditocheckBox.Checked == true)
+                    {
+                        lista = BLL.FacturacionBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text, "Credito");
+                    }
+                    if (CreditocheckBox.Checked == true && ContadocheckBox.Checked == true)
+                        lista = BLL.FacturacionBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text);
+                    else
+                        lista = BLL.FacturacionBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text);
+
+                    break;
+                //    //IDusuario
+                case 2:
+                    LimpiarError();
+                    if (SetError(1))
+                    {
+                        MessageBox.Show("Introduce un numero");
+                        return;
+
+                    }
+                    if (ContadocheckBox.Checked == true)
+                    {
+                        lista = BLL.FacturacionBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text, "Contado");
+                    }
+                    if (CreditocheckBox.Checked == true)
+                    {
+                        lista = BLL.FacturacionBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text, "Credito");
+                    }
+                    if (CreditocheckBox.Checked == true && ContadocheckBox.Checked == true)
+                        lista = BLL.FacturacionBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text);
+                    else
+                        lista = BLL.FacturacionBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text);
+
+                    break;
+                //    //Descripcion
+                case 3:
+                    LimpiarError();
+                    if (SetError(2))
+                    {
+                        MessageBox.Show("Introduce un caracter");
+                        return;
+                    }
+                    if (ContadocheckBox.Checked == true)
+                    {
+                        lista = BLL.FacturacionBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text, "Contado");
+                    }
+                    if (CreditocheckBox.Checked == true)
+                    {
+                        lista = BLL.FacturacionBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text, "Credito");
+                    }
+                    if (CreditocheckBox.Checked == true && ContadocheckBox.Checked == true)
+                        lista = BLL.FacturacionBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text);
+                    else
+                        lista = BLL.FacturacionBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text);
+
+                    break;
+                //    //Lista todo
+                case 4:
+                    LimpiarError();
+                    if (ContadocheckBox.Checked == true)
+                    {
+                        lista = BLL.FacturacionBLL.BuscarTipo("Contado");
+                    }
+                    if (CreditocheckBox.Checked == true)
+                    {
+                        lista = BLL.FacturacionBLL.BuscarTipo("Credito");
+                    }
+                    if (CreditocheckBox.Checked == true && ContadocheckBox.Checked == true)
+                        lista = BLL.FacturacionBLL.Buscar();
+                    else
+                        lista = BLL.FacturacionBLL.Buscar();
+                    break;
+
+                //    //monto
+                case 5:
+                    LimpiarError();
+                    if (SetError(1))
+                    {
+                        MessageBox.Show("Introduce un numero");
+                        return;
+
+                    }
+
+                    if (ContadocheckBox.Checked == true)
+                    {
+                        lista = BLL.FacturacionBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text, "Contado");
+                    }
+                    if (CreditocheckBox.Checked == true)
+                    {
+                        lista = BLL.FacturacionBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text, "Credito");
+                    }
+                    if (CreditocheckBox.Checked == true && ContadocheckBox.Checked == true)
+                        lista = BLL.FacturacionBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text);
+                    else
+                        lista = BLL.FacturacionBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text);
+
+                    break;
+                //    //efectivo recibido
+                case 6:
+                    LimpiarError();
+                    if (SetError(1))
+                    {
+                        MessageBox.Show("Introduce un numero");
+                        return;
+
+                    }
+
+                    lista = BLL.FacturacionBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text);
+
+                    break;
+
+                //    //Devuelta
+                case 7:
+                    LimpiarError();
+                    if (SetError(1))
+                    {
+                        MessageBox.Show("Introduce un numero");
+                        return;
+
+                    }
+
+                    lista = BLL.FacturacionBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text);
+
+                    break;
+
+            }
+
+
+            ConsultadataGridView.DataSource = lista;
         }
 
         private bool SetError(int error)
@@ -268,13 +224,14 @@ namespace FacturacionAplicado.UI.Consultas
 
         private void Reportebutton_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void TipocomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            bool paso = false;
             CriteriotextBox.Clear();
-            if(TipocomboBox.SelectedIndex==4)
+            if (TipocomboBox.SelectedIndex == 4)
             {
                 CriteriotextBox.Enabled = false;
 
@@ -283,32 +240,37 @@ namespace FacturacionAplicado.UI.Consultas
             {
                 CriteriotextBox.Enabled = true;
             }
-            if(TipocomboBox.SelectedIndex == 5)
-            {
-                CriteriotextBox.Enabled = false;
-                ContadocheckBox.Enabled = true;
-                CreditocheckBox.Enabled = true;
-            }
-            else
+
+            if (TipocomboBox.SelectedIndex == 0)
             {
                 ContadocheckBox.Enabled = false;
                 CreditocheckBox.Enabled = false;
-            }
-
-        }
-
-        private void FechacheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if(FechacheckBox.Checked==false)
-            {
-                AHoradateTimePicker1.Enabled = false;
-                FInaldateTimePicker2.Enabled = false;
+                paso = true;
             }
             else
             {
-                AHoradateTimePicker1.Enabled = true;
-                FInaldateTimePicker2.Enabled = true;
+                ContadocheckBox.Enabled = true;
+                CreditocheckBox.Enabled = true;
+                paso = false;
             }
+            if (paso == false)
+            {
+
+                if (TipocomboBox.SelectedIndex == 7 || TipocomboBox.SelectedIndex == 6)
+                {
+                    CreditocheckBox.Enabled = false;
+                    ContadocheckBox.Enabled = false;
+                }
+                else
+                {
+                    ContadocheckBox.Enabled = true;
+                    CreditocheckBox.Enabled = true;
+                }
+            }
+
+
         }
+
+
     }
 }
