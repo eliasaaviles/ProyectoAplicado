@@ -1,9 +1,9 @@
 ﻿/*/MySql Script si la conexion global esta conectada con el servidor, no es necesario ejecutar el Script en MySql/*/
 
 create database Facturacion_db;
-go
-use Facturaciondb;
-go
+
+use facturaciondbapl;
+
 Create Table Usuarios
 (
 	id int primary key auto_increment,
@@ -15,12 +15,11 @@ Create Table Usuarios
 
 
 );
-go
+
 insert into Usuarios(Nombre,Clave,NombreUsuario,Fecha,Comentario) values('Albert Lopez','123456','root','2018/6/9','Developer');
-go
-go
+
 Create Table Producto
-(C:\Users\Usuario\Desktop\2-2018\Proyecto Aplicado\FacturacionAplicado\FacturacionAplicado\Scripts\script.txt
+(
 	id int primary key auto_increment,
 	Descripcion varchar(400),
 	Precio decimal,
@@ -28,14 +27,14 @@ Create Table Producto
 	Cantidad int
 
 );
-go
+
 create table Departamento
 (
 	id int primary key auto_increment,
 	Nombre varchar(50)
 
 );
-go
+
 create table Cliente
 (
 	id int primary key auto_increment,
@@ -45,7 +44,7 @@ create table Cliente
 	Telefono varchar(15)
 
 );
-go
+
 create table Factura
 (
 	id int primary key auto_increment,
@@ -58,7 +57,7 @@ create table Factura
 	Devuelta decimal,
 	EfectivoRecibido decimal
 );
-go
+
 create table FacturaDetalle
 (
 	id int primary key auto_increment,
@@ -67,7 +66,6 @@ create table FacturaDetalle
 	Cantidad int,
 	Precio decimal,
 	Descripcion varchar(400)
-)
-go
+);
+
 insert into Producto(Descripcion,Precio,DepartamentoId,Cantidad) values('Coca Cola','50','1','100');
-go

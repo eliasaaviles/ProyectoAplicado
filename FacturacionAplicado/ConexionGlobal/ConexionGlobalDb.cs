@@ -16,10 +16,10 @@ namespace FacturacionAplicado.ConexionGlobal
             bool paso = true;
             try
             {
-                //db = new MySqlConnection("server = db4free.net; database = facturaciondb; user id = facturacionucne; password = root12345");
-
-               // db = new MySqlConnection("server = db4free.net; database = facturacion_db; user id = pro2018; password = root12345");
-                db = new MySqlConnection("server=localhost; database = FacturacionDb; user id=root ;password=root");
+                //Conectado al servidor db4free.net
+                db = new MySqlConnection("server = db4free.net; database = facturacion_db; user id = pro2018; password = root12345;old guids=true");
+                //Instancia local comentada
+                // db = new MySqlConnection("server=localhost; database = FacturacionDb; user id=root ;password=root");
                 db.Open();
                 GC.KeepAlive(db);
 
