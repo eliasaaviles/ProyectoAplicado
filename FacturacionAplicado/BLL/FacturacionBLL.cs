@@ -48,7 +48,7 @@ namespace FacturacionAplicado.BLL
             try
             {
 
-                dater.DeleteCommand = new MySqlCommand(" delete from Facturas where id=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+                dater.DeleteCommand = new MySqlCommand(" delete from Factura where id=" + id,  ConexionGlobal.ConexionGlobalDb.RetornarConexion());
 
                 dater.DeleteCommand.Connection =  ConexionGlobal.ConexionGlobalDb.RetornarConexion();
                 dater.DeleteCommand.ExecuteNonQuery();

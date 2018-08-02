@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rFacturacion));
             this.EliminarDetalle = new System.Windows.Forms.Button();
             this.NombreCLientetextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -77,6 +78,7 @@
             this.Eliminarbutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.NUevobutton = new System.Windows.Forms.Button();
+            this.Imprimirbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EfectivonumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturadataGridView)).BeginInit();
@@ -92,7 +94,7 @@
             this.EliminarDetalle.Location = new System.Drawing.Point(11, 535);
             this.EliminarDetalle.Name = "EliminarDetalle";
             this.EliminarDetalle.Size = new System.Drawing.Size(86, 27);
-            this.EliminarDetalle.TabIndex = 11;
+            this.EliminarDetalle.TabIndex = 12;
             this.EliminarDetalle.Text = "Eliminar Detalle";
             this.EliminarDetalle.UseVisualStyleBackColor = true;
             this.EliminarDetalle.Click += new System.EventHandler(this.EliminarDetalle_Click);
@@ -155,7 +157,7 @@
             this.DetallecomboBox.Location = new System.Drawing.Point(161, 215);
             this.DetallecomboBox.Name = "DetallecomboBox";
             this.DetallecomboBox.Size = new System.Drawing.Size(111, 21);
-            this.DetallecomboBox.TabIndex = 94;
+            this.DetallecomboBox.TabIndex = 13;
             this.DetallecomboBox.SelectedIndexChanged += new System.EventHandler(this.DetallecomboBox_SelectedIndexChanged);
             // 
             // UsuariotextBox
@@ -308,7 +310,7 @@
             this.DevueltatextBox.Name = "DevueltatextBox";
             this.DevueltatextBox.ReadOnly = true;
             this.DevueltatextBox.Size = new System.Drawing.Size(87, 20);
-            this.DevueltatextBox.TabIndex = 77;
+            this.DevueltatextBox.TabIndex = 8;
             // 
             // EfectivonumericUpDown
             // 
@@ -547,10 +549,10 @@
             this.Eliminarbutton.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Eliminarbutton.Image = global::FacturacionAplicado.Properties.Resources.icons8_Delete_File_32;
             this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Eliminarbutton.Location = new System.Drawing.Point(435, 647);
+            this.Eliminarbutton.Location = new System.Drawing.Point(341, 647);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(111, 44);
-            this.Eliminarbutton.TabIndex = 10;
+            this.Eliminarbutton.TabIndex = 11;
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Eliminarbutton.UseVisualStyleBackColor = true;
@@ -562,10 +564,10 @@
             this.Guardarbutton.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Guardarbutton.Image = global::FacturacionAplicado.Properties.Resources.icons8_Save_32;
             this.Guardarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Guardarbutton.Location = new System.Drawing.Point(270, 647);
+            this.Guardarbutton.Location = new System.Drawing.Point(200, 647);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(111, 44);
-            this.Guardarbutton.TabIndex = 8;
+            this.Guardarbutton.TabIndex = 9;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Guardarbutton.UseVisualStyleBackColor = true;
@@ -577,20 +579,37 @@
             this.NUevobutton.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NUevobutton.Image = global::FacturacionAplicado.Properties.Resources.icons8_Add_New_32;
             this.NUevobutton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.NUevobutton.Location = new System.Drawing.Point(105, 647);
+            this.NUevobutton.Location = new System.Drawing.Point(59, 647);
             this.NUevobutton.Name = "NUevobutton";
             this.NUevobutton.Size = new System.Drawing.Size(111, 44);
-            this.NUevobutton.TabIndex = 9;
+            this.NUevobutton.TabIndex = 10;
             this.NUevobutton.Text = "Nuevo";
             this.NUevobutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.NUevobutton.UseVisualStyleBackColor = true;
             this.NUevobutton.Click += new System.EventHandler(this.NUevobutton_Click);
+            // 
+            // Imprimirbutton
+            // 
+            this.Imprimirbutton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.Imprimirbutton.Enabled = false;
+            this.Imprimirbutton.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Imprimirbutton.Image = global::FacturacionAplicado.Properties.Resources.icons8_Print_32;
+            this.Imprimirbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Imprimirbutton.Location = new System.Drawing.Point(482, 647);
+            this.Imprimirbutton.Name = "Imprimirbutton";
+            this.Imprimirbutton.Size = new System.Drawing.Size(111, 44);
+            this.Imprimirbutton.TabIndex = 100;
+            this.Imprimirbutton.Text = "Imprimir";
+            this.Imprimirbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Imprimirbutton.UseVisualStyleBackColor = true;
+            this.Imprimirbutton.Click += new System.EventHandler(this.Imprimirbutton_Click);
             // 
             // rFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(621, 749);
+            this.Controls.Add(this.Imprimirbutton);
             this.Controls.Add(this.EliminarDetalle);
             this.Controls.Add(this.NombreCLientetextBox);
             this.Controls.Add(this.label10);
@@ -629,9 +648,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "rFacturacion";
+            this.Text = "Facturacion";
             this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EfectivonumericUpDown)).EndInit();
@@ -694,5 +715,6 @@
         private System.Windows.Forms.ErrorProvider IDerrorProvider;
         private System.Windows.Forms.ErrorProvider DemaserrorProvider;
         private System.Windows.Forms.ErrorProvider ProductoerrorProvider;
+        private System.Windows.Forms.Button Imprimirbutton;
     }
 }

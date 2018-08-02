@@ -1,5 +1,6 @@
 ﻿
 using FacturacionAplicado.Entidades;
+using FacturacionAplicado.Reportes_Ventanas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,16 +19,16 @@ namespace FacturacionAplicado.UI.Consultas
         {
             InitializeComponent();
         }
-    
+        List<Producto> lista = new List<Producto>();
         private void Consultabutton_Click(object sender, EventArgs e)
         {
-            int id;
-            List<Producto> lista = new List<Producto>();
-            if(TipocomboBox.Text ==string.Empty&& CriteriotextBox.Text ==string.Empty)
+
+
+            if (TipocomboBox.Text == string.Empty && CriteriotextBox.Text == string.Empty)
             {
                 lista = BLL.ProductoBLL.Buscar();
             }
-            
+
             switch (TipocomboBox.SelectedIndex)
             {
                 //ID
@@ -39,8 +40,8 @@ namespace FacturacionAplicado.UI.Consultas
                         return;
 
                     }
-                    id = int.Parse(CriteriotextBox.Text);
-                    lista =  BLL.ProductoBLL.Getlist(TipocomboBox.Text, CriteriotextBox.Text);
+                 
+                    lista = BLL.ProductoBLL.Getlist(TipocomboBox.Text, CriteriotextBox.Text);
                     break;
                 //Descripcion
                 case 1:
@@ -50,9 +51,9 @@ namespace FacturacionAplicado.UI.Consultas
                         MessageBox.Show("Introduce un caracter");
                         return;
                     }
-                     lista = BLL.ProductoBLL.Getlist(TipocomboBox.Text, CriteriotextBox.Text);
+                    lista = BLL.ProductoBLL.Getlist(TipocomboBox.Text, CriteriotextBox.Text);
                     break;
-                
+
                 //Cantidad
                 case 2:
                     LimpiarError();
@@ -62,7 +63,7 @@ namespace FacturacionAplicado.UI.Consultas
                         return;
 
                     }
-                     lista = BLL.ProductoBLL.Getlist(TipocomboBox.Text, CriteriotextBox.Text);
+                    lista = BLL.ProductoBLL.Getlist(TipocomboBox.Text, CriteriotextBox.Text);
                     break;
                 //precio
                 case 3:
@@ -73,7 +74,7 @@ namespace FacturacionAplicado.UI.Consultas
                         return;
 
                     }
-                     lista = BLL.ProductoBLL.Getlist(TipocomboBox.Text, CriteriotextBox.Text);
+                    lista = BLL.ProductoBLL.Getlist(TipocomboBox.Text, CriteriotextBox.Text);
                     break;
                 //idDepartamento
                 case 4:
@@ -84,16 +85,16 @@ namespace FacturacionAplicado.UI.Consultas
                         return;
 
                     }
-                     lista = BLL.ProductoBLL.Getlist(TipocomboBox.Text, CriteriotextBox.Text);
+                    lista = BLL.ProductoBLL.Getlist(TipocomboBox.Text, CriteriotextBox.Text);
                     break;
 
                 //Listar Todo
                 case 5:
 
-                     lista = BLL.ProductoBLL.Buscar();
+                    lista = BLL.ProductoBLL.Buscar();
                     break;
 
-                  
+
             }
 
 
@@ -125,7 +126,11 @@ namespace FacturacionAplicado.UI.Consultas
 
         private void ReporteButton_Click(object sender, EventArgs e)
         {
-            
+            if (lista.Count == 0)
+                lista = BLL.ProductoBLL.Buscar();
+            ReporteProductos abrir = new ReporteProductos(lista);
+            abrir.Show();
+
         }
 
         private void TipocomboBox_SelectedIndexChanged(object sender, EventArgs e)

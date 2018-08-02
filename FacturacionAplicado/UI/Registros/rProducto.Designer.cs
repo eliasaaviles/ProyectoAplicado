@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rProducto));
             this.IDcomboBox = new System.Windows.Forms.ComboBox();
             this.DepartamentocomboBox = new System.Windows.Forms.ComboBox();
@@ -39,13 +40,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Nuevobutton = new System.Windows.Forms.Button();
+            this.GuardarButton = new System.Windows.Forms.Button();
+            this.Eliminarbutton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.IderrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.DemasCamposerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrecionumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IderrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DemasCamposerrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // IDcomboBox
@@ -54,7 +59,8 @@
             this.IDcomboBox.Location = new System.Drawing.Point(77, 12);
             this.IDcomboBox.Name = "IDcomboBox";
             this.IDcomboBox.Size = new System.Drawing.Size(57, 21);
-            this.IDcomboBox.TabIndex = 26;
+            this.IDcomboBox.TabIndex = 0;
+            this.IDcomboBox.SelectedIndexChanged += new System.EventHandler(this.IDcomboBox_SelectedIndexChanged);
             // 
             // DepartamentocomboBox
             // 
@@ -62,28 +68,38 @@
             this.DepartamentocomboBox.Location = new System.Drawing.Point(250, 15);
             this.DepartamentocomboBox.Name = "DepartamentocomboBox";
             this.DepartamentocomboBox.Size = new System.Drawing.Size(76, 21);
-            this.DepartamentocomboBox.TabIndex = 25;
+            this.DepartamentocomboBox.TabIndex = 1;
             // 
             // CantidadnumericUpDown
             // 
             this.CantidadnumericUpDown.Location = new System.Drawing.Point(77, 127);
+            this.CantidadnumericUpDown.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.CantidadnumericUpDown.Name = "CantidadnumericUpDown";
             this.CantidadnumericUpDown.Size = new System.Drawing.Size(91, 20);
-            this.CantidadnumericUpDown.TabIndex = 24;
+            this.CantidadnumericUpDown.TabIndex = 4;
             // 
             // PrecionumericUpDown
             // 
             this.PrecionumericUpDown.Location = new System.Drawing.Point(77, 90);
+            this.PrecionumericUpDown.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
             this.PrecionumericUpDown.Name = "PrecionumericUpDown";
             this.PrecionumericUpDown.Size = new System.Drawing.Size(91, 20);
-            this.PrecionumericUpDown.TabIndex = 23;
+            this.PrecionumericUpDown.TabIndex = 3;
             // 
             // DescripciontextBox
             // 
             this.DescripciontextBox.Location = new System.Drawing.Point(77, 53);
             this.DescripciontextBox.Name = "DescripciontextBox";
             this.DescripciontextBox.Size = new System.Drawing.Size(249, 20);
-            this.DescripciontextBox.TabIndex = 22;
+            this.DescripciontextBox.TabIndex = 2;
             // 
             // label5
             // 
@@ -130,41 +146,44 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Id";
             // 
-            // button1
+            // Nuevobutton
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(12, 205);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 38);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "Nuevo";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
+            this.Nuevobutton.Image = ((System.Drawing.Image)(resources.GetObject("Nuevobutton.Image")));
+            this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Nuevobutton.Location = new System.Drawing.Point(12, 205);
+            this.Nuevobutton.Name = "Nuevobutton";
+            this.Nuevobutton.Size = new System.Drawing.Size(93, 38);
+            this.Nuevobutton.TabIndex = 6;
+            this.Nuevobutton.Text = "Nuevo";
+            this.Nuevobutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Nuevobutton.UseVisualStyleBackColor = true;
+            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
             // 
-            // button2
+            // GuardarButton
             // 
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(137, 205);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 38);
-            this.button2.TabIndex = 28;
-            this.button2.Text = "Guardar";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
+            this.GuardarButton.Image = ((System.Drawing.Image)(resources.GetObject("GuardarButton.Image")));
+            this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.GuardarButton.Location = new System.Drawing.Point(137, 205);
+            this.GuardarButton.Name = "GuardarButton";
+            this.GuardarButton.Size = new System.Drawing.Size(93, 38);
+            this.GuardarButton.TabIndex = 5;
+            this.GuardarButton.Text = "Guardar";
+            this.GuardarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.GuardarButton.UseVisualStyleBackColor = true;
+            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
             // 
-            // button3
+            // Eliminarbutton
             // 
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(262, 205);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 38);
-            this.button3.TabIndex = 29;
-            this.button3.Text = "Eliminar";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.UseVisualStyleBackColor = true;
+            this.Eliminarbutton.Image = ((System.Drawing.Image)(resources.GetObject("Eliminarbutton.Image")));
+            this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Eliminarbutton.Location = new System.Drawing.Point(262, 205);
+            this.Eliminarbutton.Name = "Eliminarbutton";
+            this.Eliminarbutton.Size = new System.Drawing.Size(93, 38);
+            this.Eliminarbutton.TabIndex = 7;
+            this.Eliminarbutton.Text = "Eliminar";
+            this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Eliminarbutton.UseVisualStyleBackColor = true;
+            this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
             // 
             // pictureBox1
             // 
@@ -176,15 +195,23 @@
             this.pictureBox1.TabIndex = 30;
             this.pictureBox1.TabStop = false;
             // 
+            // IderrorProvider
+            // 
+            this.IderrorProvider.ContainerControl = this;
+            // 
+            // DemasCamposerrorProvider
+            // 
+            this.DemasCamposerrorProvider.ContainerControl = this;
+            // 
             // rProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(419, 264);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Eliminarbutton);
+            this.Controls.Add(this.GuardarButton);
+            this.Controls.Add(this.Nuevobutton);
             this.Controls.Add(this.IDcomboBox);
             this.Controls.Add(this.DepartamentocomboBox);
             this.Controls.Add(this.CantidadnumericUpDown);
@@ -197,12 +224,13 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "rProducto";
             this.Text = "RegistroDepartamento";
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrecionumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IderrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DemasCamposerrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,9 +248,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Nuevobutton;
+        private System.Windows.Forms.Button GuardarButton;
+        private System.Windows.Forms.Button Eliminarbutton;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ErrorProvider IderrorProvider;
+        private System.Windows.Forms.ErrorProvider DemasCamposerrorProvider;
     }
 }

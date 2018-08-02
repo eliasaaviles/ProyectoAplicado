@@ -57,7 +57,7 @@
             this.IDcomboBox.Location = new System.Drawing.Point(79, 39);
             this.IDcomboBox.Name = "IDcomboBox";
             this.IDcomboBox.Size = new System.Drawing.Size(81, 21);
-            this.IDcomboBox.TabIndex = 27;
+            this.IDcomboBox.TabIndex = 0;
             this.IDcomboBox.SelectedIndexChanged += new System.EventHandler(this.IDcomboBox_SelectedIndexChanged);
             // 
             // Eliminarbutton
@@ -68,7 +68,7 @@
             this.Eliminarbutton.Location = new System.Drawing.Point(264, 190);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(99, 44);
-            this.Eliminarbutton.TabIndex = 26;
+            this.Eliminarbutton.TabIndex = 7;
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Eliminarbutton.UseVisualStyleBackColor = true;
@@ -82,7 +82,7 @@
             this.Guardarbutton.Location = new System.Drawing.Point(133, 190);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(96, 44);
-            this.Guardarbutton.TabIndex = 25;
+            this.Guardarbutton.TabIndex = 5;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Guardarbutton.UseVisualStyleBackColor = true;
@@ -96,7 +96,7 @@
             this.Nuevobutton.Location = new System.Drawing.Point(10, 190);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(92, 44);
-            this.Nuevobutton.TabIndex = 24;
+            this.Nuevobutton.TabIndex = 6;
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Nuevobutton.UseVisualStyleBackColor = true;
@@ -108,7 +108,7 @@
             this.TelefonomaskedTextBox.Mask = "(999)000-0000";
             this.TelefonomaskedTextBox.Name = "TelefonomaskedTextBox";
             this.TelefonomaskedTextBox.Size = new System.Drawing.Size(109, 20);
-            this.TelefonomaskedTextBox.TabIndex = 23;
+            this.TelefonomaskedTextBox.TabIndex = 4;
             // 
             // CedulamaskedTextBox
             // 
@@ -116,21 +116,21 @@
             this.CedulamaskedTextBox.Mask = "000-0000000-0";
             this.CedulamaskedTextBox.Name = "CedulamaskedTextBox";
             this.CedulamaskedTextBox.Size = new System.Drawing.Size(99, 20);
-            this.CedulamaskedTextBox.TabIndex = 22;
+            this.CedulamaskedTextBox.TabIndex = 3;
             // 
             // DirecciontextBox
             // 
             this.DirecciontextBox.Location = new System.Drawing.Point(79, 110);
             this.DirecciontextBox.Name = "DirecciontextBox";
             this.DirecciontextBox.Size = new System.Drawing.Size(284, 20);
-            this.DirecciontextBox.TabIndex = 21;
+            this.DirecciontextBox.TabIndex = 2;
             // 
             // NombretextBox
             // 
             this.NombretextBox.Location = new System.Drawing.Point(79, 75);
             this.NombretextBox.Name = "NombretextBox";
             this.NombretextBox.Size = new System.Drawing.Size(284, 20);
-            this.NombretextBox.TabIndex = 20;
+            this.NombretextBox.TabIndex = 1;
             // 
             // label5
             // 
@@ -222,7 +222,6 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "rClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Cliente";

@@ -1,4 +1,5 @@
 ﻿using FacturacionAplicado.Entidades;
+using FacturacionAplicado.Reportes_Ventanas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,8 +24,8 @@ namespace FacturacionAplicado.UI.Registros
         {
             InitializeComponent();
             LlenarComboBox();
-            //todo: descomentar el codigo en el constructor de la facturacion cuando la ventana login este programada.
-            // UsuariotextBox.Text = BLL.FacturacionBLL.returnUsuario().Nombre;
+  
+             UsuariotextBox.Text = BLL.FacturacionBLL.returnUsuario().Nombre;
         }
 
 
@@ -36,7 +37,7 @@ namespace FacturacionAplicado.UI.Registros
         //listo esto limpia la ventana
         private void Clean()
         {
-
+            Imprimirbutton.Enabled = false;
             IDcomboBox.Text = string.Empty;
             CLienteIDcomboBox.Text = string.Empty;
             FormaDePagocomboBox.Text = string.Empty;
@@ -212,7 +213,7 @@ namespace FacturacionAplicado.UI.Registros
 
             }
 
-            if(billes.BillDetalle.Count()==0)
+            if (billes.BillDetalle.Count() == 0)
             {
                 EliminarDetalle.Enabled = false;
             }
@@ -443,10 +444,10 @@ namespace FacturacionAplicado.UI.Registros
 
                     if (result == DialogResult.Yes)
                     {
-                        //La variable mayor me devuelve la ultima factura realizada para poder imprimirla
-                        //int mayor = BLL.FacturacionBLL.Mayor(BLL.FacturacionBLL.GetList(y => true));
-                        //ReporteFacturasCliente abrir = new ReporteFacturasCliente(BLL.FacturacionBLL.GetList(x => x.FacturaId == mayor));
-                        //abrir.Show();
+                        //  La variable mayor me devuelve la ultima factura realizada para poder imprimirla
+                        int mayor = BLL.FacturacionBLL.Mayor(BLL.FacturacionBLL.Buscar());
+                        Facturas abrir = new Facturas(BLL.FacturacionBLL.GetList("id", mayor.ToString()));
+                        abrir.Show();
                     }
                     Clean();
                 }
@@ -497,10 +498,10 @@ namespace FacturacionAplicado.UI.Registros
 
                         if (result == DialogResult.Yes)
                         {
-                            int id = LlenaClase().id;
-                            //todo:  para Albert: Hacer reportes
-                            //  ReporteFacturasCliente abrir = new ReporteFacturasCliente(BLL.FacturacionBLL.GetList(x => x.FacturaId == id));
-                            //abrir.Show();
+
+
+                            Facturas abrir = new Facturas(BLL.FacturacionBLL.GetList("id", LlenaClase().id.ToString()));
+                            abrir.Show();
 
                         }
                         Clean();
@@ -557,6 +558,7 @@ namespace FacturacionAplicado.UI.Registros
         private void IDcomboBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             LimpiarProvider();
+            Imprimirbutton.Enabled = true;
             //int idfactura = Convert.ToInt32(IDcomboBox.Text);
 
 
@@ -599,6 +601,13 @@ namespace FacturacionAplicado.UI.Registros
             //billes.BillDetalle = new List<FacturaDetalle>();
             //busco = true;
         }
+
+        private void Imprimirbutton_Click(object sender, EventArgs e)
+        {
+            Facturas abrir = new Facturas(BLL.FacturacionBLL.GetList("id", LlenaClase().id.ToString()));
+            abrir.Show();
+        }
+
         // listo llena Detalle Comobobox
         private void LlenarDetalleComboBox()
         {

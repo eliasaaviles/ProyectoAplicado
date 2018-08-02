@@ -1,4 +1,5 @@
-﻿using FacturacionAplicado.UI.Menu;
+﻿using facturacionaplicado;
+using FacturacionAplicado.UI.Menu;
 using FacturacionAplicado.UI.Registros;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace FacturacionAplicado
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MenuMasVentas());
+            Application.Run(new rLogin());
         }
     }
 }

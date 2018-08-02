@@ -44,6 +44,8 @@
             // 
             // TipocomboBox
             // 
+            this.TipocomboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TipocomboBox.FormattingEnabled = true;
             this.TipocomboBox.Items.AddRange(new object[] {
             "ID",
@@ -55,18 +57,22 @@
             this.TipocomboBox.Location = new System.Drawing.Point(5, 25);
             this.TipocomboBox.Name = "TipocomboBox";
             this.TipocomboBox.Size = new System.Drawing.Size(121, 21);
-            this.TipocomboBox.TabIndex = 32;
+            this.TipocomboBox.TabIndex = 0;
             this.TipocomboBox.SelectedIndexChanged += new System.EventHandler(this.TipocomboBox_SelectedIndexChanged);
             // 
             // CriteriotextBox
             // 
+            this.CriteriotextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CriteriotextBox.Location = new System.Drawing.Point(151, 25);
             this.CriteriotextBox.Name = "CriteriotextBox";
             this.CriteriotextBox.Size = new System.Drawing.Size(128, 20);
-            this.CriteriotextBox.TabIndex = 31;
+            this.CriteriotextBox.TabIndex = 1;
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(148, 9);
             this.label2.Name = "label2";
@@ -76,6 +82,8 @@
             // 
             // Tipo
             // 
+            this.Tipo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Tipo.AutoSize = true;
             this.Tipo.Location = new System.Drawing.Point(2, 9);
             this.Tipo.Name = "Tipo";
@@ -85,32 +93,39 @@
             // 
             // ConsultadataGridView
             // 
+            this.ConsultadataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ConsultadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ConsultadataGridView.Location = new System.Drawing.Point(12, 147);
+            this.ConsultadataGridView.Location = new System.Drawing.Point(12, 99);
             this.ConsultadataGridView.Name = "ConsultadataGridView";
             this.ConsultadataGridView.Size = new System.Drawing.Size(690, 324);
             this.ConsultadataGridView.TabIndex = 28;
             // 
             // Consultabutton
             // 
-
+            this.Consultabutton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Consultabutton.Image = global::FacturacionAplicado.Properties.Resources.icons8_Report_Card32_32;
             this.Consultabutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Consultabutton.Location = new System.Drawing.Point(311, 9);
             this.Consultabutton.Name = "Consultabutton";
             this.Consultabutton.Size = new System.Drawing.Size(127, 58);
-            this.Consultabutton.TabIndex = 33;
+            this.Consultabutton.TabIndex = 2;
             this.Consultabutton.Text = "Consultar";
             this.Consultabutton.UseVisualStyleBackColor = true;
             this.Consultabutton.Click += new System.EventHandler(this.Consultabutton_Click);
             // 
             // ReporteButton
             // 
-
+            this.ReporteButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ReporteButton.Image = global::FacturacionAplicado.Properties.Resources.icons8_Print_32;
             this.ReporteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ReporteButton.Location = new System.Drawing.Point(444, 9);
             this.ReporteButton.Name = "ReporteButton";
             this.ReporteButton.Size = new System.Drawing.Size(127, 58);
-            this.ReporteButton.TabIndex = 41;
+            this.ReporteButton.TabIndex = 3;
             this.ReporteButton.Text = "Reporte";
             this.ReporteButton.UseVisualStyleBackColor = true;
             this.ReporteButton.Click += new System.EventHandler(this.ReporteButton_Click);
@@ -124,7 +139,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(727, 493);
+            this.ClientSize = new System.Drawing.Size(707, 435);
             this.Controls.Add(this.ReporteButton);
             this.Controls.Add(this.Consultabutton);
             this.Controls.Add(this.TipocomboBox);
@@ -133,8 +148,6 @@
             this.Controls.Add(this.Tipo);
             this.Controls.Add(this.ConsultadataGridView);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "CProducto";
             this.Text = "Consulta de productos";
             ((System.ComponentModel.ISupportInitialize)(this.ConsultadataGridView)).EndInit();

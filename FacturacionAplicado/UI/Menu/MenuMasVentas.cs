@@ -18,9 +18,9 @@ namespace FacturacionAplicado.UI.Menu
         public MenuMasVentas()
         {
             InitializeComponent();
-            ConexionGlobal.ConexionGlobalDb.TestConnectiong();
+            
         }
-        
+
 
 
 
@@ -56,8 +56,14 @@ namespace FacturacionAplicado.UI.Menu
         {
             rProducto abrir = new rProducto();
             abrir.MdiParent = this;
-            abrir.Show();
-                
+            if (BLL.DepartamentoBLL.Buscar().Count == 0)
+            {
+                MessageBox.Show("Debe Agregar un departamento antes de agregar un producto");
+
+            }
+            else
+                abrir.Show();
+
         }
 
         private void facturaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -94,6 +100,11 @@ namespace FacturacionAplicado.UI.Menu
             cClientes abrir = new cClientes();
             abrir.MdiParent = this;
             abrir.Show();
+        }
+
+        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

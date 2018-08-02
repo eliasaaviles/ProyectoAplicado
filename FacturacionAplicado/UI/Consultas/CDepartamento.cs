@@ -1,5 +1,6 @@
 ﻿
 using FacturacionAplicado.Entidades;
+using FacturacionAplicado.Reportes_Ventanas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,10 +21,10 @@ namespace FacturacionAplicado.UI.Consultas
         }
 
 
-
+        List<Departamento> lista = new List<Departamento>();
         private void Consultabutton_Click(object sender, EventArgs e)
         {
-            List<Departamento> lista = new List<Departamento>();
+
 
             if (TipocomboBox.Text == string.Empty && CriteriotextBox.Text == string.Empty)
                 lista = BLL.DepartamentoBLL.Buscar();
@@ -99,5 +100,12 @@ namespace FacturacionAplicado.UI.Consultas
             }
         }
 
+        private void Reporte_Click(object sender, EventArgs e)
+        {
+            if (lista.Count == 0)
+                lista = BLL.DepartamentoBLL.Buscar();
+            ReporteDepartamentos abrir = new ReporteDepartamentos(lista);
+            abrir.Show();
+        }
     }
 }

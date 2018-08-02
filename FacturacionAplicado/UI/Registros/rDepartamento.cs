@@ -1,4 +1,5 @@
 ﻿using FacturacionAplicado.Entidades;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace FacturacionAplicado.UI.Registros
         {
             InitializeComponent();
             LlenarComboBox();
+
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)
@@ -83,6 +85,7 @@ namespace FacturacionAplicado.UI.Registros
                     IDcomboBox.DataSource = null;
                     LlenarComboBox();
                     Clear();
+
 
                 }
                 else
@@ -155,12 +158,12 @@ namespace FacturacionAplicado.UI.Registros
             var depo = Convert.ToInt32(IDcomboBox.Text);
             foreach (var item in BLL.DepartamentoBLL.Buscar())
             {
-                if(item.id==depo)
+                if (item.id == depo)
                 {
-                    NombretextBox.Text =item.Nombre ;
+                    NombretextBox.Text = item.Nombre;
                 }
             }
-            
+
         }
     }
 }

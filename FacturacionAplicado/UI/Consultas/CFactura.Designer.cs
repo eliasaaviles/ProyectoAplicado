@@ -46,6 +46,9 @@
             // 
             // ConsultadataGridView
             // 
+            this.ConsultadataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ConsultadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ConsultadataGridView.Location = new System.Drawing.Point(5, 83);
             this.ConsultadataGridView.Name = "ConsultadataGridView";
@@ -75,7 +78,7 @@
             this.CriteriotextBox.Location = new System.Drawing.Point(151, 23);
             this.CriteriotextBox.Name = "CriteriotextBox";
             this.CriteriotextBox.Size = new System.Drawing.Size(157, 20);
-            this.CriteriotextBox.TabIndex = 31;
+            this.CriteriotextBox.TabIndex = 1;
             // 
             // TipocomboBox
             // 
@@ -92,27 +95,29 @@
             this.TipocomboBox.Location = new System.Drawing.Point(5, 23);
             this.TipocomboBox.Name = "TipocomboBox";
             this.TipocomboBox.Size = new System.Drawing.Size(128, 21);
-            this.TipocomboBox.TabIndex = 32;
+            this.TipocomboBox.TabIndex = 0;
             this.TipocomboBox.SelectedIndexChanged += new System.EventHandler(this.TipocomboBox_SelectedIndexChanged);
             // 
             // Consultabutton
             // 
+            this.Consultabutton.Image = global::FacturacionAplicado.Properties.Resources.icons8_Report_Card32_32;
             this.Consultabutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Consultabutton.Location = new System.Drawing.Point(347, 9);
             this.Consultabutton.Name = "Consultabutton";
             this.Consultabutton.Size = new System.Drawing.Size(127, 58);
-            this.Consultabutton.TabIndex = 33;
+            this.Consultabutton.TabIndex = 2;
             this.Consultabutton.Text = "Consultar";
             this.Consultabutton.UseVisualStyleBackColor = true;
             this.Consultabutton.Click += new System.EventHandler(this.Consultabutton_Click);
             // 
             // Reportebutton
             // 
+            this.Reportebutton.Image = global::FacturacionAplicado.Properties.Resources.icons8_Print_32;
             this.Reportebutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Reportebutton.Location = new System.Drawing.Point(510, 9);
             this.Reportebutton.Name = "Reportebutton";
             this.Reportebutton.Size = new System.Drawing.Size(127, 58);
-            this.Reportebutton.TabIndex = 38;
+            this.Reportebutton.TabIndex = 3;
             this.Reportebutton.Text = "Reporte";
             this.Reportebutton.UseVisualStyleBackColor = true;
             this.Reportebutton.Click += new System.EventHandler(this.Reportebutton_Click);
@@ -146,7 +151,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(898, 572);
+            this.ClientSize = new System.Drawing.Size(886, 507);
             this.Controls.Add(this.ContadocheckBox);
             this.Controls.Add(this.CreditocheckBox);
             this.Controls.Add(this.Reportebutton);
@@ -158,7 +163,7 @@
             this.Controls.Add(this.ConsultadataGridView);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CFactura";
-            this.Text = "BLL.FacturacionBLL.GetList(TipocomboBox.Text, CriteriotextBox.Text);";
+            this.Text = "Consulta de Factura";
             ((System.ComponentModel.ISupportInitialize)(this.ConsultadataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TexterrorProvider)).EndInit();
             this.ResumeLayout(false);

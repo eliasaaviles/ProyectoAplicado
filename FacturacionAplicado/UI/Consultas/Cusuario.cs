@@ -1,5 +1,5 @@
 ﻿using FacturacionAplicado.Entidades;
-
+using FacturacionAplicado.Reportes_Ventanas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,10 +18,10 @@ namespace FacturacionAplicado.UI.Consultas
         {
             InitializeComponent();
         }
-        Expression<Func<Usuario, bool>> filtrar = x => true;
+        List<Usuario> lista = new List<Usuario>();
         private void Consultabutton_Click(object sender, EventArgs e)
         {
-            List<Usuario> lista = new List<Usuario>();
+            
 
             if (TipocomboBox.Text == string.Empty && CriteriotextBox.Text == string.Empty)
             {
@@ -124,7 +124,10 @@ namespace FacturacionAplicado.UI.Consultas
 
         private void Reportebutton_Click(object sender, EventArgs e)
         {
-
+            if (lista.Count == 0)
+                lista = BLL.UsuarioBLL.Buscar();
+            ReporteUsuarios abrir = new ReporteUsuarios(lista);
+            abrir.Show();
         }
 
         private void TipocomboBox_SelectedIndexChanged(object sender, EventArgs e)

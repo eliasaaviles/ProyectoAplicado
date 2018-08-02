@@ -51,7 +51,7 @@
             this.IDcomboBox.Location = new System.Drawing.Point(71, 47);
             this.IDcomboBox.Name = "IDcomboBox";
             this.IDcomboBox.Size = new System.Drawing.Size(92, 21);
-            this.IDcomboBox.TabIndex = 16;
+            this.IDcomboBox.TabIndex = 0;
             this.IDcomboBox.SelectedIndexChanged += new System.EventHandler(this.IDcomboBox_SelectedIndexChanged);
             // 
             // Eliminarbutton
@@ -63,7 +63,7 @@
             this.Eliminarbutton.Location = new System.Drawing.Point(207, 141);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(101, 37);
-            this.Eliminarbutton.TabIndex = 15;
+            this.Eliminarbutton.TabIndex = 4;
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Eliminarbutton.UseVisualStyleBackColor = false;
@@ -78,7 +78,7 @@
             this.Guardarbutton.Location = new System.Drawing.Point(103, 141);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(98, 37);
-            this.Guardarbutton.TabIndex = 14;
+            this.Guardarbutton.TabIndex = 2;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Guardarbutton.UseVisualStyleBackColor = false;
@@ -93,7 +93,7 @@
             this.Nuevobutton.Location = new System.Drawing.Point(10, 141);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(87, 37);
-            this.Nuevobutton.TabIndex = 13;
+            this.Nuevobutton.TabIndex = 3;
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Nuevobutton.UseVisualStyleBackColor = false;
@@ -104,7 +104,7 @@
             this.NombretextBox.Location = new System.Drawing.Point(71, 105);
             this.NombretextBox.Name = "NombretextBox";
             this.NombretextBox.Size = new System.Drawing.Size(237, 20);
-            this.NombretextBox.TabIndex = 12;
+            this.NombretextBox.TabIndex = 1;
             // 
             // label2
             // 
@@ -159,6 +159,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "rDepartamento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Departamento";

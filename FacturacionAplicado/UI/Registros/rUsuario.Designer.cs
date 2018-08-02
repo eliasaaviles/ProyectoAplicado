@@ -72,7 +72,7 @@
             this.ConfirmartextBox.MaxLength = 6;
             this.ConfirmartextBox.Name = "ConfirmartextBox";
             this.ConfirmartextBox.Size = new System.Drawing.Size(149, 20);
-            this.ConfirmartextBox.TabIndex = 56;
+            this.ConfirmartextBox.TabIndex = 4;
             this.ConfirmartextBox.UseSystemPasswordChar = true;
             // 
             // ContraseñatextBox
@@ -81,7 +81,7 @@
             this.ContraseñatextBox.MaxLength = 6;
             this.ContraseñatextBox.Name = "ContraseñatextBox";
             this.ContraseñatextBox.Size = new System.Drawing.Size(149, 20);
-            this.ContraseñatextBox.TabIndex = 55;
+            this.ContraseñatextBox.TabIndex = 3;
             this.ContraseñatextBox.UseSystemPasswordChar = true;
             // 
             // UsuariotextBox
@@ -89,7 +89,7 @@
             this.UsuariotextBox.Location = new System.Drawing.Point(124, 44);
             this.UsuariotextBox.Name = "UsuariotextBox";
             this.UsuariotextBox.Size = new System.Drawing.Size(149, 20);
-            this.UsuariotextBox.TabIndex = 54;
+            this.UsuariotextBox.TabIndex = 1;
             // 
             // label7
             // 
@@ -114,7 +114,7 @@
             this.ComentariotextBox.Multiline = true;
             this.ComentariotextBox.Name = "ComentariotextBox";
             this.ComentariotextBox.Size = new System.Drawing.Size(255, 70);
-            this.ComentariotextBox.TabIndex = 51;
+            this.ComentariotextBox.TabIndex = 6;
             // 
             // label5
             // 
@@ -156,7 +156,7 @@
             this.NombretextBox.Location = new System.Drawing.Point(124, 73);
             this.NombretextBox.Name = "NombretextBox";
             this.NombretextBox.Size = new System.Drawing.Size(149, 20);
-            this.NombretextBox.TabIndex = 46;
+            this.NombretextBox.TabIndex = 2;
             // 
             // label2
             // 
@@ -183,7 +183,7 @@
             this.Eliminarbutton.Location = new System.Drawing.Point(252, 266);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(88, 38);
-            this.Eliminarbutton.TabIndex = 64;
+            this.Eliminarbutton.TabIndex = 9;
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Eliminarbutton.UseVisualStyleBackColor = true;
@@ -196,7 +196,7 @@
             this.Guardarbutton.Location = new System.Drawing.Point(146, 266);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(88, 38);
-            this.Guardarbutton.TabIndex = 63;
+            this.Guardarbutton.TabIndex = 7;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Guardarbutton.UseVisualStyleBackColor = true;
@@ -209,7 +209,7 @@
             this.Nuevobutton.Location = new System.Drawing.Point(40, 266);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(88, 38);
-            this.Nuevobutton.TabIndex = 62;
+            this.Nuevobutton.TabIndex = 8;
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Nuevobutton.UseVisualStyleBackColor = true;
@@ -231,7 +231,7 @@
             this.IDcomboBox.Location = new System.Drawing.Point(124, 11);
             this.IDcomboBox.Name = "IDcomboBox";
             this.IDcomboBox.Size = new System.Drawing.Size(89, 21);
-            this.IDcomboBox.TabIndex = 58;
+            this.IDcomboBox.TabIndex = 0;
             this.IDcomboBox.SelectedIndexChanged += new System.EventHandler(this.IDcomboBox_SelectedIndexChanged_1);
             // 
             // errorProvider
@@ -248,7 +248,7 @@
             this.ClavecheckBox.Location = new System.Drawing.Point(124, 158);
             this.ClavecheckBox.Name = "ClavecheckBox";
             this.ClavecheckBox.Size = new System.Drawing.Size(115, 17);
-            this.ClavecheckBox.TabIndex = 66;
+            this.ClavecheckBox.TabIndex = 5;
             this.ClavecheckBox.Text = "Mostar Contraseña";
             this.ClavecheckBox.UseVisualStyleBackColor = true;
             this.ClavecheckBox.CheckedChanged += new System.EventHandler(this.ClavecheckBox_CheckedChanged);
@@ -280,7 +280,6 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "rUsuario";
             this.Text = "Registrar Usuario";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -33,6 +33,7 @@
             this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.departamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,7 +65,8 @@
             // 
             this.opcionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.crearClienteToolStripMenuItem,
-            this.crearUsuarioToolStripMenuItem});
+            this.crearUsuarioToolStripMenuItem,
+            this.cerrarSesionToolStripMenuItem});
             this.opcionesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("opcionesToolStripMenuItem.Image")));
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
             this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
@@ -74,16 +76,25 @@
             // 
             this.crearClienteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("crearClienteToolStripMenuItem.Image")));
             this.crearClienteToolStripMenuItem.Name = "crearClienteToolStripMenuItem";
-            this.crearClienteToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.crearClienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.crearClienteToolStripMenuItem.Text = "Crear Cliente";
             this.crearClienteToolStripMenuItem.Click += new System.EventHandler(this.crearClienteToolStripMenuItem_Click);
             // 
             // crearUsuarioToolStripMenuItem
             // 
+            this.crearUsuarioToolStripMenuItem.Image = global::FacturacionAplicado.Properties.Resources.icons8_Customer_16;
             this.crearUsuarioToolStripMenuItem.Name = "crearUsuarioToolStripMenuItem";
             this.crearUsuarioToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.crearUsuarioToolStripMenuItem.Text = "Crear Usuario";
             this.crearUsuarioToolStripMenuItem.Click += new System.EventHandler(this.crearUsuarioToolStripMenuItem_Click);
+            // 
+            // cerrarSesionToolStripMenuItem
+            // 
+            this.cerrarSesionToolStripMenuItem.Image = global::FacturacionAplicado.Properties.Resources.icons8_Shutdown_32;
+            this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
+            this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
             // controlToolStripMenuItem
             // 
@@ -143,6 +154,7 @@
             // 
             // facturaToolStripMenuItem
             // 
+            this.facturaToolStripMenuItem.Image = global::FacturacionAplicado.Properties.Resources.icons8_Brief_32;
             this.facturaToolStripMenuItem.Name = "facturaToolStripMenuItem";
             this.facturaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.facturaToolStripMenuItem.Text = "Factura";
@@ -150,6 +162,7 @@
             // 
             // productosToolStripMenuItem1
             // 
+            this.productosToolStripMenuItem1.Image = global::FacturacionAplicado.Properties.Resources.icons8_Product_16;
             this.productosToolStripMenuItem1.Name = "productosToolStripMenuItem1";
             this.productosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.productosToolStripMenuItem1.Text = "Productos";
@@ -157,6 +170,7 @@
             // 
             // departamentoToolStripMenuItem
             // 
+            this.departamentoToolStripMenuItem.Image = global::FacturacionAplicado.Properties.Resources.icons8_Bulleted_List_16;
             this.departamentoToolStripMenuItem.Name = "departamentoToolStripMenuItem";
             this.departamentoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.departamentoToolStripMenuItem.Text = "Departamento";
@@ -164,6 +178,7 @@
             // 
             // usuarioToolStripMenuItem
             // 
+            this.usuarioToolStripMenuItem.Image = global::FacturacionAplicado.Properties.Resources.icons8_Customer_16;
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
             this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuarioToolStripMenuItem.Text = "Usuario";
@@ -171,6 +186,7 @@
             // 
             // clienteToolStripMenuItem
             // 
+            this.clienteToolStripMenuItem.Image = global::FacturacionAplicado.Properties.Resources.icons8_Custosmer_32;
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
             this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clienteToolStripMenuItem.Text = "Cliente";
@@ -184,10 +200,11 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MenuMasVentas";
-            this.Text = "MenuMasVentas";
+            this.Text = "Menu MasVentas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -213,5 +230,6 @@
         private System.Windows.Forms.ToolStripMenuItem departamentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cerrarSesionToolStripMenuItem;
     }
 }

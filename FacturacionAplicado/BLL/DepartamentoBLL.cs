@@ -122,6 +122,41 @@ namespace FacturacionAplicado.BLL
             return listName;
         }
 
+        public static List<Departamento> Buscar(string id)
+        {
+
+            DataTable dt = new DataTable();
+
+
+            MySqlDataAdapter con = new MySqlDataAdapter("select * from Departamento where id =  '"+id+"'", ConexionGlobal.ConexionGlobalDb.RetornarConexion());
+            try
+            {
+
+
+                con.Fill(dt);
+
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
+            List<Departamento> listName = dt.AsEnumerable().Select(m => new Departamento()
+            {
+                id = m.Field<int>("id"),
+                Nombre = m.Field<string>("Nombre"),
+
+            }).ToList();
+
+
+            return listName;
+        }
+
         public static bool Modificar(Departamento depart)
         {
             MySqlDataAdapter dater = new MySqlDataAdapter();
