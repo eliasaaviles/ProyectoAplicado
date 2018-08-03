@@ -20,7 +20,6 @@ namespace FacturacionAplicado.UI.Registros
             LlenarComboBox();
         }
 
-
         private void LlenarComboBox()
         {
             IDcomboBox.Items.Clear();
@@ -66,6 +65,7 @@ namespace FacturacionAplicado.UI.Registros
             customer.Clave = ContraseñatextBox.Text;
             customer.Clave = ConfirmartextBox.Text;
             customer.Comentario = ComentariotextBox.Text;
+            customer.Fecha = FechadateTimePicker.Value.ToString("yyyy-MM-dd");
 
             return customer;
         }
@@ -114,7 +114,7 @@ namespace FacturacionAplicado.UI.Registros
                 paso = true;
             }
 
-            if (error == 4 && BLL.UsuarioBLL.Getlist("NombreUsuario",UsuariotextBox.Text).Exists(t => t.NombreUsuario == UsuariotextBox.Text) && IDcomboBox.Text == string.Empty)
+            if (error == 4 && BLL.UsuarioBLL.Getlist("NombreUsuario", UsuariotextBox.Text).Exists(t => t.NombreUsuario == UsuariotextBox.Text) && IDcomboBox.Text == string.Empty)
             {
                 DemaserrorProvider.SetError(UsuariotextBox, "Debe de crear otro usuario!!");
                 paso = true;
@@ -134,6 +134,7 @@ namespace FacturacionAplicado.UI.Registros
                     ContraseñatextBox.Text = item.Clave;
                     ConfirmartextBox.Text = item.Clave;
                     ComentariotextBox.Text = item.Comentario;
+                    FechadateTimePicker.Value = Convert.ToDateTime(item.Fecha);
 
                 }
             }
@@ -158,12 +159,12 @@ namespace FacturacionAplicado.UI.Registros
                 MessageBox.Show("Usuario existente!!");
                 return;
             }
-            if(SetError(3))
+            if (SetError(3))
             {
                 MessageBox.Show("Las contraseñas son diferentes");
                 return;
             }
-          
+
 
             if (IDcomboBox.Text == string.Empty)
             {

@@ -24,8 +24,8 @@ namespace FacturacionAplicado.UI.Registros
         {
             InitializeComponent();
             LlenarComboBox();
-  
-             UsuariotextBox.Text = BLL.FacturacionBLL.returnUsuario().Nombre;
+
+            UsuariotextBox.Text = BLL.FacturacionBLL.returnUsuario().Nombre;
         }
 
 
@@ -607,7 +607,6 @@ namespace FacturacionAplicado.UI.Registros
             Facturas abrir = new Facturas(BLL.FacturacionBLL.GetList("id", LlenaClase().id.ToString()));
             abrir.Show();
         }
-
         // listo llena Detalle Comobobox
         private void LlenarDetalleComboBox()
         {

@@ -56,47 +56,47 @@
             // IDcomboBox
             // 
             this.IDcomboBox.FormattingEnabled = true;
-            this.IDcomboBox.Location = new System.Drawing.Point(77, 12);
+            this.IDcomboBox.Location = new System.Drawing.Point(88, 12);
             this.IDcomboBox.Name = "IDcomboBox";
-            this.IDcomboBox.Size = new System.Drawing.Size(57, 21);
+            this.IDcomboBox.Size = new System.Drawing.Size(80, 21);
             this.IDcomboBox.TabIndex = 0;
             this.IDcomboBox.SelectedIndexChanged += new System.EventHandler(this.IDcomboBox_SelectedIndexChanged);
             // 
             // DepartamentocomboBox
             // 
             this.DepartamentocomboBox.FormattingEnabled = true;
-            this.DepartamentocomboBox.Location = new System.Drawing.Point(250, 15);
+            this.DepartamentocomboBox.Location = new System.Drawing.Point(88, 85);
             this.DepartamentocomboBox.Name = "DepartamentocomboBox";
-            this.DepartamentocomboBox.Size = new System.Drawing.Size(76, 21);
+            this.DepartamentocomboBox.Size = new System.Drawing.Size(249, 21);
             this.DepartamentocomboBox.TabIndex = 1;
             // 
             // CantidadnumericUpDown
             // 
-            this.CantidadnumericUpDown.Location = new System.Drawing.Point(77, 127);
+            this.CantidadnumericUpDown.Location = new System.Drawing.Point(88, 164);
             this.CantidadnumericUpDown.Maximum = new decimal(new int[] {
             100000000,
             0,
             0,
             0});
             this.CantidadnumericUpDown.Name = "CantidadnumericUpDown";
-            this.CantidadnumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.CantidadnumericUpDown.Size = new System.Drawing.Size(108, 20);
             this.CantidadnumericUpDown.TabIndex = 4;
             // 
             // PrecionumericUpDown
             // 
-            this.PrecionumericUpDown.Location = new System.Drawing.Point(77, 90);
+            this.PrecionumericUpDown.Location = new System.Drawing.Point(88, 127);
             this.PrecionumericUpDown.Maximum = new decimal(new int[] {
             1000000000,
             0,
             0,
             0});
             this.PrecionumericUpDown.Name = "PrecionumericUpDown";
-            this.PrecionumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.PrecionumericUpDown.Size = new System.Drawing.Size(108, 20);
             this.PrecionumericUpDown.TabIndex = 3;
             // 
             // DescripciontextBox
             // 
-            this.DescripciontextBox.Location = new System.Drawing.Point(77, 53);
+            this.DescripciontextBox.Location = new System.Drawing.Point(88, 53);
             this.DescripciontextBox.Name = "DescripciontextBox";
             this.DescripciontextBox.Size = new System.Drawing.Size(249, 20);
             this.DescripciontextBox.TabIndex = 2;
@@ -104,7 +104,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 134);
+            this.label5.Location = new System.Drawing.Point(8, 171);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 21;
@@ -113,16 +113,16 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(161, 16);
+            this.label4.Location = new System.Drawing.Point(8, 88);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 13);
+            this.label4.Size = new System.Drawing.Size(74, 13);
             this.label4.TabIndex = 20;
-            this.label4.Text = "DepartamentoId";
+            this.label4.Text = "Departamento";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 97);
+            this.label3.Location = new System.Drawing.Point(8, 134);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 19;
@@ -150,7 +150,7 @@
             // 
             this.Nuevobutton.Image = ((System.Drawing.Image)(resources.GetObject("Nuevobutton.Image")));
             this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Nuevobutton.Location = new System.Drawing.Point(12, 205);
+            this.Nuevobutton.Location = new System.Drawing.Point(12, 214);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(93, 38);
             this.Nuevobutton.TabIndex = 6;
@@ -163,7 +163,7 @@
             // 
             this.GuardarButton.Image = ((System.Drawing.Image)(resources.GetObject("GuardarButton.Image")));
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.GuardarButton.Location = new System.Drawing.Point(137, 205);
+            this.GuardarButton.Location = new System.Drawing.Point(137, 214);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(93, 38);
             this.GuardarButton.TabIndex = 5;
@@ -176,7 +176,7 @@
             // 
             this.Eliminarbutton.Image = ((System.Drawing.Image)(resources.GetObject("Eliminarbutton.Image")));
             this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Eliminarbutton.Location = new System.Drawing.Point(262, 205);
+            this.Eliminarbutton.Location = new System.Drawing.Point(262, 214);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(93, 38);
             this.Eliminarbutton.TabIndex = 7;
@@ -188,7 +188,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(227, 97);
+            this.pictureBox1.Location = new System.Drawing.Point(262, 117);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(124, 91);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
