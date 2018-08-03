@@ -106,5 +106,12 @@ namespace FacturacionAplicado.UI.Menu
         {
             this.Close();
         }
+
+        private void MenuMasVentas_Load(object sender, EventArgs e)
+        {
+            UsertextBox.Enabled = false;
+            Userlabel.Enabled = false;
+            UsertextBox.Text = BLL.FacturacionBLL.returnUsuario().Nombre;
+        }
     }
 }

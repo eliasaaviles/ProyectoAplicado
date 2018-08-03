@@ -59,8 +59,9 @@ namespace facturacionaplicado
 
                 MenuMasVentas abrir = new MenuMasVentas();
                 abrir.Show();
-                
-                
+                UsuariologtextBox.Clear();
+                ClavetextBox.Clear();
+
 
 
             }
@@ -72,8 +73,7 @@ namespace facturacionaplicado
 
             }
             ClavetextBox.MaxLength = 14;
-            UsuariologtextBox.Clear();
-            ClavetextBox.Clear();
+           
 
         }
 

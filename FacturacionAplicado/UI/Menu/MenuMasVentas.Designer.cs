@@ -45,6 +45,8 @@
             this.departamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UsertextBox = new System.Windows.Forms.TextBox();
+            this.Userlabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,7 +78,7 @@
             // 
             this.crearClienteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("crearClienteToolStripMenuItem.Image")));
             this.crearClienteToolStripMenuItem.Name = "crearClienteToolStripMenuItem";
-            this.crearClienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.crearClienteToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.crearClienteToolStripMenuItem.Text = "Crear Cliente";
             this.crearClienteToolStripMenuItem.Click += new System.EventHandler(this.crearClienteToolStripMenuItem_Click);
             // 
@@ -92,7 +94,7 @@
             // 
             this.cerrarSesionToolStripMenuItem.Image = global::FacturacionAplicado.Properties.Resources.icons8_Shutdown_32;
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
@@ -156,7 +158,7 @@
             // 
             this.facturaToolStripMenuItem.Image = global::FacturacionAplicado.Properties.Resources.icons8_Brief_32;
             this.facturaToolStripMenuItem.Name = "facturaToolStripMenuItem";
-            this.facturaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.facturaToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.facturaToolStripMenuItem.Text = "Factura";
             this.facturaToolStripMenuItem.Click += new System.EventHandler(this.facturaToolStripMenuItem_Click);
             // 
@@ -164,7 +166,7 @@
             // 
             this.productosToolStripMenuItem1.Image = global::FacturacionAplicado.Properties.Resources.icons8_Product_16;
             this.productosToolStripMenuItem1.Name = "productosToolStripMenuItem1";
-            this.productosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.productosToolStripMenuItem1.Size = new System.Drawing.Size(150, 22);
             this.productosToolStripMenuItem1.Text = "Productos";
             this.productosToolStripMenuItem1.Click += new System.EventHandler(this.productosToolStripMenuItem1_Click);
             // 
@@ -172,7 +174,7 @@
             // 
             this.departamentoToolStripMenuItem.Image = global::FacturacionAplicado.Properties.Resources.icons8_Bulleted_List_16;
             this.departamentoToolStripMenuItem.Name = "departamentoToolStripMenuItem";
-            this.departamentoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.departamentoToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.departamentoToolStripMenuItem.Text = "Departamento";
             this.departamentoToolStripMenuItem.Click += new System.EventHandler(this.departamentoToolStripMenuItem_Click);
             // 
@@ -180,7 +182,7 @@
             // 
             this.usuarioToolStripMenuItem.Image = global::FacturacionAplicado.Properties.Resources.icons8_Customer_16;
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.usuarioToolStripMenuItem.Text = "Usuario";
             this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
             // 
@@ -188,9 +190,30 @@
             // 
             this.clienteToolStripMenuItem.Image = global::FacturacionAplicado.Properties.Resources.icons8_Custosmer_32;
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
+            // 
+            // UsertextBox
+            // 
+            this.UsertextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.UsertextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsertextBox.Location = new System.Drawing.Point(589, -2);
+            this.UsertextBox.Name = "UsertextBox";
+            this.UsertextBox.ReadOnly = true;
+            this.UsertextBox.Size = new System.Drawing.Size(211, 26);
+            this.UsertextBox.TabIndex = 2;
+            // 
+            // Userlabel
+            // 
+            this.Userlabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Userlabel.AutoSize = true;
+            this.Userlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Userlabel.Location = new System.Drawing.Point(531, 1);
+            this.Userlabel.Name = "Userlabel";
+            this.Userlabel.Size = new System.Drawing.Size(52, 20);
+            this.Userlabel.TabIndex = 4;
+            this.Userlabel.Text = "User:";
             // 
             // MenuMasVentas
             // 
@@ -199,6 +222,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Userlabel);
+            this.Controls.Add(this.UsertextBox);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
@@ -206,6 +231,7 @@
             this.Name = "MenuMasVentas";
             this.Text = "Menu MasVentas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MenuMasVentas_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -231,5 +257,7 @@
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesionToolStripMenuItem;
+        private System.Windows.Forms.TextBox UsertextBox;
+        private System.Windows.Forms.Label Userlabel;
     }
 }
